@@ -1,60 +1,86 @@
 {
-  "name": "홍길동",
-  "nameEn": "Gildong Hong",
-  "title": "풀스택 개발자",
-  "subtitle": "사용자 중심의 서비스를 만드는 개발자입니다.",
+  "name": "박창희",
+  "nameEn": "Park Changhee",
+  "title": "백엔드 개발자",
+  "subtitle": "Java 기반의 아키텍처 설계부터 구현까지, 견고한 서버를 만드는 개발자입니다.",
   "profileImage": "",
   "contact": {
-    "email": "example@email.com",
-    "phone": "010-0000-0000",
+    "email": "josechang5744@gmail.com",
+    "email2": "jose5744@naver.com",
+    "phone": "010-3027-0894",
     "github": "https://github.com/WindowisPark",
-    "blog": ""
+    "blog": "https://jose5744.tistory.com",
+    "velog": "https://velog.io/@bomboychang/posts"
   },
   "about": {
-    "description": "안녕하세요. 사용자 경험을 최우선으로 생각하며, 효율적이고 유지보수 가능한 코드를 작성하는 것을 목표로 하는 개발자입니다.",
+    "description": "Java/Spring 기반 백엔드 개발자로서 결제·환전 도메인에서 동시성 이슈 및 데이터 정합성 문제를 해결한 실무 경험을 보유하고 있습니다. 원자적 트랜잭션 설계와 분석 아키텍처 도입을 통해 서비스 안정성과 성능을 동시에 개선해왔습니다.",
     "highlights": [
-      "사용자 중심의 UI/UX 설계",
-      "클린 코드와 유지보수성 추구",
-      "팀 협업과 커뮤니케이션"
+      "동시성 이슈 해결 및 데이터 정합성 확보",
+      "Databricks 기반 분석 아키텍처 설계",
+      "API 통합 구조 설계 및 시스템 재설계"
     ]
   },
   "skills": [
     {
-      "category": "Frontend",
-      "items": ["React", "JavaScript", "HTML5", "CSS3"]
-    },
-    {
       "category": "Backend",
-      "items": ["Java", "Spring Boot", "Node.js"]
+      "items": ["Java", "Spring Boot", "JPA", "Python", "FastAPI"]
     },
     {
-      "category": "Database",
-      "items": ["MySQL", "PostgreSQL", "MongoDB"]
+      "category": "Database & Analytics",
+      "items": ["MySQL", "Databricks"]
+    },
+    {
+      "category": "Frontend",
+      "items": ["React"]
     },
     {
       "category": "DevOps & Tools",
-      "items": ["Git", "Docker", "AWS", "GitHub Actions"]
+      "items": ["Git", "Grafana", "GitHub Actions"]
     }
   ],
   "experience": [
     {
       "type": "work",
-      "title": "OO 회사",
-      "role": "백엔드 개발자",
-      "period": "2023.01 ~ 현재",
-      "description": "주요 서비스 백엔드 개발 및 유지보수",
+      "title": "주식회사 그린리본 (GREEN-RIBBON Corp.)",
+      "role": "백엔드 개발자 (정규직)",
+      "period": "2025.09 ~ 2026.01",
+      "description": "결제·환전 도메인 백엔드 개발 및 분석 아키텍처 설계",
       "details": [
-        "REST API 설계 및 개발",
-        "데이터베이스 최적화"
+        "환전 요청 API 동시성 이슈 해결 — 환전 오류율 약 90% 이상 감소",
+        "트랜잭션 범위 재설계 및 DB 유니크 제약 적용으로 데이터 정합성 확보",
+        "Databricks 기반 분석 전용 아키텍처 설계 — DB 부하 약 30% 이상 감소",
+        "차병원 산학연 협업 AI 프리스크리닝 프로젝트 API 통합 구조 설계",
+        "hub.green-scout MVP 이후 전체 API 구조 총괄 설계·개발"
       ]
     },
     {
       "type": "education",
-      "title": "OO 대학교",
-      "role": "컴퓨터공학과",
-      "period": "2019.03 ~ 2023.02",
-      "description": "컴퓨터공학 전공",
+      "title": "세종대학교",
+      "role": "지능기전공학부 · 컴퓨터공학과 (복수전공)",
+      "period": "2022.03 ~ 2026.02",
+      "description": "졸업 예정",
+      "details": [
+        "주전공: 스마트기기공학 (인공지능)",
+        "복수전공: 컴퓨터공학과"
+      ]
+    },
+    {
+      "type": "education",
+      "title": "경희대학교",
+      "role": "언론정보학과",
+      "period": "2017.03 ~ 2020.08",
+      "description": "중퇴",
       "details": []
     }
+  ],
+  "certificates": [
+    { "name": "정보처리기사 (필기)", "date": "2025.06", "issuer": "한국산업인력공단" },
+    { "name": "ADsP", "date": "2025.06", "issuer": "한국데이터산업진흥원" },
+    { "name": "SQLD", "date": "2025.06", "issuer": "한국데이터산업진흥원" },
+    { "name": "OPIc IH", "date": "2025.02", "issuer": "영어 비즈니스 레벨" }
+  ],
+  "awards": [
+    { "name": "세종대학교 제11회 SW/AI 해커톤 은상", "date": "2024.12", "description": "RAG 기법을 이용한 세종대학교 연구실 매칭 시스템 및 챗봇 개발" },
+    { "name": "세종대학교 제12회 SW/AI 해커톤 은상", "date": "2025.06", "description": "LangChain 기반 세종대학교 창업 가이드 애플리케이션 개발" }
   ]
 }

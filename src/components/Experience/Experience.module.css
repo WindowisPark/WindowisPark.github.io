@@ -104,6 +104,75 @@
   background: var(--color-primary-light);
 }
 
+/* ========== 수상 & 자격증 ========== */
+.extras {
+  max-width: 680px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.extraGroup {}
+
+.extraTitle {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 3px solid var(--color-primary);
+}
+
+.extraCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.extraCard {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  transition: all var(--transition);
+}
+
+.extraCard:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.extraCard h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 4px;
+}
+
+.extraDate {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  margin-top: 4px;
+}
+
+.extraDesc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.badgeAward {
+  color: #b45309;
+  background: #fef3c7;
+}
+
+.badgeCert {
+  color: #047857;
+  background: #d1fae5;
+}
+
 @media (max-width: 480px) {
   .marker {
     display: none;

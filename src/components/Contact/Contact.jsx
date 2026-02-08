@@ -52,6 +52,31 @@ export default function Contact() {
                 <span className={styles.cardValue}>{contact.phone}</span>
               </a>
             )}
+
+            {contact.blog && (
+              <a href={contact.blog} target="_blank" rel="noopener noreferrer" className={styles.card}>
+                <div className={styles.cardIcon}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+                  </svg>
+                </div>
+                <span className={styles.cardLabel}>Tistory</span>
+                <span className={styles.cardValue}>jose5744</span>
+              </a>
+            )}
+
+            {contact.velog && (
+              <a href={contact.velog} target="_blank" rel="noopener noreferrer" className={styles.card}>
+                <div className={styles.cardIcon}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 0C1.338 0 0 1.338 0 3v18c0 1.662 1.338 3 3 3h18c1.662 0 3-1.338 3-3V3c0-1.662-1.338-3-3-3H3zm6.883 6.25c.63 0 1.005.3 1.125.9l1.463 8.303c.465-.615.846-1.133 1.146-1.553.465-.66.893-1.418 1.283-2.273.405-.855.608-1.62.608-2.295 0-.405-.113-.727-.338-.968-.21-.255-.608-.577-1.193-.968.705-.33 1.238-.51 1.598-.51.36 0 .705.18 1.035.54.345.345.518.855.518 1.53 0 1.29-.608 2.805-1.823 4.545-.405.585-1.253 1.71-2.543 3.378l-1.838.03L8.21 8.005c-.285.705-.54 1.29-.765 1.755l-1.34 2.843-.6-.225c.63-2.22 1.118-4.215 1.463-5.985.12-.63.18-1.065.18-1.305 0-.27-.075-.48-.225-.63-.15-.165-.42-.345-.81-.54.42-.36.81-.54 1.17-.54l-.4-.128z"/>
+                  </svg>
+                </div>
+                <span className={styles.cardLabel}>Velog</span>
+                <span className={styles.cardValue}>bomboychang</span>
+              </a>
+            )}
           </div>
         </div>
       </div>
