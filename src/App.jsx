@@ -27,7 +27,10 @@ export default function App() {
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
 
-    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    document.querySelectorAll('section:not(#hero)').forEach((el) => {
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
     return () => observer.disconnect();
   }, []);
 
@@ -37,11 +40,11 @@ export default function App() {
       <Sidebar activeSection={activeSection} />
       <main>
         <Hero />
-        <div className="fade-in"><About /></div>
-        <div className="fade-in"><Skills /></div>
-        <div className="fade-in"><Experience /></div>
-        <div className="fade-in"><Projects /></div>
-        <div className="fade-in"><Contact /></div>
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Contact />
       </main>
       <footer className="footer">
         <div className="container">
