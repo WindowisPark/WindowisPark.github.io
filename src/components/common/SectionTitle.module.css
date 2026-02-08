@@ -1,0 +1,25 @@
+.wrapper {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+}
+
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 20px auto 0;
+  border-radius: 2px;
+}

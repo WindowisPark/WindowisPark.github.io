@@ -1,0 +1,385 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 80px 0 40px;
+  overflow: hidden;
+}
+
+/* ========== 배경 장식 ========== */
+.bgOrb1 {
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+  animation: orbFloat 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bgOrb2 {
+  position: absolute;
+  bottom: -100px;
+  left: -120px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+  animation: orbFloat 10s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(79, 70, 229, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.05); }
+}
+
+/* ========== 레이아웃 ========== */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.textArea {
+  flex: 1;
+}
+
+/* ========== 텍스트 ========== */
+.greeting {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.name {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.nameHighlight {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+  padding-left: 2px;
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-top: 20px;
+  max-width: 460px;
+  line-height: 1.7;
+}
+
+/* ========== CTA ========== */
+.cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.btnPrimary:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(79, 70, 229, 0.4);
+}
+
+.btnPrimary svg {
+  transition: transform var(--transition);
+}
+
+.btnPrimary:hover svg {
+  transform: translateX(3px);
+}
+
+.btnSecondary {
+  padding: 14px 28px;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition);
+}
+
+.btnSecondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+}
+
+/* ========== 소셜 ========== */
+.social {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.social a {
+  color: var(--color-text-light);
+  transition: all var(--transition);
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.social a:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+/* ========== 프로필 비주얼 ========== */
+.visual {
+  flex-shrink: 0;
+}
+
+.profileRing {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileRing::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--color-primary),
+    var(--color-primary-light),
+    transparent 60%,
+    transparent 80%,
+    var(--color-primary)
+  );
+  animation: ringRotate 6s linear infinite;
+  opacity: 0.6;
+}
+
+.profileRing::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: var(--color-bg);
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.profileCircle {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.profileCircle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  color: var(--color-text-light);
+}
+
+/* ========== 스크롤 인디케이터 ========== */
+.scrollIndicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scrollIndicator span {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollLine::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* ========== 스태거 등장 애니메이션 ========== */
+.anim1, .anim2, .anim3, .anim4, .anim5, .anim6, .anim7, .anim8 {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim1 {
+  animation: heroSlideUp 0.8s 0.1s forwards;
+}
+.anim2 {
+  animation: heroSlideUp 0.8s 0.25s forwards;
+}
+.anim3 {
+  animation: heroSlideUp 0.8s 0.4s forwards;
+}
+.anim4 {
+  animation: heroSlideUp 0.8s 0.55s forwards;
+}
+.anim5 {
+  animation: heroSlideUp 0.8s 0.7s forwards;
+}
+.anim6 {
+  animation: heroSlideUp 0.8s 0.85s forwards;
+}
+.anim7 {
+  animation: heroScale 1s 0.3s forwards;
+}
+.anim8 {
+  animation: heroFade 1s 1.2s forwards;
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========== 반응형 ========== */
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    max-width: 100%;
+  }
+
+  .cta {
+    justify-content: center;
+  }
+
+  .social {
+    justify-content: center;
+  }
+
+  .profileRing {
+    width: 220px;
+    height: 220px;
+  }
+
+  .profileCircle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+
+  .bgOrb1, .bgOrb2 {
+    display: none;
+  }
+}
