@@ -1,4 +1,5 @@
 import profile from '../../data/profile.json';
+import profileImage from '../../assets/images/profile.png';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -76,16 +77,7 @@ export default function Hero() {
         <div className={`${styles.visual} ${styles.anim7}`}>
           <div className={styles.profileRing}>
             <div className={styles.profileCircle}>
-              {profile.profileImage ? (
-                <img src={profile.profileImage} alt={name} />
-              ) : (
-                <div className={styles.placeholder}>
-                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="12" cy="8" r="4"/>
-                    <path d="M4 21v-1a6 6 0 0112 0v1"/>
-                  </svg>
-                </div>
-              )}
+              <img src={profileImage} alt={name} />
             </div>
           </div>
         </div>
