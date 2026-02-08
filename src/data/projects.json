@@ -25,110 +25,49 @@
   },
   {
     "id": 2,
-    "title": "단계별 인증률 대응",
-    "subtitle": "Databricks 기반 분석 전용 아키텍처 설계로 DB 부하 개선",
+    "title": "hub.green-scout",
+    "subtitle": "임상시험 환자 수 영향 분석 서비스",
     "thumbnail": "",
-    "period": "2026.01",
+    "period": "2025.09 ~ 2026.01",
     "team": "그린리본 · 팀 프로젝트",
     "role": "백엔드 개발자",
-    "description": "운영 DB 직접 조회로 인한 부하 문제를 해결하기 위해 Databricks 기반 분석 전용 아키텍처를 설계했습니다. 대규모 복합 쿼리 분석 시 DB 부하를 약 30% 이상 감소시키고, 서비스 안정성을 확보했습니다.",
-    "techStack": ["Java", "Spring Boot", "MySQL", "Databricks", "Grafana"],
+    "description": "임상시험 가능성 판단을 위한 환자 수 영향 분석 서비스입니다. MVP 이후 기능 확장 및 전체 API 구조를 총괄 설계·개발했으며, Databricks Job Workflow 기반 분석 아키텍처를 도입하여 운영 DB 부하 없이 복합 쿼리 분석을 처리했습니다.",
+    "techStack": ["Java", "Spring Boot", "JPA", "MySQL", "Databricks", "Grafana"],
     "features": [
-      "Databricks 기반 분석 전용 아키텍처 설계",
-      "운영 DB 직접 조회 제거",
-      "대규모 복합 쿼리 분석 시 DB 부하 약 30% 이상 감소"
+      "MVP 이후 기능 확장 및 전체 API 구조 총괄 설계·개발",
+      "Databricks 기반 분석 전용 아키텍처 설계 — DB 부하 약 30% 이상 감소",
+      "대규모 환자 데이터 조회 구조 개선",
+      "차병원 산학연 협업 AI 프리스크리닝 API 통합 구조 설계",
+      "관리용 데이터 모델과 API 재설계",
+      "분석 결과의 일관성과 확장성 확보"
     ],
     "links": {
       "github": "",
-      "demo": "",
+      "demo": "https://hub.green-scout.co.kr/",
       "video": "",
       "ppt": ""
     }
   },
   {
     "id": 3,
-    "title": "AI융복합지원사업 (차병원 협업)",
-    "subtitle": "산학연 협업 AI 프리스크리닝 프로젝트",
+    "title": "SpotPrice",
+    "subtitle": "유휴 공간 시간 기반 역경매 플랫폼 (진행 중)",
     "thumbnail": "",
-    "period": "2025.09 ~ 2025.12",
-    "team": "그린리본 · 인턴 / 팀 프로젝트",
-    "role": "백엔드 개발자 (Lead)",
-    "description": "차병원과의 산학연 협업으로 진행된 AI 프리스크리닝 프로젝트입니다. API 통합 구조 설계 및 외부 연동 로직을 주도하고, 의료 데이터 흐름을 고려한 API 명세를 정의했습니다.",
-    "techStack": ["Java", "Spring Boot", "JPA", "MySQL"],
+    "period": "2026.01 ~ 진행 중",
+    "team": "개인 프로젝트",
+    "role": "풀스택 설계 · 백엔드 개발",
+    "description": "시간이 가격과 점유권을 동시에 결정하는 유휴 공간 역경매 플랫폼입니다. 무인 파티룸, 스터디룸 등 유휴 시간대를 시간 경과에 따라 자동으로 가격이 하락하고, 먼저 결제한 사람이 공간을 사용하는 구조입니다. Hexagonal Architecture 기반으로 설계하여 도메인 로직의 독립성과 확장성을 확보했습니다.",
+    "techStack": ["Java 21", "Spring Boot 3.5", "JPA", "MySQL", "Hexagonal Architecture"],
     "features": [
-      "API 통합 구조 설계 및 외부 연동 로직 주도",
-      "의료 데이터 흐름을 고려한 API 명세 정의",
-      "협업 커뮤니케이션 수행"
+      "시간 기반 LINEAR 가격 함수 — 가격을 DB에 저장하지 않고 실시간 계산",
+      "동시성 제어 — 분산락 + DB 조건 업데이트로 결제 승자 1명 보장",
+      "멱등성 보장 (idempotency_key) 설계",
+      "Hexagonal Architecture (Ports & Adapters) 적용",
+      "AccessGrant (QR/PIN) 발급 시스템",
+      "정책·ERD·API 명세·테스트 시나리오 문서화"
     ],
     "links": {
-      "github": "",
-      "demo": "",
-      "video": "",
-      "ppt": ""
-    }
-  },
-  {
-    "id": 4,
-    "title": "hub.green-scout",
-    "subtitle": "임상시험 환자 수 영향 분석 서비스",
-    "thumbnail": "",
-    "period": "2025.11",
-    "team": "그린리본 · 팀 프로젝트",
-    "role": "백엔드 개발자",
-    "description": "임상시험 가능성 판단을 위한 환자 수 영향 분석 서비스입니다. MVP 이후 기능 확장 및 전체 API 구조를 총괄 설계·개발했으며, Databricks Job Workflow 기반 분석 아키텍처를 도입하여 운영 DB 부하 없이 복합 쿼리 분석을 처리했습니다.",
-    "techStack": ["Java", "Spring Boot", "MySQL", "Databricks"],
-    "features": [
-      "MVP 이후 기능 확장 및 전체 API 구조 총괄 설계·개발",
-      "대규모 환자 데이터 조회 구조 개선",
-      "Databricks Job Workflow 기반 분석 아키텍처 도입",
-      "관리용 데이터 모델과 API 재설계",
-      "분석 결과의 일관성과 확장성 확보"
-    ],
-    "links": {
-      "github": "",
-      "demo": "",
-      "video": "",
-      "ppt": ""
-    }
-  },
-  {
-    "id": 5,
-    "title": "연구실 매칭 시스템 및 챗봇",
-    "subtitle": "RAG 기법을 이용한 세종대학교 연구실 매칭",
-    "thumbnail": "",
-    "period": "2024.12",
-    "team": "세종대학교 해커톤 · 팀 프로젝트",
-    "role": "개발",
-    "description": "세종대학교 제11회 SW/AI 해커톤 은상 수상작입니다. RAG(Retrieval-Augmented Generation) 기법을 활용하여 학생의 관심 분야에 맞는 연구실을 매칭해주는 시스템과 챗봇을 개발했습니다.",
-    "techStack": ["Python", "LangChain", "RAG", "FastAPI"],
-    "features": [
-      "RAG 기법 기반 연구실 매칭 알고리즘 구현",
-      "자연어 질의 기반 챗봇 개발",
-      "세종대학교 제11회 SW/AI 해커톤 은상 수상"
-    ],
-    "links": {
-      "github": "https://github.com/WindowisPark",
-      "demo": "",
-      "video": "",
-      "ppt": ""
-    }
-  },
-  {
-    "id": 6,
-    "title": "창업 가이드 애플리케이션",
-    "subtitle": "LangChain 기반 세종대학교 창업 가이드",
-    "thumbnail": "",
-    "period": "2025.06",
-    "team": "세종대학교 해커톤 · 팀 프로젝트",
-    "role": "개발",
-    "description": "세종대학교 제12회 SW/AI 해커톤 은상 수상작입니다. LangChain을 활용하여 세종대학교 학생들을 위한 창업 가이드 애플리케이션을 개발했습니다.",
-    "techStack": ["Python", "LangChain", "FastAPI", "React"],
-    "features": [
-      "LangChain 기반 창업 정보 제공 시스템",
-      "세종대학교 제12회 SW/AI 해커톤 은상 수상"
-    ],
-    "links": {
-      "github": "https://github.com/WindowisPark",
+      "github": "https://github.com/WindowisPark/SpotPrice",
       "demo": "",
       "video": "",
       "ppt": ""
