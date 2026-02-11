@@ -23,14 +23,14 @@
 
 .card:hover {
   border-color: transparent;
-  box-shadow: 0 20px 50px rgba(79, 70, 229, 0.12), 0 0 0 1px rgba(79, 70, 229, 0.08);
+  box-shadow: 0 20px 50px var(--color-card-hover-shadow), 0 0 0 1px var(--color-card-hover-border);
   transform: translateY(-6px);
 }
 
 .cardThumb {
   position: relative;
   height: 200px;
-  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #eef2ff 100%);
+  background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-thumb-gradient-end) 100%);
   overflow: hidden;
 }
 
@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-text-light);
-  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  background: linear-gradient(135deg, var(--color-placeholder-start) 0%, var(--color-thumb-gradient-end) 100%);
 }
 
 .cardOverlay {

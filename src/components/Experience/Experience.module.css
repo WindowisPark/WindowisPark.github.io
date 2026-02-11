@@ -164,13 +164,13 @@
 }
 
 .badgeAward {
-  color: #b45309;
-  background: #fef3c7;
+  color: var(--color-badge-award-text);
+  background: var(--color-badge-award-bg);
 }
 
 .badgeCert {
-  color: #047857;
-  background: #d1fae5;
+  color: var(--color-badge-cert-text);
+  background: var(--color-badge-cert-bg);
 }
 
 @media (max-width: 1024px) {
