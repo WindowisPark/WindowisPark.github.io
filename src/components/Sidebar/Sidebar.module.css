@@ -63,7 +63,7 @@
   right: 28px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .sidebar {
     display: none;
   }

@@ -59,3 +59,36 @@
   color: var(--color-text);
   word-break: break-all;
 }
+
+@media (max-width: 768px) {
+  .content {
+    max-width: 100%;
+  }
+
+  .description {
+    font-size: var(--font-size-base);
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cardValue {
+    word-break: break-word;
+  }
+
+  .description {
+    font-size: var(--font-size-sm);
+    margin-bottom: 28px;
+  }
+}

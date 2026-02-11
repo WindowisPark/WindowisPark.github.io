@@ -126,7 +126,7 @@
 
 .extraCards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
   gap: 12px;
 }
 
@@ -173,7 +173,25 @@
   background: #d1fae5;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
+  .extraCard {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    max-width: 100%;
+  }
+
+  .extras {
+    max-width: 100%;
+  }
+
+  .extraCards {
+    grid-template-columns: 1fr;
+  }
+
   .marker {
     display: none;
   }
@@ -181,5 +199,31 @@
   .card {
     border-left: 3px solid var(--color-primary);
     padding-left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding-left: 16px;
+    padding-bottom: 28px;
+  }
+
+  .details li {
+    font-size: var(--font-size-xs);
+  }
+
+  .extras {
+    margin-top: 32px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 400px) {
+  .extraCards {
+    gap: 8px;
+  }
+
+  .extraCard {
+    padding: 14px;
   }
 }

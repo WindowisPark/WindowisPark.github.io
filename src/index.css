@@ -122,6 +122,31 @@ button {
   background: var(--color-text-secondary);
 }
 
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 0;
+  }
+
+  html {
+    scroll-snap-type: none;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 40px 0;
+    --container-padding: 0 16px;
+    --font-size-3xl: 1.5rem;
+    --font-size-2xl: 1.25rem;
+  }
+}
+
 /* Selection */
 ::selection {
   background: var(--color-primary);

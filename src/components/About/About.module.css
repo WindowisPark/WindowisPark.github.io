@@ -48,3 +48,30 @@
   font-weight: 500;
   color: var(--color-text);
 }
+
+@media (max-width: 768px) {
+  .content {
+    max-width: 100%;
+  }
+
+  .description {
+    font-size: var(--font-size-base);
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .description {
+    font-size: var(--font-size-sm);
+    margin-bottom: 28px;
+    line-height: 1.8;
+  }
+
+  .card {
+    padding: 18px;
+    gap: 12px;
+  }
+}

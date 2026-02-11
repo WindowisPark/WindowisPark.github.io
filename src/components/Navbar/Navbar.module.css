@@ -84,6 +84,17 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+@media (max-width: 1024px) {
+  .links {
+    gap: 4px;
+  }
+
+  .link {
+    padding: 8px 12px;
+    font-size: var(--font-size-xs);
+  }
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex;

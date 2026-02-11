@@ -350,7 +350,27 @@
 }
 
 /* ========== 반응형 ========== */
+@media (max-width: 1024px) {
+  .inner {
+    gap: 40px;
+  }
+
+  .profileRing {
+    width: 260px;
+    height: 260px;
+  }
+
+  .profileCircle {
+    width: 240px;
+    height: 240px;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero {
+    padding: 60px 0 32px;
+  }
+
   .inner {
     flex-direction: column-reverse;
     text-align: center;
@@ -362,6 +382,7 @@
 
   .subtitle {
     max-width: 100%;
+    font-size: var(--font-size-base);
   }
 
   .cta {
@@ -370,6 +391,7 @@
 
   .social {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .profileRing {
@@ -388,5 +410,55 @@
 
   .bgOrb1, .bgOrb2 {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 0 24px;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: var(--font-size-sm);
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .title {
+    font-size: var(--font-size-base);
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    padding: 12px 24px;
+    justify-content: center;
+  }
+
+  .profileRing {
+    width: 160px;
+    height: 160px;
+  }
+
+  .profileCircle {
+    width: 144px;
+    height: 144px;
+  }
+
+  .social a {
+    padding: 5px 10px;
+    font-size: 0.7rem;
   }
 }
