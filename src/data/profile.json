@@ -71,6 +71,14 @@
       "period": "2017.03 ~ 2020.08",
       "description": "중퇴",
       "details": []
+    },
+    {
+      "type": "education",
+      "title": "대일외국어고등학교",
+      "role": "독일어과",
+      "period": "2014.03 ~ 2017.02",
+      "description": "졸업",
+      "details": []
     }
   ],
   "certificates": [
