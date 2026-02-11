@@ -129,6 +129,11 @@
   box-shadow: 0 6px 25px var(--color-btn-shadow-hover);
 }
 
+.btnPrimary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px var(--color-btn-shadow);
+}
+
 .btnPrimary svg {
   transition: transform var(--transition);
 }
@@ -152,6 +157,11 @@
   color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--color-card-hover-border);
+}
+
+.btnSecondary:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* ========== 소셜 ========== */

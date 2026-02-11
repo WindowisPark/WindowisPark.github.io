@@ -40,6 +40,15 @@
 .card {
   flex: 1;
   padding-bottom: 40px;
+  padding: 20px;
+  border-radius: var(--border-radius-sm);
+  transition: background var(--transition), box-shadow var(--transition);
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  background: var(--color-card-bg);
+  box-shadow: var(--shadow-sm);
 }
 
 .badge {
@@ -199,6 +208,13 @@
   .card {
     border-left: 3px solid var(--color-primary);
     padding-left: 20px;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .card:hover {
+    background: transparent;
+    box-shadow: none;
   }
 }
 

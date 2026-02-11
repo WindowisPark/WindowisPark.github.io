@@ -18,7 +18,7 @@
 
   /* Typography */
   --font-family: 'Pretendard Variable', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-size-xs: 0.75rem;
+  --font-size-xs: 0.8125rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
@@ -152,6 +152,14 @@ button {
   font-family: inherit;
 }
 
+/* Focus Visible */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -204,7 +212,7 @@ button {
 /* Selection */
 ::selection {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-bg);
 }
 
 /* Fade-in Animation */
@@ -217,6 +225,21 @@ button {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Footer */

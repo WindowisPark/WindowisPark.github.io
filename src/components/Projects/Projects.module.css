@@ -340,6 +340,10 @@
   transform: translateY(-1px);
 }
 
+.linkBtn:active {
+  transform: translateY(0);
+}
+
 /* ========== Animations ========== */
 @keyframes fadeIn {
   from { opacity: 0; }

@@ -30,6 +30,11 @@
   box-shadow: var(--shadow-lg);
 }
 
+.button:active {
+  transform: translateY(0) scale(0.95);
+  box-shadow: var(--shadow-sm);
+}
+
 @media (max-width: 768px) {
   .button {
     bottom: 20px;

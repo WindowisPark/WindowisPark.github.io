@@ -73,9 +73,28 @@
   transition: all var(--transition);
 }
 
+.themeToggle svg {
+  animation: themeIconIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes themeIconIn {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
 .themeToggle:hover {
   color: var(--color-primary);
   background: var(--color-primary-bg);
+}
+
+.themeToggle:active {
+  transform: scale(0.9);
 }
 
 .hamburger {
@@ -147,5 +166,20 @@
   .link {
     font-size: var(--font-size-lg);
     padding: 12px 32px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition);
   }
+
+  .links.mobileOpen .link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .links.mobileOpen li:nth-child(1) .link { transition-delay: 0.05s; }
+  .links.mobileOpen li:nth-child(2) .link { transition-delay: 0.1s; }
+  .links.mobileOpen li:nth-child(3) .link { transition-delay: 0.15s; }
+  .links.mobileOpen li:nth-child(4) .link { transition-delay: 0.2s; }
+  .links.mobileOpen li:nth-child(5) .link { transition-delay: 0.25s; }
+  .links.mobileOpen li:nth-child(6) .link { transition-delay: 0.3s; }
 }
