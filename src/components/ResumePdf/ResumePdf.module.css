@@ -1,0 +1,301 @@
+.wrapper {
+  width: 794px; /* A4 width at 96dpi */
+  padding: 20px 24px;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Pretendard Variable', 'Inter', sans-serif;
+  font-size: 10pt;
+  line-height: 1.6;
+}
+
+/* ========== Header ========== */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #4f46e5;
+  margin-bottom: 20px;
+}
+
+.profileImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.headerInfo {
+  flex: 1;
+}
+
+.headerName {
+  font-size: 20pt;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.headerTitle {
+  font-size: 11pt;
+  font-weight: 600;
+  color: #4f46e5;
+  margin-top: 2px;
+}
+
+.headerContact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 6px;
+  font-size: 8.5pt;
+  color: #475569;
+}
+
+.headerContact span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ========== Section ========== */
+.section {
+  margin-bottom: 18px;
+}
+
+.sectionTitle {
+  font-size: 12pt;
+  font-weight: 700;
+  color: #0f172a;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 10px;
+  page-break-after: avoid;
+}
+
+/* ========== About ========== */
+.aboutText {
+  font-size: 9.5pt;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.highlights {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.highlightTag {
+  font-size: 8.5pt;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #eef2ff;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+/* ========== Skills ========== */
+.skillRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+  align-items: baseline;
+}
+
+.skillCategory {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #0f172a;
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+.skillCategory::after {
+  content: '';
+}
+
+.skillItems {
+  font-size: 9pt;
+  color: #475569;
+}
+
+/* ========== Experience ========== */
+.expItem {
+  margin-bottom: 14px;
+  page-break-inside: avoid;
+}
+
+.expHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.expTitle {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.expPeriod {
+  font-size: 8.5pt;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.expRole {
+  font-size: 9pt;
+  color: #475569;
+  margin-top: 1px;
+}
+
+.expDesc {
+  font-size: 9pt;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.expDetails {
+  margin-top: 4px;
+  padding-left: 14px;
+}
+
+.expDetails li {
+  font-size: 8.5pt;
+  color: #475569;
+  margin-bottom: 2px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.expDetails li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4f46e5;
+}
+
+/* ========== Projects ========== */
+.project {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  page-break-inside: avoid;
+}
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.projectTitle {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.projectMeta {
+  font-size: 8pt;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.projectSubtitle {
+  font-size: 9pt;
+  color: #4f46e5;
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+.projectRole {
+  font-size: 8.5pt;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.projectDesc {
+  font-size: 9pt;
+  color: #334155;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.projectFeatures {
+  margin-top: 6px;
+  padding-left: 14px;
+}
+
+.projectFeatures li {
+  font-size: 8.5pt;
+  color: #475569;
+  margin-bottom: 2px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.projectFeatures li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #6366f1;
+}
+
+.projectTech {
+  margin-top: 6px;
+  font-size: 8.5pt;
+  color: #64748b;
+}
+
+.projectTechLabel {
+  font-weight: 600;
+  color: #475569;
+}
+
+/* ========== Awards & Certificates (compact) ========== */
+.compactGroup {
+  margin-bottom: 14px;
+}
+
+.compactItem {
+  font-size: 9pt;
+  line-height: 1.8;
+  color: #334155;
+  padding-left: 12px;
+  position: relative;
+}
+
+.compactItem::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #94a3b8;
+}
+
+.compactName {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.compactDate {
+  color: #94a3b8;
+  margin-left: 8px;
+  font-size: 8.5pt;
+}
+
+.compactDesc {
+  color: #64748b;
+  font-size: 8.5pt;
+}

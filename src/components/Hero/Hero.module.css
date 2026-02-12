@@ -438,6 +438,61 @@
   }
 }
 
+@media print {
+  .hero {
+    min-height: auto;
+    padding: 0;
+    page-break-after: avoid;
+  }
+
+  .bgOrb1,
+  .bgOrb2,
+  .bgGrid,
+  .scrollIndicator,
+  .cta {
+    display: none !important;
+  }
+
+  .anim1, .anim2, .anim3, .anim4, .anim5, .anim6, .anim7, .anim8 {
+    opacity: 1 !important;
+  }
+
+  .nameHighlight {
+    -webkit-text-fill-color: #4f46e5;
+    background: none;
+  }
+
+  .profileRing::before {
+    display: none;
+  }
+
+  .profileRing {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profileCircle {
+    width: 130px;
+    height: 130px;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .social a {
+    border: none;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    color: #475569 !important;
+  }
+
+  .social svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
 @media (max-width: 400px) {
   .name {
     font-size: 1.8rem;

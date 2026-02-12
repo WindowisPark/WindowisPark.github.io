@@ -57,7 +57,8 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--color-text);
-  word-break: break-all;
+  overflow-wrap: break-word;
+  word-break: keep-all;
 }
 
 @media (max-width: 768px) {
@@ -75,6 +76,25 @@
 
   .card {
     padding: 20px 16px;
+  }
+}
+
+@media print {
+  .section {
+    background: white !important;
+  }
+
+  .card {
+    border: 1px solid #e2e8f0;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .description {
+    display: none;
   }
 }
 

@@ -227,6 +227,65 @@ button:focus-visible {
   transform: translateY(0);
 }
 
+/* ========== Print ========== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+
+  html {
+    scroll-snap-type: none;
+    font-size: 11pt;
+  }
+
+  body {
+    background: white !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide non-essential UI */
+  nav,
+  aside,
+  .footer,
+  button {
+    display: none !important;
+  }
+
+  /* Force all sections visible */
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  section {
+    break-inside: avoid;
+    padding: 24px 0 !important;
+    scroll-snap-align: none;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  a {
+    color: #0f172a !important;
+    text-decoration: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 15mm 18mm;
+    size: A4;
+  }
+}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,

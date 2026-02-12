@@ -399,6 +399,35 @@
   }
 }
 
+@media print {
+  .overlay {
+    display: none !important;
+  }
+
+  .card {
+    break-inside: avoid;
+    border: 1px solid #e2e8f0;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .cardOverlay {
+    display: none !important;
+  }
+
+  .cardThumb {
+    height: 120px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
 @media (max-width: 400px) {
   .modalContent {
     padding: 16px;
