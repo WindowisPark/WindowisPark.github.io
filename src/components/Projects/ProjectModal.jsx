@@ -8,6 +8,14 @@ function getYouTubeId(url) {
   return match ? match[1] : null;
 }
 
+const thumbnails = import.meta.glob('../../assets/images/*.{png,jpg,jpeg,webp}', { eager: true });
+
+function getThumbnail(key) {
+  if (!key) return null;
+  const match = Object.entries(thumbnails).find(([path]) => path.includes(`/${key}.`));
+  return match ? match[1].default : null;
+}
+
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -20,6 +28,7 @@ export default function ProjectModal({ project, onClose }) {
   }, [onClose]);
 
   const ytId = getYouTubeId(project.links?.video);
+  const thumbSrc = getThumbnail(project.thumbnail);
 
   return createPortal(
     <div className={styles.overlay} onClick={onClose}>
@@ -30,6 +39,12 @@ export default function ProjectModal({ project, onClose }) {
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
+
+        {thumbSrc && (
+          <div className={styles.modalThumb}>
+            <img src={thumbSrc} alt={project.title} />
+          </div>
+        )}
 
         <div className={styles.modalContent}>
           <h2 className={styles.modalTitle}>{project.title}</h2>

@@ -53,10 +53,10 @@
   --color-btn-shadow-hover: rgba(79, 70, 229, 0.4);
   --color-thumb-gradient-end: #eef2ff;
   --color-placeholder-start: #f8fafc;
-  --color-badge-award-text: #b45309;
-  --color-badge-award-bg: #fef3c7;
-  --color-badge-cert-text: #047857;
-  --color-badge-cert-bg: #d1fae5;
+  --color-badge-award-text: #7c3aed;
+  --color-badge-award-bg: #ede9fe;
+  --color-badge-cert-text: #2563eb;
+  --color-badge-cert-bg: #dbeafe;
   --color-tag-hover-border: rgba(79, 70, 229, 0.15);
 }
 
@@ -88,10 +88,10 @@
   --color-btn-shadow-hover: rgba(99, 102, 241, 0.5);
   --color-thumb-gradient-end: #1e293b;
   --color-placeholder-start: #1e293b;
-  --color-badge-award-text: #fbbf24;
-  --color-badge-award-bg: rgba(251, 191, 36, 0.15);
-  --color-badge-cert-text: #34d399;
-  --color-badge-cert-bg: rgba(52, 211, 153, 0.15);
+  --color-badge-award-text: #a78bfa;
+  --color-badge-award-bg: rgba(167, 139, 250, 0.15);
+  --color-badge-cert-text: #60a5fa;
+  --color-badge-cert-bg: rgba(96, 165, 250, 0.15);
   --color-tag-hover-border: rgba(129, 140, 248, 0.2);
 }
 
