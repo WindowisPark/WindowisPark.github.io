@@ -48,7 +48,6 @@ export default function ProjectModal({ project, onClose }) {
 
         <div className={styles.modalContent}>
           <h2 className={styles.modalTitle}>{project.title}</h2>
-          <p className={styles.modalSubtitle}>{project.subtitle}</p>
 
           <div className={styles.modalMeta}>
             <div className={styles.metaItem}>
@@ -65,24 +64,29 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          <div className={styles.modalSection}>
-            <h3>프로젝트 설명</h3>
-            <p>{project.description}</p>
-          </div>
-
-          {project.features?.length > 0 && (
+          {project.problem && (
             <div className={styles.modalSection}>
-              <h3>주요 기능</h3>
-              <ul className={styles.featureList}>
-                {project.features.map((f, i) => (
-                  <li key={i}>{f}</li>
-                ))}
-              </ul>
+              <h3>문제 상황</h3>
+              <p>{project.problem}</p>
+            </div>
+          )}
+
+          {project.decision && (
+            <div className={styles.modalSection}>
+              <h3>설계 결정</h3>
+              <p>{project.decision}</p>
+            </div>
+          )}
+
+          {project.result && (
+            <div className={styles.modalSection}>
+              <h3>결과</h3>
+              <p>{project.result}</p>
             </div>
           )}
 
           <div className={styles.modalSection}>
-            <h3>기술 스택</h3>
+            <h3>사용 기술</h3>
             <div className={styles.modalTags}>
               {project.techStack.map((tech) => (
                 <span key={tech} className={styles.modalTag}>{tech}</span>

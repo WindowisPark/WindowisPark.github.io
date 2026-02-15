@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import profile from '../../data/profile.json';
-import projects from '../../data/projects.json';
 import profileImage from '../../assets/images/profile.png';
 import styles from './ResumePdf.module.css';
 
@@ -63,35 +62,6 @@ const ResumePdf = forwardRef(function ResumePdf(_, ref) {
                 ))}
               </ul>
             )}
-          </div>
-        ))}
-      </div>
-
-      {/* === Page 2: Projects === */}
-      <div data-pdf-break="" />
-
-      <div className={styles.section}>
-        <div className={styles.sectionTitle}>Projects</div>
-        {projects.map((p) => (
-          <div key={p.id} className={styles.project} data-pdf-avoid="">
-            <div className={styles.projectHeader}>
-              <span className={styles.projectTitle}>{p.title}</span>
-              <span className={styles.projectMeta}>{p.period}</span>
-            </div>
-            <div className={styles.projectSubtitle}>{p.subtitle}</div>
-            <div className={styles.projectRole}>{p.team} · {p.role}</div>
-            <p className={styles.projectDesc}>{p.description}</p>
-            {p.features.length > 0 && (
-              <ul className={styles.projectFeatures}>
-                {p.features.map((f, i) => (
-                  <li key={i}>{f}</li>
-                ))}
-              </ul>
-            )}
-            <div className={styles.projectTech}>
-              <span className={styles.projectTechLabel}>Tech: </span>
-              {p.techStack.join(', ')}
-            </div>
           </div>
         ))}
       </div>

@@ -1,0 +1,138 @@
+.wrapper {
+  width: 794px;
+  padding: 20px 24px;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Pretendard Variable', 'Inter', sans-serif;
+  font-size: 10pt;
+  line-height: 1.6;
+}
+
+/* ========== Header ========== */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #4f46e5;
+  margin-bottom: 24px;
+}
+
+.profileImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.headerInfo {
+  flex: 1;
+}
+
+.headerName {
+  font-size: 20pt;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.headerTitle {
+  font-size: 11pt;
+  font-weight: 600;
+  color: #4f46e5;
+  margin-top: 2px;
+}
+
+.headerContact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 6px;
+  font-size: 8.5pt;
+  color: #475569;
+}
+
+.headerContact span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ========== Project ========== */
+.project {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  page-break-inside: avoid;
+}
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.projectTitle {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.projectMeta {
+  font-size: 8pt;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.projectRole {
+  font-size: 8.5pt;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+/* ========== Field (문제/결정/결과) ========== */
+.field {
+  margin-bottom: 8px;
+}
+
+.fieldLabel {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #4f46e5;
+  margin-bottom: 2px;
+  padding-left: 8px;
+  border-left: 3px solid #4f46e5;
+}
+
+.fieldText {
+  font-size: 9pt;
+  color: #334155;
+  line-height: 1.65;
+  margin: 0;
+  padding-left: 11px;
+}
+
+/* ========== Tech Row ========== */
+.techRow {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.techLabel {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: #475569;
+  flex-shrink: 0;
+}
+
+.techItems {
+  font-size: 8.5pt;
+  color: #64748b;
+}

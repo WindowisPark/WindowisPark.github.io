@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import useTheme from '../../hooks/useTheme';
 import styles from './Navbar.module.css';
 
@@ -11,16 +11,28 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export default function Navbar({ activeSection, onDownloadPdf }) {
+export default function Navbar({ activeSection, onDownloadResume, onDownloadPortfolio }) {
   const [theme, toggleTheme] = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [pdfOpen, setPdfOpen] = useState(false);
+  const pdfRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (pdfRef.current && !pdfRef.current.contains(e.target)) {
+        setPdfOpen(false);
+      }
+    };
+    if (pdfOpen) document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [pdfOpen]);
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -36,19 +48,37 @@ export default function Navbar({ activeSection, onDownloadPdf }) {
         </a>
 
         <div className={styles.navActions}>
-          <button
-            className={styles.pdfBtn}
-            onClick={onDownloadPdf}
-            aria-label="PDF로 저장"
-            title="PDF로 저장"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
-              <line x1="12" y1="18" x2="12" y2="12" />
-              <polyline points="9 15 12 18 15 15" />
-            </svg>
-          </button>
+          <div className={styles.pdfDropdown} ref={pdfRef}>
+            <button
+              className={styles.pdfBtn}
+              onClick={() => setPdfOpen(!pdfOpen)}
+              aria-label="PDF 다운로드"
+              title="PDF 다운로드"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="12" y1="18" x2="12" y2="12" />
+                <polyline points="9 15 12 18 15 15" />
+              </svg>
+            </button>
+            {pdfOpen && (
+              <div className={styles.pdfMenu}>
+                <button
+                  className={styles.pdfMenuItem}
+                  onClick={() => { onDownloadResume(); setPdfOpen(false); }}
+                >
+                  이력서
+                </button>
+                <button
+                  className={styles.pdfMenuItem}
+                  onClick={() => { onDownloadPortfolio(); setPdfOpen(false); }}
+                >
+                  프로젝트 포트폴리오
+                </button>
+              </div>
+            )}
+          </div>
 
           <button
             className={styles.themeToggle}
