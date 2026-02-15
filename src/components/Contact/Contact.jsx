@@ -1,5 +1,4 @@
 import profile from '../../data/profile.json';
-import SectionTitle from '../common/SectionTitle';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -8,7 +7,11 @@ export default function Contact() {
   return (
     <section id="contact" className={styles.section}>
       <div className="container">
-        <SectionTitle title="Contact" subtitle="연락처" />
+        <div className={styles.titleWrapper}>
+          <h2 className={styles.gradientTitle}>Contact</h2>
+          <p className={styles.titleSub}>연락처</p>
+          <div className={styles.titleDivider} />
+        </div>
 
         <div className={styles.content}>
           <p className={styles.description}>

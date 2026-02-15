@@ -3,6 +3,36 @@
   background: var(--color-bg-alt);
 }
 
+/* ========== Gradient Title ========== */
+.titleWrapper {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.gradientTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleSub {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+}
+
+.titleDivider {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
 .content {
   max-width: 680px;
   margin: 0 auto;
@@ -33,9 +63,13 @@
   transition: all var(--transition);
 }
 
+/* ========== Card Soft Glow on Hover ========== */
 .card:hover {
   border-color: var(--color-primary-light);
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    var(--shadow-md),
+    0 0 20px var(--color-card-shadow),
+    0 0 40px rgba(79, 70, 229, 0.04);
   transform: translateY(-2px);
   color: var(--color-text);
 }
@@ -53,15 +87,42 @@
   letter-spacing: 0.05em;
 }
 
+/* ========== Email Hover Underline Animation ========== */
 .cardValue {
   font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--color-text);
   overflow-wrap: break-word;
   word-break: keep-all;
+  position: relative;
+  display: inline-block;
+}
+
+.cardValue::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 1px;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .cardValue::after {
+  width: 100%;
 }
 
 @media (max-width: 768px) {
+  .titleWrapper {
+    margin-bottom: 40px;
+  }
+
+  .gradientTitle {
+    font-size: var(--font-size-2xl);
+  }
+
   .content {
     max-width: 100%;
   }
@@ -99,6 +160,19 @@
 }
 
 @media (max-width: 480px) {
+  .titleWrapper {
+    margin-bottom: 32px;
+  }
+
+  .gradientTitle {
+    font-size: 1.25rem;
+  }
+
+  .titleDivider {
+    width: 32px;
+    margin-top: 16px;
+  }
+
   .cards {
     grid-template-columns: 1fr;
   }
