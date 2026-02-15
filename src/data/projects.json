@@ -7,14 +7,14 @@
     "period": "2025.12 ~ 2026.01",
     "team": "그린리본 · 팀 프로젝트",
     "role": "백엔드 개발자",
-    "description": "환전 요청 시 발생하던 중복 환전, 잔액 불일치 등 동시성 이슈를 분석하고 해결한 프로젝트입니다. 트랜잭션 범위를 재설계하고 DB 유니크 제약을 적용하여 환전 오류율을 약 90% 이상 감소시키고 데이터 정합성을 확보했습니다.",
+    "description": "환전 요청 시 동시 호출로 중복 환전·잔액 불일치가 반복 발생하는 상황이었습니다. 로그와 DB 상태를 비교해 경합 지점을 특정한 뒤, 서비스 레이어의 트랜잭션 범위를 재설계하고 요청별 유니크 제약(idempotency key)을 DB에 적용했습니다. 적용 후 동일 시나리오 재현 테스트에서 환전 오류율이 약 90% 이상 감소했고, 운영 환경 배포까지 주도했습니다.",
     "techStack": ["Java", "Spring Boot", "JPA", "MySQL"],
     "features": [
-      "환전 요청 API 동시성 이슈 분석 및 해결",
-      "트랜잭션 범위 재설계 및 DB 유니크 제약 적용",
-      "환전 오류율 약 90% 이상 감소",
-      "동시 요청 테스트 시나리오 구성",
-      "재현 → 검증 → 배포까지 전 과정 주도"
+      "운영 로그·DB 스냅샷 비교로 동시성 경합 지점을 특정하고 재현 시나리오 작성",
+      "서비스 레이어 트랜잭션 범위를 축소 재설계하여 락 점유 시간 단축",
+      "요청별 유니크 제약(idempotency key)을 DB에 적용해 중복 환전 원천 차단",
+      "JMeter 기반 동시 100건 요청 테스트로 수정 전·후 오류율 비교 — 90% 이상 감소 확인",
+      "재현 → 원인 분석 → 수정 → 테스트 → 운영 배포까지 전 과정 단독 수행"
     ],
     "links": {
       "github": "",
@@ -26,20 +26,20 @@
   {
     "id": 2,
     "title": "hub.green-scout",
-    "subtitle": "임상시험 환자 수 영향 분석 서비스",
+    "subtitle": "임상시험 환자 후보 발굴 및 Feasibility 분석 플랫폼",
     "thumbnail": "hub",
     "period": "2025.09 ~ 2026.01",
     "team": "그린리본 · 팀 프로젝트",
     "role": "백엔드 개발자",
-    "description": "임상시험 가능성 판단을 위한 환자 수 영향 분석 서비스입니다. MVP 이후 기능 확장 및 전체 API 구조를 총괄 설계·개발했으며, Databricks Job Workflow 기반 분석 아키텍처를 도입하여 운영 DB 부하 없이 복합 쿼리 분석을 처리했습니다.",
-    "techStack": ["Java", "Spring Boot", "JPA", "MySQL", "Databricks", "Grafana"],
+    "description": "임상시험 스폰서가 적합한 후보 환자를 발굴하고 Feasibility 분석을 수행하는 플랫폼의 백엔드 API를 총괄 설계·개발했습니다. 복합 분석 쿼리가 운영 DB에 직접 부하를 주는 구조적 문제를 해결하기 위해 Databricks Jobs API 2.1 기반 비동기 분석 파이프라인을 설계하고, Webhook 콜백 + 폴링 패턴으로 분석 완료를 처리하도록 구현했습니다. RBAC 5단계 권한 체계와 역할별 데이터 마스킹을 적용해 민감 환자 정보를 보호하고, Flyway로 70건 이상의 마이그레이션을 관리하며 스키마 변경 이력을 추적했습니다.",
+    "techStack": ["Java 21", "Spring Boot 3", "JPA", "MySQL", "Databricks", "Flyway", "Caffeine", "Spring Security"],
     "features": [
-      "MVP 이후 기능 확장 및 전체 API 구조 총괄 설계·개발",
-      "Databricks 기반 분석 전용 아키텍처 설계 — DB 부하 약 30% 이상 감소",
-      "대규모 환자 데이터 조회 구조 개선",
-      "차병원 산학연 협업 AI 프리스크리닝 API 통합 구조 설계",
-      "관리용 데이터 모델과 API 재설계",
-      "분석 결과의 일관성과 확장성 확보"
+      "Databricks Jobs API 2.1 연동 — Feasibility 분석 요청을 비동기 Job으로 실행하고, Webhook 콜백으로 완료 이벤트를 수신해 결과를 저장하는 파이프라인 직접 설계·구현",
+      "RBAC 5단계 권한 체계(SUPER_ADMIN~PENDING) 설계 — SPONSOR 역할에는 환자 ID·PII를 자동 마스킹 처리하여 민감정보 보호",
+      "JWT HttpOnly Cookie + Refresh Token Rotation(RTR) 기반 인증 구현 — CSRF Double Submit Cookie 패턴 적용, 로그인 5회 실패 시 30분 계정 잠금",
+      "DDD 기반 모듈 분리(scout-api/scout-core) + Command·Query 서비스 분리로 CQRS 패턴 적용",
+      "Caffeine 로컬 캐시(24시간 TTL, 최대 1000건)를 질병·약물 마스터 데이터에 적용하고, Rate Limiting으로 공개 API 60req/min 제한",
+      "Flyway 70건 이상 마이그레이션 스크립트로 스키마 변경 이력 관리, Hibernate Envers로 엔티티 변경 감사 추적"
     ],
     "links": {
       "github": "",
@@ -56,18 +56,43 @@
     "period": "2026.01 ~ 진행 중",
     "team": "개인 프로젝트",
     "role": "풀스택 설계 · 백엔드 개발",
-    "description": "시간이 가격과 점유권을 동시에 결정하는 유휴 공간 역경매 플랫폼입니다. 무인 파티룸, 스터디룸 등 유휴 시간대를 시간 경과에 따라 자동으로 가격이 하락하고, 먼저 결제한 사람이 공간을 사용하는 구조입니다. Hexagonal Architecture 기반으로 설계하여 도메인 로직의 독립성과 확장성을 확보했습니다.",
+    "description": "무인 파티룸·스터디룸 등 유휴 시간대의 가격이 시간 경과에 따라 자동 하락하고, 먼저 결제한 사람이 공간을 점유하는 역경매 플랫폼입니다. 가격 함수를 DB 저장 없이 실시간 계산하는 LINEAR 모델을 직접 설계했고, 분산락 + DB 조건부 UPDATE를 조합해 동시 결제 시 승자 1명만 확정되는 동시성 제어 구조를 구현했습니다. Hexagonal Architecture로 도메인 로직을 인프라에서 완전 분리하여 테스트 용이성을 확보했습니다.",
     "techStack": ["Java 21", "Spring Boot 3.5", "JPA", "MySQL", "Hexagonal Architecture"],
     "features": [
-      "시간 기반 LINEAR 가격 함수 — 가격을 DB에 저장하지 않고 실시간 계산",
-      "동시성 제어 — 분산락 + DB 조건 업데이트로 결제 승자 1명 보장",
-      "멱등성 보장 (idempotency_key) 설계",
-      "Hexagonal Architecture (Ports & Adapters) 적용",
-      "AccessGrant (QR/PIN) 발급 시스템",
-      "정책·ERD·API 명세·테스트 시나리오 문서화"
+      "시간 기반 LINEAR 가격 함수를 직접 설계 — startPrice·endPrice·시간 비율로 실시간 계산, DB 저장 불필요",
+      "분산락 획득 후 DB 조건부 UPDATE(status=AVAILABLE)를 조합해 동시 결제 시 승자 1명만 확정",
+      "idempotency_key 기반 멱등성 보장 — 네트워크 재시도 시 중복 결제 원천 차단",
+      "Hexagonal Architecture 적용 — UseCase·Port·Adapter 분리로 도메인 로직 단위 테스트 100% 가능",
+      "AccessGrant(QR/PIN) 발급 시스템 설계 — 결제 완료 시 즉시 입장 수단 자동 생성",
+      "정책 문서·ERD·API 명세·테스트 시나리오를 선행 작성 후 구현에 착수하는 문서 주도 개발 적용"
     ],
     "links": {
       "github": "https://github.com/WindowisPark/SpotPrice",
+      "demo": "",
+      "video": "",
+      "ppt": ""
+    }
+  },
+  {
+    "id": 4,
+    "title": "LockBench",
+    "subtitle": "Java 동시성 락 전략별 성능 비교 벤치마크 플랫폼",
+    "thumbnail": "",
+    "period": "2026.02",
+    "team": "개인 프로젝트",
+    "role": "설계 · 백엔드 개발",
+    "description": "DMX 프로젝트에서 경험한 동시성 이슈를 계기로, '어떤 락 전략이 어떤 조건에서 최적인가'를 정량적으로 검증하기 위해 설계한 벤치마크 플랫폼입니다. 재고 차감 시나리오에서 스레드 모델 2종(Platform/Virtual)과 락 전략 4종(No Lock, Optimistic, Pessimistic, Redis 분산락)을 Strategy 패턴으로 분리하고, Matrix Run API 한 번 호출로 8가지 조합의 TPS·레이턴시·실패율을 자동 측정하도록 구현했습니다.",
+    "techStack": ["Java 21", "Spring Boot 3", "Micrometer", "Prometheus", "Grafana", "Redis", "Hexagonal Architecture"],
+    "features": [
+      "Matrix Run API 설계 — 스레드 모델 2종 × 락 전략 4종, 총 8가지 조합을 단일 호출로 자동 실험",
+      "Optimistic Lock에 지수 백오프(2ms→32ms) + 랜덤 지터 재시도 정책을 구현해 thundering herd 방지",
+      "Micrometer로 P50/P95/P99 레이턴시·TPS·실패율을 수집하고, Prometheus + Grafana 대시보드에서 조합별 실시간 비교",
+      "실패 원인을 OUT_OF_STOCK·VERSION_CONFLICT·LOCK_TIMEOUT 등 5종으로 자동 분류해 병목 원인 즉시 식별",
+      "Hexagonal Architecture + Strategy 패턴으로 락/스레드 전략을 인터페이스 단위로 분리 — 신규 전략 추가 시 기존 코드 변경 없이 확장",
+      "Virtual Thread + Semaphore 기반 동시성 제한을 구현해 Platform Thread 대비 컨텍스트 스위칭 오버헤드 비교 검증"
+    ],
+    "links": {
+      "github": "https://github.com/WindowisPark/lock-bench",
       "demo": "",
       "video": "",
       "ppt": ""
