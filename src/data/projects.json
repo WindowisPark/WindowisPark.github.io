@@ -56,16 +56,36 @@
   {
     "id": 4,
     "title": "LockBench",
-    "thumbnail": "",
-    "period": "2026.02",
+    "thumbnail": "lock-bench",
+    "period": "2026.02 ~ 진행 중",
     "team": "개인 프로젝트",
     "role": "설계 · 백엔드 개발",
     "problem": "DMX 프로젝트에서 동시성 이슈를 해결한 뒤, '어떤 락 전략이 어떤 조건에서 최적인가'를 정량적으로 검증할 도구가 없었습니다. 재고 차감 시나리오에서 락 전략별 성능 차이를 객관적으로 비교할 필요가 있었습니다.",
-    "decision": "스레드 모델 2종(Platform/Virtual)과 락 전략 4종(No Lock, Optimistic, Pessimistic, Redis 분산락)을 Strategy 패턴으로 분리하고, Matrix Run API 한 번 호출로 8가지 조합의 TPS·레이턴시·실패율을 자동 측정하도록 설계했습니다. Optimistic Lock에 지수 백오프 + 랜덤 지터 재시도 정책을 구현하고, 실패 원인을 5종으로 자동 분류했습니다.",
-    "result": "Micrometer로 P50/P95/P99 레이턴시·TPS·실패율을 수집하고, Prometheus + Grafana 대시보드에서 조합별 실시간 비교가 가능합니다. Hexagonal Architecture + Strategy 패턴으로 신규 전략 추가 시 기존 코드 변경 없이 확장 가능한 구조를 확보했습니다.",
-    "techStack": ["Java 21", "Spring Boot 3", "Micrometer", "Prometheus", "Grafana", "Redis", "Hexagonal Architecture"],
+    "decision": "스레드 모델 2종(Platform/Virtual)과 락 전략 4종(No Lock, Optimistic, Pessimistic, Redis 분산락)을 Strategy 패턴으로 분리하고, Matrix Run API 한 번 호출로 8가지 조합의 TPS·레이턴시·실패율을 자동 측정하도록 설계했습니다. Optimistic Lock에 지수 백오프 + 랜덤 지터 재시도 정책을 구현하고, 실패 원인을 5종으로 자동 분류했습니다. v2에서 MySQL + Redis 실제 어댑터를 연결하고 k6 부하 시나리오 자동화 및 Tuning 2단계 실험을 추가했습니다.",
+    "result": "v2 MySQL+Redis Tuning2 실험(PLATFORM 스레드, 동시 100건) 결과: PESSIMISTIC_LOCK 20,864 req/s로 최고 처리량, NO_LOCK 15,848 / OPTIMISTIC 15,011 순. Redis 분산락은 네트워크 왕복 비용으로 468 req/s에 그쳐 고빈도 재고 차감에 부적합함을 정량 검증했습니다. Micrometer P50/P95/P99 + Prometheus + Grafana 대시보드에서 조합별 실시간 비교 가능합니다.",
+    "techStack": ["Java 21", "Spring Boot 3", "MySQL", "Redis", "Micrometer", "Prometheus", "Grafana", "Hexagonal Architecture"],
     "links": {
       "github": "https://github.com/WindowisPark/lock-bench",
+      "demo": "",
+      "video": "",
+      "ppt": ""
+    }
+  },
+  {
+    "id": 5,
+    "title": "FitIn",
+    "thumbnail": "fitin-app",
+    "images": ["fitin-app", "fitin-web"],
+    "period": "2024.10 ~ 진행 중",
+    "team": "캡스톤 산학협력 · 팀 프로젝트",
+    "role": "풀스택 설계 · 백엔드 개발",
+    "problem": "거동이 불편하거나 병원 방문이 어려운 재활 환자는 전문 피드백 없이 자가 운동을 수행해야 했습니다. 자세 정확도를 객관적으로 측정하거나 의료진과 실시간으로 데이터를 공유하는 수단이 없어, 재활 효과를 정량적으로 검증하기 어려웠습니다.",
+    "decision": "아두이노 기반 스마트미러에 CV(Computer Vision) 관절 각도 분석을 연동해 환자가 거울 앞에서 운동하면 자세를 실시간 채점(총점·정확도·완성도)하고 어깨·팔꿈치·손목·엉덩이·무릎·발목 6개 부위별 오차를 피드백하도록 구현했습니다. 병원 측에는 WebSocket 기반 실시간 모니터링 웹을 제공해 의료진이 원격으로 환자 운동 데이터를 조회하고 코멘트를 주고받을 수 있도록 설계했습니다.",
+    "result": "CV 채점 결과 총점 89점·정확도 85%·완성도 92% 수준의 분석 데이터를 시간별 점수 그래프와 부위별 오차 시각화로 제공합니다. 병원 WebSocket 화면에서 다수 환자의 부위별 재활 현황을 실시간으로 확인할 수 있습니다. 세종대학교 캡스톤 산학협력 프로젝트로 진행했습니다.",
+    "refactoring": "초기 구현 이후 구조 개선 진행 중. 1단계 완료: 패키지 명명 통일(model → entity), ApiResponse<T> 공통 응답 포맷 및 GlobalExceptionHandler 도입으로 일관된 응답·예외 처리 체계 확립. 2단계 진행 중: 환경변수 분리(DB 비밀번호·JWT 시크릿), DTO 교체(Object[] → 전용 DTO), 페이지네이션 적용.",
+    "techStack": ["Java 21", "Spring Boot 3.3.4", "MySQL", "Redis", "WebSocket", "Spring Security", "JWT", "JPA", "Arduino", "Computer Vision"],
+    "links": {
+      "github": "https://github.com/WindowisPark/fitin",
       "demo": "",
       "video": "",
       "ppt": ""

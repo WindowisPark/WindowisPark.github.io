@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Projects.module.css';
 
@@ -16,6 +16,73 @@ function getThumbnail(key) {
   return match ? match[1].default : null;
 }
 
+function ImageCarousel({ images }) {
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const prev = useCallback(() => setCurrent((i) => (i - 1 + images.length) % images.length), [images.length]);
+  const next = useCallback(() => setCurrent((i) => (i + 1) % images.length), [images.length]);
+
+  useEffect(() => {
+    if (paused || images.length <= 1) return;
+    const id = setInterval(next, 3000);
+    return () => clearInterval(id);
+  }, [paused, next, images.length]);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [prev, next]);
+
+  return (
+    <div
+      className={styles.carousel}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div
+        className={styles.carouselTrack}
+        style={{ transform: `translateX(-${current * 100}%)` }}
+      >
+        {images.map((src, i) => (
+          <div key={i} className={styles.carouselSlide}>
+            <img src={src} alt={`slide-${i + 1}`} />
+          </div>
+        ))}
+      </div>
+
+      {images.length > 1 && (
+        <>
+          <button className={`${styles.carouselArrow} ${styles.carouselArrowLeft}`} onClick={prev} aria-label="이전">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button className={`${styles.carouselArrow} ${styles.carouselArrowRight}`} onClick={next} aria-label="다음">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+          <div className={styles.carouselDots}>
+            {images.map((_, i) => (
+              <button
+                key={i}
+                className={`${styles.carouselDot} ${i === current ? styles.carouselDotActive : ''}`}
+                onClick={() => setCurrent(i)}
+                aria-label={`${i + 1}번 이미지`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -28,7 +95,14 @@ export default function ProjectModal({ project, onClose }) {
   }, [onClose]);
 
   const ytId = getYouTubeId(project.links?.video);
-  const thumbSrc = getThumbnail(project.thumbnail);
+
+  const carouselImages = (() => {
+    if (project.images && project.images.length > 0) {
+      return project.images.map((key) => getThumbnail(key)).filter(Boolean);
+    }
+    const single = getThumbnail(project.thumbnail);
+    return single ? [single] : [];
+  })();
 
   return createPortal(
     <div className={styles.overlay} onClick={onClose}>
@@ -40,10 +114,8 @@ export default function ProjectModal({ project, onClose }) {
           </svg>
         </button>
 
-        {thumbSrc && (
-          <div className={styles.modalThumb}>
-            <img src={thumbSrc} alt={project.title} />
-          </div>
+        {carouselImages.length > 0 && (
+          <ImageCarousel images={carouselImages} />
         )}
 
         <div className={styles.modalContent}>
@@ -82,6 +154,13 @@ export default function ProjectModal({ project, onClose }) {
             <div className={styles.modalSection}>
               <h3>결과</h3>
               <p>{project.result}</p>
+            </div>
+          )}
+
+          {project.refactoring && (
+            <div className={styles.refactoringSection}>
+              <h3>리팩토링 현황 <span className={styles.refactoringBadge}>진행 중</span></h3>
+              <p>{project.refactoring}</p>
             </div>
           )}
 
