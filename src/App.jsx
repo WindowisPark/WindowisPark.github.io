@@ -15,6 +15,101 @@ import PortfolioPdf from './components/PortfolioPdf/PortfolioPdf';
 
 const SECTIONS = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
 
+// A4: 210×297mm, margin: top/bottom 10mm, left/right 12mm
+const M_TOP = 10, M_BOTTOM = 10, M_LEFT = 12, M_RIGHT = 12;
+const CONTENT_W_MM = 210 - M_LEFT - M_RIGHT; // 186mm
+const CONTENT_H_MM = 297 - M_TOP - M_BOTTOM; // 277mm
+const CANVAS_SCALE = 2;
+
+async function generateSmartPdf(element, filename) {
+  const html2canvas = (await import('html2canvas')).default;
+  const { jsPDF } = await import('jspdf');
+
+  const canvas = await html2canvas(element, {
+    scale: CANVAS_SCALE,
+    useCORS: true,
+    logging: false,
+    backgroundColor: '#ffffff',
+    width: 794,
+    windowWidth: 794,
+  });
+
+  // 페이지 콘텐츠 높이(px): 캔버스 너비가 CONTENT_W_MM에 대응
+  const pageH_px = Math.round(canvas.width * (CONTENT_H_MM / CONTENT_W_MM));
+  const totalH_px = canvas.height;
+  const containerRect = element.getBoundingClientRect();
+
+  // 강제 브레이크 위치 ([data-pdf-break])
+  const breakPositions = [...element.querySelectorAll('[data-pdf-break]')]
+    .map(el => Math.round((el.getBoundingClientRect().top - containerRect.top) * CANVAS_SCALE))
+    .filter(p => p > 0)
+    .sort((a, b) => a - b);
+
+  // 잘리면 안 되는 요소의 경계 ([data-pdf-avoid])
+  const avoidBounds = [...element.querySelectorAll('[data-pdf-avoid]')].map(el => {
+    const r = el.getBoundingClientRect();
+    return {
+      top: Math.round((r.top - containerRect.top) * CANVAS_SCALE),
+      bottom: Math.round((r.bottom - containerRect.top) * CANVAS_SCALE),
+    };
+  });
+
+  // 페이지 컷 위치 결정
+  const pageCuts = [0];
+  let cursor = 0;
+
+  while (cursor < totalH_px) {
+    let cut = cursor + pageH_px;
+
+    // 강제 브레이크가 자연 컷보다 먼저 오면 우선 적용
+    const forced = breakPositions.find(p => p > cursor && p < cut);
+    if (forced !== undefined) {
+      pageCuts.push(forced);
+      cursor = forced;
+      continue;
+    }
+
+    if (cut >= totalH_px) break;
+
+    // avoid 요소가 컷에 걸리면 요소 상단으로 이동
+    for (const { top, bottom } of avoidBounds) {
+      if (top < cut && bottom > cut && (bottom - top) <= pageH_px) {
+        cut = top;
+        break;
+      }
+    }
+
+    if (cut <= cursor) cut = cursor + pageH_px; // 무한 루프 방지
+    if (cut >= totalH_px) break;
+
+    pageCuts.push(cut);
+    cursor = cut;
+  }
+  pageCuts.push(totalH_px);
+
+  // 페이지별 슬라이스 → jsPDF 조립
+  const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+  for (let i = 0; i < pageCuts.length - 1; i++) {
+    if (i > 0) pdf.addPage();
+
+    const sliceTop = pageCuts[i];
+    const sliceH = pageCuts[i + 1] - sliceTop;
+
+    const pageCanvas = document.createElement('canvas');
+    pageCanvas.width = canvas.width;
+    pageCanvas.height = sliceH;
+    pageCanvas.getContext('2d').drawImage(
+      canvas, 0, sliceTop, canvas.width, sliceH, 0, 0, canvas.width, sliceH
+    );
+
+    const imgH_mm = (sliceH / canvas.width) * CONTENT_W_MM;
+    pdf.addImage(pageCanvas.toDataURL('image/jpeg', 0.95), 'JPEG', M_LEFT, M_TOP, CONTENT_W_MM, imgH_mm);
+  }
+
+  pdf.save(filename);
+}
+
 export default function App() {
   const activeSection = useScrollSpy(SECTIONS);
 
@@ -49,28 +144,7 @@ export default function App() {
       requestAnimationFrame(async () => {
         if (cancelled) return;
         try {
-          const html2pdf = (await import('html2pdf.js')).default;
-          await html2pdf()
-            .set({
-              margin: [10, 12, 10, 12],
-              filename: '박창희_이력서.pdf',
-              image: { type: 'jpeg', quality: 0.95 },
-              html2canvas: {
-                scale: 2,
-                useCORS: true,
-                logging: false,
-                backgroundColor: '#ffffff',
-                width: 794,
-                windowWidth: 794,
-              },
-              jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-              pagebreak: {
-                before: '[data-pdf-break]',
-                avoid: '[data-pdf-avoid]',
-              },
-            })
-            .from(resumeRef.current)
-            .save();
+          await generateSmartPdf(resumeRef.current, '박창희_이력서.pdf');
         } catch (err) {
           console.error('이력서 PDF 생성 실패:', err);
         } finally {
@@ -92,28 +166,7 @@ export default function App() {
       requestAnimationFrame(async () => {
         if (cancelled) return;
         try {
-          const html2pdf = (await import('html2pdf.js')).default;
-          await html2pdf()
-            .set({
-              margin: [10, 12, 10, 12],
-              filename: '박창희_프로젝트_포트폴리오.pdf',
-              image: { type: 'jpeg', quality: 0.95 },
-              html2canvas: {
-                scale: 2,
-                useCORS: true,
-                logging: false,
-                backgroundColor: '#ffffff',
-                width: 794,
-                windowWidth: 794,
-              },
-              jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-              pagebreak: {
-                before: '[data-pdf-break]',
-                avoid: '[data-pdf-avoid]',
-              },
-            })
-            .from(portfolioRef.current)
-            .save();
+          await generateSmartPdf(portfolioRef.current, '박창희_프로젝트_포트폴리오.pdf');
         } catch (err) {
           console.error('포트폴리오 PDF 생성 실패:', err);
         } finally {
