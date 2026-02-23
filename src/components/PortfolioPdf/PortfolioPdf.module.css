@@ -15,7 +15,7 @@
   gap: 24px;
   padding-bottom: 16px;
   border-bottom: 2px solid #4f46e5;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .profileImg {
@@ -59,9 +59,9 @@
   gap: 4px;
 }
 
-/* ========== Project ========== */
+/* ========== Project Card ========== */
 .project {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   padding: 14px 16px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
@@ -71,8 +71,23 @@
 .projectHeader {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 2px;
+}
+
+.projectTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 프로젝트 번호 배지: 01, 02, ... */
+.projectNum {
+  font-size: 10pt;
+  font-weight: 800;
+  color: #4f46e5;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
 }
 
 .projectTitle {
@@ -93,13 +108,13 @@
   margin-bottom: 10px;
 }
 
-/* ========== Field (문제/결정/결과) ========== */
+/* ========== Fields (문제/결정/결과) ========== */
 .field {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .fieldLabel {
-  font-size: 9pt;
+  font-size: 8.5pt;
   font-weight: 700;
   color: #4f46e5;
   margin-bottom: 2px;
@@ -115,24 +130,72 @@
   padding-left: 11px;
 }
 
-/* ========== Tech Row ========== */
-.techRow {
-  display: flex;
-  gap: 8px;
-  align-items: baseline;
-  margin-top: 8px;
-  padding-top: 6px;
-  border-top: 1px solid #f1f5f9;
+/* 결과 필드 — 하이라이트 */
+.fieldResult {
+  background: #eef2ff;
+  border-radius: 6px;
+  padding: 6px 10px 6px 0;
+  margin-top: 2px;
 }
 
-.techLabel {
+.fieldLabelResult {
   font-size: 8.5pt;
   font-weight: 700;
-  color: #475569;
-  flex-shrink: 0;
+  color: #4338ca;
+  margin-bottom: 2px;
+  padding-left: 8px;
+  border-left: 3px solid #4338ca;
 }
 
-.techItems {
+/* 리팩토링 진행 현황 */
+.fieldRefactoring {
+  background: #fffbeb;
+  border-radius: 6px;
+  padding: 6px 10px 6px 0;
+  margin-top: 2px;
+}
+
+.fieldLabelRefactoring {
   font-size: 8.5pt;
-  color: #64748b;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 2px;
+  padding-left: 8px;
+  border-left: 3px solid #d97706;
+}
+
+/* ========== Footer (기술 배지 + GitHub 링크) ========== */
+.projectFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.techBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.techBadge {
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.projectLink {
+  font-size: 7.5pt;
+  color: #6366f1;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
