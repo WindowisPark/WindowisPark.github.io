@@ -73,6 +73,26 @@
   },
   {
     "id": 5,
+    "title": "Planova",
+    "thumbnail": "planova-landing",
+    "images": ["planova-landing", "planova-dashboard", "planova-events", "planova-aitutor"],
+    "period": "2025.03 ~ 2025.07",
+    "team": "세종대학교 창의학기제 6학점 · 팀 프로젝트",
+    "role": "백엔드 개발 · AI 프롬프팅",
+    "problem": "자기주도 학습이 어려운 학생들이 AI 튜터에게 언제든지 질문하고, 학습 일정을 관리하며, 동기부여를 유지할 수 있는 통합 학습 플랫폼이 필요했습니다. 기존 학습 도구들은 AI 대화·콘텐츠·캘린더·커뮤니티가 분산돼 있어 학습 흐름이 끊겼습니다.",
+    "decision": "FastAPI 기반 백엔드 전체를 설계·개발했습니다. AI 튜터 기능은 학습 맥락을 누적 유지하는 대화 이력 관리와 교육 목적에 최적화된 시스템 프롬프트를 직접 설계해 구현했습니다. JWT + OAuth2(카카오 로그인) + SMS 인증 체계를 구축하고, PortOne을 연동한 플래닛(포인트) 기반 구독 결제 모델을 완성했습니다. 출석 체크·친구 초대·신규가입 혜택 등 이벤트 시스템과 포인트·레벨·뱃지 게이미피케이션을 설계해 학습 지속성을 높였습니다.",
+    "result": "약 한 달간 실제 서비스를 운영하며 실사용자 피드백을 수집했습니다. 창의학기제 6학점 프로젝트로 서비스 기획부터 백엔드 구현, 실운영까지 전 과정을 경험했습니다.",
+    "refactoring": "운영 종료 후 4개 이슈에 대한 리팩토링을 완료(2026.02)했습니다. ① 운영 안정성: DB 시작 검증 및 커넥션 풀 정리 라이프사이클 훅 추가, 테스트·디버그 스크립트 13개 정리. ② 보안 강화: 하드코딩된 DB·암호화 키를 환경변수 필수화로 전환, WebSocket 세션 누수 수정, 웹훅 서명 검증 추가. ③ 응답 성능: DB 커넥션 풀링(pool_size=10, max_overflow=20) 적용, OpenAI 클라이언트를 모듈 레벨 싱글톤으로 전환해 TCP 재연결 제거, Redis 동일 질의 캐싱(TTL 1h). ④ 동시성 수정: LangGraph의 동기 graph.invoke()를 asyncio.to_thread()로 교체해 동시 요청 시 이벤트 루프 블로킹 해소.",
+    "techStack": ["Python", "FastAPI", "PostgreSQL", "Redis", "WebSocket", "JWT", "OAuth2", "PortOne", "LLM Prompting"],
+    "links": {
+      "github": "https://github.com/WindowisPark/e-room",
+      "demo": "",
+      "video": "",
+      "ppt": ""
+    }
+  },
+  {
+    "id": 6,
     "title": "FitIn",
     "thumbnail": "fitin-app",
     "images": ["fitin-app", "fitin-web"],
