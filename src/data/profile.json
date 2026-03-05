@@ -89,6 +89,7 @@
   ],
   "awards": [
     { "name": "세종대학교 제11회 SW/AI 해커톤 은상", "date": "2024.12", "description": "RAG 기법을 이용한 세종대학교 연구실 매칭 시스템 및 챗봇 개발" },
+    { "name": "세종대학교 SW중심대학 에세이 공모전 최우수상", "date": "2025.02", "description": "" },
     { "name": "세종대학교 제12회 SW/AI 해커톤 은상", "date": "2025.06", "description": "LangChain 기반 세종대학교 창업 가이드 애플리케이션 개발" }
   ]
 }
