@@ -32,7 +32,14 @@ export default function ProjectCard({ project, onClick }) {
 
       <div className={styles.cardBody}>
         <h3 className={styles.cardTitle}>{project.title}</h3>
-        <p className={styles.cardSubtitle}>{project.problem?.slice(0, 60)}…</p>
+        {project.keywords?.length > 0 && (
+          <div className={styles.cardKeywords}>
+            {project.keywords.map((kw) => (
+              <span key={kw} className={styles.cardKeyword}>{kw}</span>
+            ))}
+          </div>
+        )}
+        <p className={styles.cardSubtitle}>{project.summary || project.problem?.slice(0, 60)}</p>
 
         <div className={styles.cardMeta}>
           <span>{project.period}</span>

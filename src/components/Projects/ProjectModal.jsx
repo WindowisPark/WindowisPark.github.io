@@ -121,6 +121,20 @@ export default function ProjectModal({ project, onClose }) {
         <div className={styles.modalContent}>
           <h2 className={styles.modalTitle}>{project.title}</h2>
 
+          {project.keywords?.length > 0 && (
+            <div className={styles.modalKeywords}>
+              {project.keywords.map((kw) => (
+                <span key={kw} className={styles.modalKeyword}>{kw}</span>
+              ))}
+            </div>
+          )}
+
+          {project.summary && (
+            <div className={styles.modalSummary}>
+              <p>{project.summary}</p>
+            </div>
+          )}
+
           <div className={styles.modalMeta}>
             <div className={styles.metaItem}>
               <span className={styles.metaLabel}>기간</span>

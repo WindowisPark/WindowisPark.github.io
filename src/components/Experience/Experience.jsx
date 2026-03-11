@@ -68,6 +68,15 @@ export default function Experience() {
                       <span className={`${styles.badge} ${styles.badgeCert}`}>CERTIFICATE</span>
                       <h4>{c.name}</h4>
                       <p className={styles.extraDate}>{c.date} · {c.issuer}</p>
+                      {c.status && (
+                        <span className={
+                          c.status === '취득'
+                            ? styles.certStatusDone
+                            : styles.certStatusInProgress
+                        }>
+                          {c.status}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>
