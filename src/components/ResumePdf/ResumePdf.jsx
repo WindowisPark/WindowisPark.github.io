@@ -4,7 +4,7 @@ import profileImage from '../../assets/images/profile.png';
 import styles from './ResumePdf.module.css';
 
 const ResumePdf = forwardRef(function ResumePdf(_, ref) {
-  const { name, title, subtitle, contact, about, skills, experience, certificates, awards } = profile;
+  const { name, title, subtitle, contact, about, skills, experience, certificates, awards, activities } = profile;
 
   return (
     <div ref={ref} className={styles.wrapper}>
@@ -89,6 +89,18 @@ const ResumePdf = forwardRef(function ResumePdf(_, ref) {
                 <div key={i} className={styles.compactItem}>
                   <span className={styles.compactName}>{c.name}</span>
                   <span className={styles.compactDate}>{c.date} · {c.issuer}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {activities?.length > 0 && (
+            <div className={styles.compactGroup}>
+              <div className={styles.sectionTitle}>Activities</div>
+              {activities.map((a, i) => (
+                <div key={i} className={styles.compactItem}>
+                  <span className={styles.compactName}>{a.name}</span>
+                  <span className={styles.compactDate}>{a.period} · {a.organizer}</span>
                 </div>
               ))}
             </div>

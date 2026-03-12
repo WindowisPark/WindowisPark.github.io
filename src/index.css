@@ -58,6 +58,8 @@
   --color-badge-cert-text: #2563eb;
   --color-badge-cert-bg: #dbeafe;
   --color-tag-hover-border: rgba(79, 70, 229, 0.15);
+  --color-badge-activity-text: #0d9488;
+  --color-badge-activity-bg: #ccfbf1;
 }
 
 [data-theme="dark"] {
@@ -93,6 +95,8 @@
   --color-badge-cert-text: #60a5fa;
   --color-badge-cert-bg: rgba(96, 165, 250, 0.15);
   --color-tag-hover-border: rgba(129, 140, 248, 0.2);
+  --color-badge-activity-text: #5eead4;
+  --color-badge-activity-bg: rgba(94,234,212,0.15);
 }
 
 *,

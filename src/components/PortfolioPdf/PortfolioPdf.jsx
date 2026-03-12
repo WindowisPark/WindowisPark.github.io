@@ -26,7 +26,7 @@ const PortfolioPdf = forwardRef(function PortfolioPdf(_, ref) {
       {/* Projects */}
       {projects.map((p, idx) => (
         <div key={p.id}>
-          {idx > 0 && idx % 2 === 0 && <div data-pdf-break="" />}
+          {idx > 0 && <div data-pdf-break="" />}
           <div className={styles.project} data-pdf-avoid="">
 
             {/* 프로젝트 헤더 */}
@@ -39,23 +39,49 @@ const PortfolioPdf = forwardRef(function PortfolioPdf(_, ref) {
             </div>
             <div className={styles.projectRole}>{p.role}</div>
 
-            {/* 문제 상황 */}
+            {/* 문제 발견 */}
             <div className={styles.field}>
-              <div className={styles.fieldLabel}>문제 상황</div>
+              <div className={styles.fieldLabel}>문제 발견</div>
               <p className={styles.fieldText}>{p.problem}</p>
             </div>
 
-            {/* 설계 결정 */}
-            <div className={styles.field}>
-              <div className={styles.fieldLabel}>설계 결정</div>
-              <p className={styles.fieldText}>{p.decision}</p>
-            </div>
+            {/* 사고 방향 */}
+            {p.approach && (
+              <div className={styles.field}>
+                <div className={styles.fieldLabel}>사고 방향</div>
+                <p className={styles.fieldText}>{p.approach}</p>
+              </div>
+            )}
+
+            {/* 왜 이 방법인가 */}
+            {p.rationale && (
+              <div className={styles.field}>
+                <div className={styles.fieldLabel}>왜 이 방법인가</div>
+                <p className={styles.fieldText}>{p.rationale}</p>
+              </div>
+            )}
+
+            {/* 해결 과정 */}
+            {p.solution && (
+              <div className={styles.field}>
+                <div className={styles.fieldLabel}>해결 과정</div>
+                <p className={styles.fieldText}>{p.solution}</p>
+              </div>
+            )}
 
             {/* 결과 — 하이라이트 */}
             <div className={`${styles.field} ${styles.fieldResult}`}>
               <div className={styles.fieldLabelResult}>결과</div>
               <p className={styles.fieldText}>{p.result}</p>
             </div>
+
+            {/* 교훈 */}
+            {p.lesson && (
+              <div className={styles.field}>
+                <div className={styles.fieldLabel}>교훈</div>
+                <p className={styles.fieldText}>{p.lesson}</p>
+              </div>
+            )}
 
             {/* 리팩토링 진행 현황 (있을 때만) */}
             {p.refactoring && (

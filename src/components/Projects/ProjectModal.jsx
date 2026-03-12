@@ -152,15 +152,29 @@ export default function ProjectModal({ project, onClose }) {
 
           {project.problem && (
             <div className={styles.modalSection}>
-              <h3>문제 상황</h3>
+              <h3>문제 발견</h3>
               <p>{project.problem}</p>
             </div>
           )}
 
-          {project.decision && (
+          {project.approach && (
             <div className={styles.modalSection}>
-              <h3>설계 결정</h3>
-              <p>{project.decision}</p>
+              <h3>사고 방향</h3>
+              <p>{project.approach}</p>
+            </div>
+          )}
+
+          {project.rationale && (
+            <div className={styles.modalSection}>
+              <h3>왜 이 방법인가</h3>
+              <p>{project.rationale}</p>
+            </div>
+          )}
+
+          {project.solution && (
+            <div className={styles.modalSection}>
+              <h3>해결 과정</h3>
+              <p>{project.solution}</p>
             </div>
           )}
 
@@ -168,6 +182,13 @@ export default function ProjectModal({ project, onClose }) {
             <div className={styles.modalSection}>
               <h3>결과</h3>
               <p>{project.result}</p>
+            </div>
+          )}
+
+          {project.lesson && (
+            <div className={styles.modalSection}>
+              <h3>교훈</h3>
+              <p>{project.lesson}</p>
             </div>
           )}
 

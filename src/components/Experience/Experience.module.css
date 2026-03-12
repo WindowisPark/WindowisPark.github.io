@@ -182,6 +182,11 @@
   background: var(--color-badge-cert-bg);
 }
 
+.badgeActivity {
+  color: var(--color-badge-activity-text);
+  background: var(--color-badge-activity-bg);
+}
+
 .certStatusDone {
   display: inline-block;
   margin-top: 8px;

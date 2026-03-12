@@ -3,16 +3,10 @@ import SectionTitle from '../common/SectionTitle';
 import styles from './Experience.module.css';
 
 export default function Experience() {
-  const allItems = [
-    ...profile.experience,
-    ...(profile.certificates || []).map((c) => ({ ...c, type: 'certificate' })),
-    ...(profile.awards || []).map((a) => ({ ...a, type: 'award' })),
-  ];
-
   return (
     <section id="experience" className={styles.section}>
       <div className="container">
-        <SectionTitle title="Experience" subtitle="경력 · 교육 · 자격증 · 수상" />
+        <SectionTitle title="Experience" subtitle="경력 · 교육 · 자격증 · 수상 · 활동" />
 
         <div className={styles.timeline}>
           {profile.experience.map((item, i) => (
@@ -41,7 +35,7 @@ export default function Experience() {
           ))}
         </div>
 
-        {(profile.certificates?.length > 0 || profile.awards?.length > 0) && (
+        {(profile.certificates?.length > 0 || profile.awards?.length > 0 || profile.activities?.length > 0) && (
           <div className={styles.extras}>
             {profile.awards?.length > 0 && (
               <div className={styles.extraGroup}>
@@ -77,6 +71,22 @@ export default function Experience() {
                           {c.status}
                         </span>
                       )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {profile.activities?.length > 0 && (
+              <div className={styles.extraGroup}>
+                <h3 className={styles.extraTitle}>대외 활동</h3>
+                <div className={styles.extraCards}>
+                  {profile.activities.map((a, i) => (
+                    <div key={i} className={styles.extraCard}>
+                      <span className={`${styles.badge} ${styles.badgeActivity}`}>ACTIVITY</span>
+                      <h4>{a.name}</h4>
+                      <p className={styles.extraDate}>{a.period} · {a.organizer}</p>
+                      {a.description && <p className={styles.extraDesc}>{a.description}</p>}
                     </div>
                   ))}
                 </div>
