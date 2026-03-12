@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
+  { id: 'blog', label: 'Dev Log', href: '/commit-blog' },
 ];
 
 export default function Navbar({ activeSection, onDownloadResume, onDownloadPortfolio }) {
@@ -116,15 +117,19 @@ export default function Navbar({ activeSection, onDownloadResume, onDownloadPort
         </div>
 
         <ul className={`${styles.links} ${mobileOpen ? styles.mobileOpen : ''}`}>
-          {NAV_ITEMS.map(({ id, label }) => (
+          {NAV_ITEMS.map(({ id, label, href }) => (
             <li key={id}>
-              <a
-                href={`#${id}`}
-                className={`${styles.link} ${activeSection === id ? styles.active : ''}`}
-                onClick={(e) => { e.preventDefault(); scrollTo(id); }}
-              >
-                {label}
-              </a>
+              {href ? (
+                <a href={href} className={styles.link}>{label}</a>
+              ) : (
+                <a
+                  href={`#${id}`}
+                  className={`${styles.link} ${activeSection === id ? styles.active : ''}`}
+                  onClick={(e) => { e.preventDefault(); scrollTo(id); }}
+                >
+                  {label}
+                </a>
+              )}
             </li>
           ))}
         </ul>

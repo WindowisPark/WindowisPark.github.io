@@ -242,4 +242,5 @@
   .links.mobileOpen li:nth-child(4) .link { transition-delay: 0.2s; }
   .links.mobileOpen li:nth-child(5) .link { transition-delay: 0.25s; }
   .links.mobileOpen li:nth-child(6) .link { transition-delay: 0.3s; }
+  .links.mobileOpen li:nth-child(7) .link { transition-delay: 0.35s; }
 }
