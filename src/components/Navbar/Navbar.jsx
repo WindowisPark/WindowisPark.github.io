@@ -4,6 +4,7 @@ import styles from './Navbar.module.css';
 
 const NAV_ITEMS = [
   { id: 'hero', label: 'Home' },
+  { id: 'selfintro', label: 'Self Intro' },
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
@@ -36,6 +37,7 @@ export default function Navbar({ activeSection, onDownloadResume, onDownloadPort
   }, [pdfOpen]);
 
   const scrollTo = (id) => {
+
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
     setMobileOpen(false);

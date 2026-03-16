@@ -58,15 +58,13 @@ export default function Hero() {
                 <span>Email</span>
               </a>
             )}
-            {contact.blog && (
-              <a href={contact.blog} target="_blank" rel="noopener noreferrer" aria-label="Tistory">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
-                </svg>
-                <span>Tistory</span>
-              </a>
-            )}
+            <a href="/commit-blog" aria-label="Dev Log">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+              </svg>
+              <span>Dev Log</span>
+            </a>
             {contact.velog && (
               <a href={contact.velog} target="_blank" rel="noopener noreferrer" aria-label="Velog">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

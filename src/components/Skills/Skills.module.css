@@ -1,11 +1,12 @@
 .section {
   padding: var(--section-padding);
+  background: var(--color-bg-alt);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -13,7 +14,7 @@
 .card {
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
-  padding: 32px;
+  padding: 28px 28px 24px;
   border-radius: var(--border-radius);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
@@ -49,20 +50,22 @@
   color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.category::before {
-  content: '';
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  opacity: 0.4;
+.categoryIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+  flex-shrink: 0;
 }
 
 .tags {
@@ -102,6 +105,12 @@
 @media (max-width: 480px) {
   .card {
     padding: 20px;
+  }
+
+  .categoryIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
   }
 
   .tag {

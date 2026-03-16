@@ -97,6 +97,27 @@
   border-radius: 4px;
 }
 
+/* ========== Self Intro ========== */
+.selfIntroItem {
+  margin-bottom: 8px;
+}
+
+.selfIntroQ {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #0f172a;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.selfIntroA {
+  font-size: 8.5pt;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+  padding-left: 12px;
+}
+
 /* ========== Skills ========== */
 .skillRow {
   display: flex;
