@@ -122,6 +122,39 @@
   background: var(--color-primary-bg);
 }
 
+.modeToggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  padding: 2px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.modeToggle:hover {
+  border-color: var(--color-primary);
+}
+
+.modeLabel {
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 14px;
+  color: var(--color-text-light);
+  transition: all var(--transition);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.modeLabelActive {
+  color: #fff;
+  background: var(--color-primary);
+}
+
 .themeToggle {
   display: flex;
   align-items: center;

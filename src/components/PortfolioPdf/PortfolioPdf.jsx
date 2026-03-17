@@ -1,10 +1,10 @@
 import { forwardRef } from 'react';
-import profile from '../../data/profile.json';
-import projects from '../../data/projects.json';
+import { useModeData } from '../../context/ModeContext';
 import profileImage from '../../assets/images/profile.png';
 import styles from './PortfolioPdf.module.css';
 
 const PortfolioPdf = forwardRef(function PortfolioPdf(_, ref) {
+  const { profile, projects } = useModeData();
   const { name, title, contact } = profile;
 
   return (

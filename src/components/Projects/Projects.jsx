@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import projects from '../../data/projects.json';
+import { useModeData } from '../../context/ModeContext';
 import SectionTitle from '../common/SectionTitle';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
@@ -23,6 +23,7 @@ function parsePeriodStart(period) {
 }
 
 export default function Projects() {
+  const { projects } = useModeData();
   const [selected, setSelected] = useState(null);
   const [filter, setFilter] = useState('all');
   const [sort, setSort] = useState('newest');
@@ -36,7 +37,7 @@ export default function Projects() {
       const diff = parsePeriodStart(b.period) - parsePeriodStart(a.period);
       return sort === 'newest' ? diff : -diff;
     });
-  }, [filter, sort]);
+  }, [projects, filter, sort]);
 
   return (
     <section id="projects" className={styles.section}>

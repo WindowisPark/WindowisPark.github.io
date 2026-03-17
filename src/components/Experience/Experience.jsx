@@ -1,8 +1,9 @@
-import profile from '../../data/profile.json';
+import { useModeData } from '../../context/ModeContext';
 import SectionTitle from '../common/SectionTitle';
 import styles from './Experience.module.css';
 
 export default function Experience() {
+  const { profile } = useModeData();
   return (
     <section id="experience" className={styles.section}>
       <div className="container">

@@ -1,8 +1,9 @@
-import profile from '../../data/profile.json';
+import { useModeData } from '../../context/ModeContext';
 import profileImage from '../../assets/images/profile.png';
 import styles from './Hero.module.css';
 
 export default function Hero() {
+  const { profile } = useModeData();
   const { name, title, subtitle, contact } = profile;
 
   return (

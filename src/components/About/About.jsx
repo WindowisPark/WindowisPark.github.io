@@ -1,8 +1,9 @@
-import profile from '../../data/profile.json';
+import { useModeData } from '../../context/ModeContext';
 import SectionTitle from '../common/SectionTitle';
 import styles from './About.module.css';
 
 export default function About() {
+  const { profile } = useModeData();
   const { about } = profile;
 
   return (

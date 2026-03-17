@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import useScrollSpy from './hooks/useScrollSpy';
+import { useModeData } from './context/ModeContext';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import Hero from './components/Hero/Hero';
@@ -113,6 +114,8 @@ async function generateSmartPdf(element, filename) {
 
 export default function App() {
   const activeSection = useScrollSpy(SECTIONS);
+  const { mode } = useModeData();
+  const modeSuffix = mode === 'builder' ? '_빌더' : '_백엔드';
 
   // Resume PDF state
   const [resumeReady, setResumeReady] = useState(false);
@@ -145,7 +148,7 @@ export default function App() {
       requestAnimationFrame(async () => {
         if (cancelled) return;
         try {
-          await generateSmartPdf(resumeRef.current, '박창희_이력서.pdf');
+          await generateSmartPdf(resumeRef.current, `박창희_이력서${modeSuffix}.pdf`);
         } catch (err) {
           console.error('이력서 PDF 생성 실패:', err);
         } finally {
@@ -167,7 +170,7 @@ export default function App() {
       requestAnimationFrame(async () => {
         if (cancelled) return;
         try {
-          await generateSmartPdf(portfolioRef.current, '박창희_프로젝트_포트폴리오.pdf');
+          await generateSmartPdf(portfolioRef.current, `박창희_프로젝트_포트폴리오${modeSuffix}.pdf`);
         } catch (err) {
           console.error('포트폴리오 PDF 생성 실패:', err);
         } finally {

@@ -99,6 +99,39 @@
   --color-badge-activity-bg: rgba(94,234,212,0.15);
 }
 
+/* Builder mode — Teal palette (light) */
+[data-mode="builder"] {
+  --color-primary: #0d9488;
+  --color-primary-light: #14b8a6;
+  --color-primary-dark: #0f766e;
+  --color-primary-bg: #f0fdfa;
+  --color-card-shadow: rgba(13, 148, 136, 0.08);
+  --color-card-hover-shadow: rgba(13, 148, 136, 0.12);
+  --color-card-hover-border: rgba(13, 148, 136, 0.08);
+  --color-btn-shadow: rgba(13, 148, 136, 0.3);
+  --color-btn-shadow-hover: rgba(13, 148, 136, 0.4);
+  --color-orb1: rgba(13, 148, 136, 0.08);
+  --color-orb2: rgba(20, 184, 166, 0.06);
+  --color-grid-line: rgba(13, 148, 136, 0.03);
+  --color-tag-hover-border: rgba(13, 148, 136, 0.15);
+  --color-thumb-gradient-end: #f0fdfa;
+}
+
+/* Builder mode — Teal palette (dark) */
+[data-theme="dark"][data-mode="builder"] {
+  --color-primary: #5eead4;
+  --color-primary-light: #99f6e4;
+  --color-primary-dark: #14b8a6;
+  --color-primary-bg: rgba(94, 234, 212, 0.15);
+  --color-card-hover-border: rgba(94, 234, 212, 0.15);
+  --color-btn-shadow: rgba(20, 184, 166, 0.3);
+  --color-btn-shadow-hover: rgba(20, 184, 166, 0.5);
+  --color-orb1: rgba(94, 234, 212, 0.1);
+  --color-orb2: rgba(153, 246, 228, 0.07);
+  --color-grid-line: rgba(94, 234, 212, 0.04);
+  --color-tag-hover-border: rgba(94, 234, 212, 0.2);
+}
+
 *,
 *::before,
 *::after {

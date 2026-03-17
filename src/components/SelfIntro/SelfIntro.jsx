@@ -1,8 +1,9 @@
-import profile from '../../data/profile.json';
+import { useModeData } from '../../context/ModeContext';
 import SectionTitle from '../common/SectionTitle';
 import styles from './SelfIntro.module.css';
 
 export default function SelfIntro() {
+  const { profile } = useModeData();
   const { selfIntro } = profile;
 
   return (

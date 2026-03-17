@@ -1,7 +1,8 @@
-import profile from '../../data/profile.json';
+import { useModeData } from '../../context/ModeContext';
 import styles from './Contact.module.css';
 
 export default function Contact() {
+  const { profile } = useModeData();
   const { contact } = profile;
 
   return (

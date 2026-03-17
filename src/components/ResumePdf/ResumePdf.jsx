@@ -1,9 +1,10 @@
 import { forwardRef } from 'react';
-import profile from '../../data/profile.json';
+import { useModeData } from '../../context/ModeContext';
 import profileImage from '../../assets/images/profile.png';
 import styles from './ResumePdf.module.css';
 
 const ResumePdf = forwardRef(function ResumePdf(_, ref) {
+  const { profile } = useModeData();
   const { name, title, subtitle, contact, about, selfIntro, skills, experience, certificates, awards, activities } = profile;
 
   return (
