@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import useScrollSpy from './hooks/useScrollSpy';
-import { useModeData } from './context/ModeContext';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import Hero from './components/Hero/Hero';
@@ -114,8 +113,7 @@ async function generateSmartPdf(element, filename) {
 
 export default function App() {
   const activeSection = useScrollSpy(SECTIONS);
-  const { mode } = useModeData();
-  const modeSuffix = mode === 'builder' ? '_빌더' : '_백엔드';
+  const modeSuffix = '_백엔드';
 
   // Resume PDF state
   const [resumeReady, setResumeReady] = useState(false);

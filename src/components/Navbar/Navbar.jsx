@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import useTheme from '../../hooks/useTheme';
-import { useModeData } from '../../context/ModeContext';
 import styles from './Navbar.module.css';
 
 const NAV_ITEMS = [
@@ -16,7 +15,6 @@ const NAV_ITEMS = [
 
 export default function Navbar({ activeSection, onDownloadResume, onDownloadPortfolio }) {
   const [theme, toggleTheme] = useTheme();
-  const { mode, toggleMode } = useModeData();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [pdfOpen, setPdfOpen] = useState(false);
@@ -84,16 +82,6 @@ export default function Navbar({ activeSection, onDownloadResume, onDownloadPort
               </div>
             )}
           </div>
-
-          <button
-            className={styles.modeToggle}
-            onClick={toggleMode}
-            aria-label={mode === 'builder' ? '백엔드 모드로 전환' : '빌더 모드로 전환'}
-            title={mode === 'builder' ? 'Backend 모드로 전환' : 'Builder 모드로 전환'}
-          >
-            <span className={`${styles.modeLabel} ${mode === 'backend' ? styles.modeLabelActive : ''}`}>Backend</span>
-            <span className={`${styles.modeLabel} ${mode === 'builder' ? styles.modeLabelActive : ''}`}>Builder</span>
-          </button>
 
           <button
             className={styles.themeToggle}
