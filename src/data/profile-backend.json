@@ -13,17 +13,15 @@
     "velog": "https://velog.io/@bomboychang/posts"
   },
   "about": {
-    "description": "인슈어테크 기업 그린리본에서 5개월간 백엔드를 맡았습니다. 임상시험 플랫폼 hub.green-scout를 혼자 설계하고 배포했고, 라이프캐치 서비스에서는 포인트 환전 동시성 장애를 잡고 커뮤니티 포인트 시스템(라운지)까지 설계했습니다. 문제가 생기면 일단 쪼개서 보고, 고치기 전에 기준선부터 잡는 식으로 일합니다.",
+    "description": "인슈어테크 기업에서 5개월간 백엔드를 맡아 임상시험 플랫폼 설계·배포, 포인트 환전 동시성 장애 해결, 커뮤니티 포인트 시스템 API 설계까지 경험했습니다. 기획자·프론트 개발자와 API 규약을 먼저 맞추고, 문제가 생기면 쪼개서 보고 기준선부터 잡는 식으로 일합니다.",
     "highlights": [
-      "임상시험 플랫폼 백엔드 단독 설계·개발·배포 — RBAC 5단계 + 환자 PII 마스킹",
-      "라이프캐치 포인트 환전 동시성 장애 해결 — JMeter 100건 기준 오류율 90%+ 감소",
-      "라이프캐치 라운지 커뮤니티 포인트 시스템 API 설계·개발 — 퀴즈·출석·친구초대"
+      "운영 중 환전 API 동시성 장애 단독 해결 — JMeter 100건 기준 오류율 90%+ 감소",
+      "임상시험 플랫폼 백엔드 설계·배포 — RBAC 5단계 + 환자 PII 마스킹"
     ]
   },
   "skills": [
     { "category": "Backend", "items": ["Java 21", "Spring Boot 3", "Spring Security", "JPA/Hibernate", "Python", "FastAPI"] },
     { "category": "Database", "items": ["MySQL", "PostgreSQL", "Redis", "Flyway"] },
-    { "category": "Architecture", "items": ["모듈 분리", "Port/Adapter 패턴", "Command/Query 분리"] },
     { "category": "DevOps & Monitoring", "items": ["Docker", "GitHub Actions", "Prometheus", "Grafana", "Nginx"] },
     { "category": "Security", "items": ["RBAC", "JWT", "OAuth2", "PII Masking"] },
     { "category": "AI / ML", "items": ["LangChain", "LangGraph", "Gemini", "ChromaDB", "OpenAI API"] }
@@ -34,14 +32,14 @@
       "title": "주식회사 그린리본 (GREEN-RIBBON Corp.)",
       "role": "백엔드 개발자 · 신사업팀/그로스팀 (정규직)",
       "period": "2025.09 ~ 2026.01 (5개월)",
-      "description": "인슈어테크 기업. 임상시험 플랫폼 hub.green-scout 백엔드 전체 설계·개발, 라이프캐치 DMX 포인트 환전 동시성 장애 해결, 라이프캐치 라운지 커뮤니티 포인트 시스템 API 설계",
+      "description": "인슈어테크 기업. 임상시험 플랫폼 hub.green-scout 백엔드 설계·개발, 라이프캐치 포인트 환전 동시성 장애 해결, 라운지 커뮤니티 포인트 시스템 API 설계",
       "details": [
-        "환전 API에서 동시 호출 시 중복 환전이 터지는 장애를 로그·DB 비교로 원인 특정 → 트랜잭션 재설계 + 유니크 제약으로 오류율 90%+ 감소",
-        "Databricks Jobs API 2.1 기반 비동기 분석 파이프라인 설계 — Webhook 콜백으로 분석 완료 처리",
-        "RBAC 5단계 권한 체계 + 역할별 환자 데이터 마스킹으로 민감정보 보호",
-        "라이프캐치 라운지(최종 MVP) 커뮤니티 포인트 시스템 API 설계·개발 — 퀴즈·출석·친구초대 등 건강자산 연결 포인트 제도",
-        "모듈 분리(scout-api/scout-core) + Command·Query 서비스 분리 적용",
-        "Flyway 70건+ 마이그레이션 관리, Hibernate Envers 감사 추적 구축"
+        "환전 API 동시 호출 시 중복 환전 장애 — 로그·DB 비교로 원인 특정 후 트랜잭션 재설계 + 유니크 제약 적용, JMeter 100건 기준 오류율 90%+ 감소",
+        "RBAC 5단계 권한 체계 + SPONSOR 역할 환자 PII 자동 마스킹으로 민감정보 보호",
+        "Databricks Jobs API 2.1 기반 비동기 분석 파이프라인 설계 — 운영 DB 부하를 분리하고 Webhook 콜백으로 분석 완료 처리",
+        "라운지 커뮤니티 포인트 시스템 API 설계·개발 — 퀴즈·출석·친구초대 포인트 적립, 기획자와 정책 먼저 정의 후 구현",
+        "백엔드 모듈 분리(scout-api/scout-core)와 읽기/쓰기 서비스 책임 분리 적용",
+        "Flyway 마이그레이션 관리, Hibernate Envers 감사 추적 적용"
       ]
     },
     {
@@ -61,9 +59,7 @@
       "role": "언론정보학과",
       "period": "2017.03 ~ 2020.08",
       "description": "중퇴",
-      "details": [
-        "복지부차장"
-      ]
+      "details": []
     },
     {
       "type": "education",
