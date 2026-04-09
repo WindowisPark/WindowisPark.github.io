@@ -89,6 +89,11 @@ export default function PortfolioPdf() {
                   GitHub: {p.links.github.replace('https://', '')}
                 </span>
               )}
+              {p.links?.report && (
+                <span className={styles.projectLink}>
+                  Report: {p.links.report.replace('https://', '')}
+                </span>
+              )}
             </div>
           </div>
         </div>

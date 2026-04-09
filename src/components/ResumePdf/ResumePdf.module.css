@@ -63,7 +63,6 @@
 /* ========== Section ========== */
 .section {
   margin-bottom: 18px;
-  break-inside: avoid;
 }
 
 .sectionTitle {
