@@ -37,10 +37,13 @@
   margin-top: 8px;
 }
 
+.item:last-child .line {
+  display: none;
+}
+
 .card {
   flex: 1;
-  padding-bottom: 40px;
-  padding: 20px;
+  padding: 20px 20px 40px 20px;
   border-radius: var(--border-radius-sm);
   transition: background var(--transition), box-shadow var(--transition);
   margin-bottom: 20px;
@@ -211,12 +214,12 @@
   letter-spacing: 0.02em;
 }
 
-:global(.dark) .certStatusDone {
+:global([data-theme="dark"]) .certStatusDone {
   color: #34d399;
   background: rgba(52, 211, 153, 0.12);
 }
 
-:global(.dark) .certStatusInProgress {
+:global([data-theme="dark"]) .certStatusInProgress {
   color: #fbbf24;
   background: rgba(245, 158, 11, 0.12);
 }

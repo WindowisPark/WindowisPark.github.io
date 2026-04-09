@@ -60,6 +60,10 @@
   --color-tag-hover-border: rgba(79, 70, 229, 0.15);
   --color-badge-activity-text: #0d9488;
   --color-badge-activity-bg: #ccfbf1;
+  --color-thumb-bg: #f1f5f9;
+  --color-keyword-text: #7c3aed;
+  --color-keyword-bg: rgba(124, 58, 237, 0.08);
+  --color-keyword-border: rgba(124, 58, 237, 0.2);
 }
 
 [data-theme="dark"] {
@@ -97,6 +101,10 @@
   --color-tag-hover-border: rgba(129, 140, 248, 0.2);
   --color-badge-activity-text: #5eead4;
   --color-badge-activity-bg: rgba(94,234,212,0.15);
+  --color-thumb-bg: #1e293b;
+  --color-keyword-text: #c4b5fd;
+  --color-keyword-bg: rgba(196, 181, 253, 0.12);
+  --color-keyword-border: rgba(196, 181, 253, 0.2);
 }
 
 
@@ -110,13 +118,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   scroll-padding-top: 64px;
   font-size: 16px;
-}
-
-section {
-  scroll-snap-align: start;
 }
 
 body {
@@ -200,9 +203,6 @@ button:focus-visible {
     --section-padding: 60px 0;
   }
 
-  html {
-    scroll-snap-type: none;
-  }
 }
 
 @media (max-width: 480px) {

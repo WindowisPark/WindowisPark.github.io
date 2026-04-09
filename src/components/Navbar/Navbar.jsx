@@ -26,6 +26,11 @@ export default function Navbar({ activeSection, onDownloadResume, onDownloadPort
   }, []);
 
   useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
+  useEffect(() => {
     const handleClick = (e) => {
       if (pdfRef.current && !pdfRef.current.contains(e.target)) {
         setPdfOpen(false);
