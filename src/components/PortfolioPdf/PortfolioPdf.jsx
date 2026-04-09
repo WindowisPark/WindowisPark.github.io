@@ -1,14 +1,13 @@
-import { forwardRef } from 'react';
 import { useModeData } from '../../context/ModeContext';
 import profileImage from '../../assets/images/profile.png';
 import styles from './PortfolioPdf.module.css';
 
-const PortfolioPdf = forwardRef(function PortfolioPdf(_, ref) {
+export default function PortfolioPdf() {
   const { profile, projects } = useModeData();
   const { name, title, contact } = profile;
 
   return (
-    <div ref={ref} className={styles.wrapper}>
+    <div className={styles.wrapper}>
       {/* Header */}
       <div className={styles.header} data-pdf-avoid="">
         <img src={profileImage} alt={name} className={styles.profileImg} />
@@ -26,8 +25,7 @@ const PortfolioPdf = forwardRef(function PortfolioPdf(_, ref) {
       {/* Projects */}
       {projects.map((p, idx) => (
         <div key={p.id}>
-          {idx > 0 && <div data-pdf-break="" />}
-          <div className={styles.project} data-pdf-avoid="">
+          <div className={`${styles.project} ${idx > 0 ? styles.projectBreak : ''}`}>
 
             {/* 프로젝트 헤더 */}
             <div className={styles.projectHeader}>
@@ -97,6 +95,4 @@ const PortfolioPdf = forwardRef(function PortfolioPdf(_, ref) {
       ))}
     </div>
   );
-});
-
-export default PortfolioPdf;
+}

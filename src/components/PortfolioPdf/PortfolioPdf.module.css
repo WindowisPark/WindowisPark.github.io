@@ -1,6 +1,6 @@
 .wrapper {
-  width: 794px;
-  padding: 32px 36px;
+  width: 100%;
+  padding: 0;
   background: #fff;
   color: #1a1a1a;
   font-family: 'Pretendard Variable', 'Inter', sans-serif;
@@ -16,6 +16,7 @@
   padding-bottom: 16px;
   border-bottom: 2px solid #4f46e5;
   margin-bottom: 20px;
+  break-inside: avoid;
 }
 
 .profileImg {
@@ -65,7 +66,11 @@
   padding: 14px 16px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.projectBreak {
+  break-before: page;
 }
 
 .projectHeader {

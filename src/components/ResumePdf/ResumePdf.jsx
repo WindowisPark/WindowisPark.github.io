@@ -1,16 +1,15 @@
-import { forwardRef } from 'react';
 import { useModeData } from '../../context/ModeContext';
 import profileImage from '../../assets/images/profile.png';
 import styles from './ResumePdf.module.css';
 
-const ResumePdf = forwardRef(function ResumePdf(_, ref) {
+export default function ResumePdf() {
   const { profile } = useModeData();
   const { name, title, subtitle, contact, about, skills, experience, certificates, awards, activities } = profile;
 
   return (
-    <div ref={ref} className={styles.wrapper}>
+    <div className={styles.wrapper}>
       {/* Header */}
-      <div className={styles.header} data-pdf-avoid="">
+      <div className={styles.header}>
         <img src={profileImage} alt={name} className={styles.profileImg} />
         <div className={styles.headerInfo}>
           <div className={styles.headerName}>{name}</div>
@@ -24,7 +23,7 @@ const ResumePdf = forwardRef(function ResumePdf(_, ref) {
       </div>
 
       {/* About */}
-      <div className={styles.section} data-pdf-avoid="">
+      <div className={styles.section}>
         <div className={styles.sectionTitle}>About</div>
         <p className={styles.aboutText}>{about.description}</p>
         <div className={styles.highlights}>
@@ -35,7 +34,7 @@ const ResumePdf = forwardRef(function ResumePdf(_, ref) {
       </div>
 
       {/* Skills */}
-      <div className={styles.section} data-pdf-avoid="">
+      <div className={styles.section}>
         <div className={styles.sectionTitle}>Skills</div>
         {skills.map((group) => (
           <div key={group.category} className={styles.skillRow}>
@@ -49,7 +48,7 @@ const ResumePdf = forwardRef(function ResumePdf(_, ref) {
       <div className={styles.section}>
         <div className={styles.sectionTitle}>Experience</div>
         {experience.map((item, i) => (
-          <div key={i} className={styles.expItem} data-pdf-avoid="">
+          <div key={i} className={styles.expItem}>
             <div className={styles.expHeader}>
               <span className={styles.expTitle}>{item.title}</span>
               <span className={styles.expPeriod}>{item.period}</span>
@@ -69,7 +68,7 @@ const ResumePdf = forwardRef(function ResumePdf(_, ref) {
 
       {/* Awards & Certificates — compact */}
       {(awards?.length > 0 || certificates?.length > 0) && (
-        <div className={styles.section} data-pdf-avoid="">
+        <div className={styles.section}>
           {awards?.length > 0 && (
             <div className={styles.compactGroup}>
               <div className={styles.sectionTitle}>Awards</div>
@@ -110,6 +109,4 @@ const ResumePdf = forwardRef(function ResumePdf(_, ref) {
       )}
     </div>
   );
-});
-
-export default ResumePdf;
+}

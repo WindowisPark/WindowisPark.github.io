@@ -232,8 +232,24 @@ button:focus-visible {
   transform: translateY(0);
 }
 
+/* ========== Print-area: hidden on screen ========== */
+.print-area {
+  position: fixed;
+  left: -9999px;
+  top: 0;
+  width: 210mm;
+  background: #fff;
+  z-index: -1;
+}
+
 /* ========== Print ========== */
 @media print {
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 10mm 12mm;
+  }
+
   *,
   *::before,
   *::after {
@@ -244,7 +260,7 @@ button:focus-visible {
 
   html {
     scroll-snap-type: none;
-    font-size: 11pt;
+    font-size: 10pt;
   }
 
   body {
@@ -254,40 +270,18 @@ button:focus-visible {
     print-color-adjust: exact;
   }
 
-  /* Hide non-essential UI */
-  nav,
-  aside,
-  .footer,
-  button {
+  /* Hide everything except print-area */
+  body > *:not(.print-area) {
     display: none !important;
   }
 
-  /* Force all sections visible */
-  .fade-in {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  section {
-    break-inside: avoid;
-    padding: 24px 0 !important;
-    scroll-snap-align: none;
-  }
-
-  .container {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-
-  a {
-    color: #0f172a !important;
-    text-decoration: none !important;
-  }
-
-  /* Page setup */
-  @page {
-    margin: 15mm 18mm;
-    size: A4;
+  /* Show print-area properly */
+  .print-area {
+    position: static !important;
+    left: auto !important;
+    width: 100% !important;
+    z-index: auto !important;
+    display: block !important;
   }
 }
 
