@@ -4,7 +4,7 @@ import useScrollSpy from './hooks/useScrollSpy';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import Hero from './components/Hero/Hero';
-import SelfIntro from './components/SelfIntro/SelfIntro';
+
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 import Experience from './components/Experience/Experience';
@@ -14,7 +14,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 import ResumePdf from './components/ResumePdf/ResumePdf';
 import PortfolioPdf from './components/PortfolioPdf/PortfolioPdf';
 
-const SECTIONS = ['hero', 'selfintro', 'about', 'skills', 'experience', 'projects', 'contact'];
+const SECTIONS = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
 
 // A4: 210×297mm, margin: top/bottom 10mm, left/right 12mm
 const M_TOP = 10, M_BOTTOM = 10, M_LEFT = 12, M_RIGHT = 12;
@@ -220,7 +220,6 @@ export default function App() {
       <Sidebar activeSection={activeSection} />
       <main>
         <Hero />
-        <SelfIntro />
         <About />
         <Skills />
         <Experience />

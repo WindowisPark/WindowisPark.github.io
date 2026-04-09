@@ -5,7 +5,7 @@ import styles from './ResumePdf.module.css';
 
 const ResumePdf = forwardRef(function ResumePdf(_, ref) {
   const { profile } = useModeData();
-  const { name, title, subtitle, contact, about, selfIntro, skills, experience, certificates, awards, activities } = profile;
+  const { name, title, subtitle, contact, about, skills, experience, certificates, awards, activities } = profile;
 
   return (
     <div ref={ref} className={styles.wrapper}>
@@ -33,19 +33,6 @@ const ResumePdf = forwardRef(function ResumePdf(_, ref) {
           ))}
         </div>
       </div>
-
-      {/* Self Intro */}
-      {selfIntro?.length > 0 && (
-        <div className={styles.section} data-pdf-avoid="">
-          <div className={styles.sectionTitle}>Self Introduction</div>
-          {selfIntro.map((item, i) => (
-            <div key={i} className={styles.selfIntroItem}>
-              <span className={styles.selfIntroQ}>Q{i + 1}. {item.question}</span>
-              <p className={styles.selfIntroA}>{item.answer}</p>
-            </div>
-          ))}
-        </div>
-      )}
 
       {/* Skills */}
       <div className={styles.section} data-pdf-avoid="">

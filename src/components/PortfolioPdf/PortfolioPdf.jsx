@@ -39,47 +39,35 @@ const PortfolioPdf = forwardRef(function PortfolioPdf(_, ref) {
             </div>
             <div className={styles.projectRole}>{p.role}</div>
 
-            {/* 문제 발견 */}
-            <div className={styles.field}>
-              <div className={styles.fieldLabel}>문제 발견</div>
-              <p className={styles.fieldText}>{p.problem}</p>
-            </div>
-
-            {/* 사고 방향 */}
-            {p.approach && (
+            {/* 상황 */}
+            {p.situation && (
               <div className={styles.field}>
-                <div className={styles.fieldLabel}>사고 방향</div>
-                <p className={styles.fieldText}>{p.approach}</p>
+                <div className={styles.fieldLabel}>상황</div>
+                <p className={styles.fieldText}>{p.situation}</p>
               </div>
             )}
 
-            {/* 왜 이 방법인가 */}
-            {p.rationale && (
+            {/* 판단 */}
+            {p.judgment && (
               <div className={styles.field}>
-                <div className={styles.fieldLabel}>왜 이 방법인가</div>
-                <p className={styles.fieldText}>{p.rationale}</p>
+                <div className={styles.fieldLabel}>판단</div>
+                <p className={styles.fieldText}>{p.judgment}</p>
               </div>
             )}
 
-            {/* 해결 과정 */}
-            {p.solution && (
+            {/* 작업 */}
+            {p.work && (
               <div className={styles.field}>
-                <div className={styles.fieldLabel}>해결 과정</div>
-                <p className={styles.fieldText}>{p.solution}</p>
+                <div className={styles.fieldLabel}>작업</div>
+                <p className={styles.fieldText}>{p.work}</p>
               </div>
             )}
 
-            {/* 결과 — 하이라이트 */}
-            <div className={`${styles.field} ${styles.fieldResult}`}>
-              <div className={styles.fieldLabelResult}>결과</div>
-              <p className={styles.fieldText}>{p.result}</p>
-            </div>
-
-            {/* 교훈 */}
-            {p.lesson && (
-              <div className={styles.field}>
-                <div className={styles.fieldLabel}>교훈</div>
-                <p className={styles.fieldText}>{p.lesson}</p>
+            {/* 결과와 회고 */}
+            {p.outcome && (
+              <div className={`${styles.field} ${styles.fieldResult}`}>
+                <div className={styles.fieldLabelResult}>결과와 회고</div>
+                <p className={styles.fieldText}>{p.outcome}</p>
               </div>
             )}
 

@@ -150,45 +150,31 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {project.problem && (
+          {project.situation && (
             <div className={styles.modalSection}>
-              <h3>문제 발견</h3>
-              <p>{project.problem}</p>
+              <h3>상황</h3>
+              <p>{project.situation}</p>
             </div>
           )}
 
-          {project.approach && (
+          {project.judgment && (
             <div className={styles.modalSection}>
-              <h3>사고 방향</h3>
-              <p>{project.approach}</p>
+              <h3>판단</h3>
+              <p>{project.judgment}</p>
             </div>
           )}
 
-          {project.rationale && (
+          {project.work && (
             <div className={styles.modalSection}>
-              <h3>왜 이 방법인가</h3>
-              <p>{project.rationale}</p>
+              <h3>작업</h3>
+              <p>{project.work}</p>
             </div>
           )}
 
-          {project.solution && (
+          {project.outcome && (
             <div className={styles.modalSection}>
-              <h3>해결 과정</h3>
-              <p>{project.solution}</p>
-            </div>
-          )}
-
-          {project.result && (
-            <div className={styles.modalSection}>
-              <h3>결과</h3>
-              <p>{project.result}</p>
-            </div>
-          )}
-
-          {project.lesson && (
-            <div className={styles.modalSection}>
-              <h3>교훈</h3>
-              <p>{project.lesson}</p>
+              <h3>결과와 회고</h3>
+              <p>{project.outcome}</p>
             </div>
           )}
 
