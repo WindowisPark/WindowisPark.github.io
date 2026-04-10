@@ -9,10 +9,17 @@ function getYouTubeId(url) {
 }
 
 const thumbnails = import.meta.glob('../../assets/images/*.{png,jpg,jpeg,webp}', { eager: true });
+const diagrams = import.meta.glob('../../assets/images/diagrams/*.svg', { eager: true });
 
 function getThumbnail(key) {
   if (!key) return null;
   const match = Object.entries(thumbnails).find(([path]) => path.includes(`/${key}.`));
+  return match ? match[1].default : null;
+}
+
+function getDiagram(key) {
+  if (!key) return null;
+  const match = Object.entries(diagrams).find(([path]) => path.includes(`/${key}.`));
   return match ? match[1].default : null;
 }
 
@@ -95,6 +102,7 @@ export default function ProjectModal({ project, onClose }) {
   }, [onClose]);
 
   const ytId = getYouTubeId(project.links?.video);
+  const diagramSrc = getDiagram(project.diagram);
 
   const carouselImages = (() => {
     if (project.images && project.images.length > 0) {
@@ -161,6 +169,18 @@ export default function ProjectModal({ project, onClose }) {
             <div className={styles.modalSection}>
               <h3>판단</h3>
               <p>{project.judgment}</p>
+            </div>
+          )}
+
+          {diagramSrc && (
+            <div className={styles.diagramSection}>
+              <h3>아키텍처</h3>
+              <div className={styles.diagramWrapper}>
+                <img src={diagramSrc} alt={project.diagramCaption || '아키텍처 다이어그램'} />
+              </div>
+              {project.diagramCaption && (
+                <p className={styles.diagramCaption}>{project.diagramCaption}</p>
+              )}
             </div>
           )}
 

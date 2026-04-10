@@ -2,6 +2,14 @@ import { useModeData } from '../../context/ModeContext';
 import profileImage from '../../assets/images/profile.png';
 import styles from './PortfolioPdf.module.css';
 
+const diagramFiles = import.meta.glob('../../assets/images/diagrams/*.svg', { eager: true });
+
+function getDiagram(key) {
+  if (!key) return null;
+  const match = Object.entries(diagramFiles).find(([path]) => path.includes(`/${key}.`));
+  return match ? match[1].default : null;
+}
+
 export default function PortfolioPdf() {
   const { profile, projects } = useModeData();
   const { name, title, contact } = profile;
@@ -50,6 +58,19 @@ export default function PortfolioPdf() {
               <div className={styles.field}>
                 <div className={styles.fieldLabel}>판단</div>
                 <p className={styles.fieldText}>{p.judgment}</p>
+              </div>
+            )}
+
+            {/* 아키텍처 다이어그램 */}
+            {p.diagram && getDiagram(p.diagram) && (
+              <div className={styles.diagramField}>
+                <div className={styles.fieldLabel}>아키텍처</div>
+                <div className={styles.diagramImg}>
+                  <img src={getDiagram(p.diagram)} alt={p.diagramCaption || '아키텍처'} />
+                </div>
+                {p.diagramCaption && (
+                  <p className={styles.diagramCaption}>{p.diagramCaption}</p>
+                )}
               </div>
             )}
 

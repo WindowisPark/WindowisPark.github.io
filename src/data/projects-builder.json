@@ -14,6 +14,8 @@
     "solution": "트랜잭션 범위를 최소 단위로 축소하고, 요청별 idempotency key를 DB에 적용해 중복 환전을 차단했습니다. JMeter로 동시 100건 요청 시나리오를 만들어 수정 전·후를 비교 검증했습니다.",
     "result": "오류율 90% 이상 감소. 원인 분석부터 운영 배포까지 전 과정을 단독으로 수행했습니다.",
     "lesson": "수정 전에 JMeter로 기준선부터 잡아둔 게 큰 도움이 됐습니다. '고쳤다'는 말보다 '90% 줄었다'는 숫자가 훨씬 설득력 있다는 걸 배웠습니다.",
+    "diagram": "dmx-flow",
+    "diagramCaption": "동시 환전 장애 해결 플로우 — Idempotency Key + 최소 트랜잭션 분리",
     "techStack": ["Java", "Spring Boot", "JPA", "MySQL"],
     "links": {
       "github": "",
@@ -37,6 +39,8 @@
     "solution": "Databricks 비동기 파이프라인으로 운영 DB 부하를 분리하고, RBAC 5단계 권한 체계와 PII 마스킹을 적용했습니다. DDD 기반 모듈 분리와 CQRS 패턴을 적용하고 Flyway 70건+ 마이그레이션으로 스키마를 관리했습니다.",
     "result": "백엔드 전체를 설계부터 운영 배포까지 단독으로 완료했습니다. 현재 실제로 운영되고 있습니다.",
     "lesson": "RBAC를 나중에 붙이려다 테이블 구조부터 흔들려서 고생했습니다. 권한 체계는 설계 초기에 잡아두는 게 맞다는 걸, 좀 비싼 값을 치르고 배웠습니다.",
+    "diagram": "hub-pipeline",
+    "diagramCaption": "비동기 분석 파이프라인 + RBAC 5-tier 권한 설계",
     "techStack": ["Java 21", "Spring Boot 3", "JPA", "MySQL", "Databricks", "Flyway", "Caffeine", "Spring Security"],
     "links": {
       "github": "",

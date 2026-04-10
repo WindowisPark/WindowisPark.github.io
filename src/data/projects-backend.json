@@ -12,6 +12,8 @@
     "judgment": "분석 부하를 운영 DB 밖으로 빼야 서비스가 안정되고, 역할별 마스킹은 데이터를 꺼내는 시점에 걸어야 빠짐없이 보호할 수 있다고 판단했습니다. 구조적으로는 모듈을 나눠야 나중에 손대기 편할 거라고 생각했습니다.",
     "work": "Databricks Jobs API 2.1로 비동기 분석 파이프라인을 만들었습니다. 분석이 끝나면 Webhook 콜백이 오고, 혹시 빠지면 폴링으로 잡는 구조입니다. RBAC는 5단계(SUPER_ADMIN~PENDING)로 나눠서 SPONSOR 역할에는 환자 PII가 자동으로 마스킹되게 했습니다. 백엔드는 scout-api/scout-core 두 모듈로 분리하고, Flyway로 스키마 변경 70건 넘게 관리했습니다.",
     "outcome": "백엔드를 설계·개발해서 운영 환경에 올렸고, 지금도 실제로 쓰이고 있습니다. 다만 RBAC를 나중에 붙이면 된다고 미뤘다가 테이블 구조부터 흔들린 적이 있어서, 권한 체계는 처음부터 박아두는 게 맞다는 걸 비싸게 배웠습니다.",
+    "diagram": "hub-pipeline",
+    "diagramCaption": "비동기 분석 파이프라인 + RBAC 5-tier 권한 설계",
     "techStack": ["Java 21", "Spring Boot 3", "JPA", "MySQL", "Databricks", "Flyway", "Caffeine", "Spring Security"],
     "links": {
       "github": "",
@@ -33,6 +35,8 @@
     "judgment": "환전 장애는 로그와 DB 스냅샷을 대조해서 '락 경합'과 '중복 요청 미차단' 두 원인을 분리했는데, 둘이 독립적이라 한쪽만 고쳐서는 안 됐습니다. 퀴즈 로테이션은 스케줄러나 관리 페이지를 만들까 고민했지만, 날짜 기반 hash 함수면 코드 한 줄로 해결되고 운영 개입이 0이 되겠다고 판단했습니다.",
     "work": "환전 API는 트랜잭션 범위를 최소 단위로 쪼개고 idempotency key를 DB에 걸어서 중복 환전을 막았습니다. 수정 전에 JMeter 동시 100건으로 기준선을 잡아뒀습니다. 퀴즈는 hash(날짜)로 문제 풀에서 매일 다른 3문제가 자동 선택되게 만들었고, 출석·친구초대 포인트 적립 API도 함께 설계·개발해서 라운지 커뮤니티 포인트 시스템 전체를 완성했습니다.",
     "outcome": "환전 오류는 JMeter 동시 100건 기준 오류율 90% 넘게 줄었습니다. 라운지는 문제 풀 등록 한 번이면 일별 로테이션이 자동으로 돌아가서, 운영팀 개입 없이 서비스되고 있습니다. 환전 쪽에서는 기준선부터 잡아둔 게 결정적이었고, 퀴즈 쪽에서는 복잡한 관리 도구를 만들기 전에 정말 필요한지 따져보는 게 중요하다는 걸 배웠습니다.",
+    "diagram": "dmx-flow",
+    "diagramCaption": "동시 환전 장애 해결 플로우 — Idempotency Key + 최소 트랜잭션 분리",
     "techStack": ["Java", "Spring Boot", "JPA", "MySQL"],
     "links": {
       "github": "",
@@ -78,6 +82,8 @@
     "judgment": "단일 LLM 프롬프트로는 역할 전환이 어색해지는 걸 경험해서, LangGraph로 에이전트를 분리하고 상태 그래프로 라우팅하기로 했습니다. 도구 선택은 GPT의 Function Calling에 맡기면 프롬프트 엔지니어링보다 정확도가 높았습니다.",
     "work": "LangGraph 상태 그래프로 감정 분석 → 의도 분류 → 에이전트 라우팅 → 병렬 응답 파이프라인을 만들었습니다. 커리어 코치, 리서처, 멘탈 케어, 멘토 4개 에이전트가 각자 전문 도구(공공데이터포털 채용정보, 사람인 API, 이력서 피드백, 모의면접, 호흡 운동 등 8개)를 GPT Function Calling으로 자동 선택합니다. 감정 강도가 4 이상이면 멘탈 케어 에이전트가 자동 개입하는 구조입니다. FastAPI WebSocket으로 실시간 스트리밍하고, React + Zustand로 상태 관리했습니다.",
     "outcome": "4개 에이전트가 한 채팅방에서 자연스럽게 전환되면서 대화하는 구조를 만들었습니다. Function Calling 기반 도구 선택이 프롬프트 기반보다 안정적이었고, 에이전트별 페르소나를 분리하니 응답 품질이 눈에 띄게 좋아졌습니다. 다만 4개 에이전트가 동시에 응답하면 비용이 빠르게 올라가서, 라우팅 단계에서 필요한 에이전트만 호출하는 게 중요했습니다.",
+    "diagram": "jobmate-agents",
+    "diagramCaption": "LangGraph 멀티에이전트 라우팅 — 감정 분석 → 의도 분류 → 4개 전문 에이전트",
     "techStack": ["Python", "FastAPI", "LangGraph", "GPT-4o mini", "WebSocket", "React", "TypeScript", "PostgreSQL", "Redis", "Docker"],
     "links": {
       "github": "https://github.com/WindowisPark/jobmate",

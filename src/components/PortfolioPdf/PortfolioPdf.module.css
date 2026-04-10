@@ -169,6 +169,33 @@
   border-left: 3px solid #d97706;
 }
 
+/* ========== Diagram ========== */
+.diagramField {
+  margin-bottom: 6px;
+}
+
+.diagramImg {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px;
+  margin-top: 4px;
+  background: #fff;
+}
+
+.diagramImg img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.diagramCaption {
+  font-size: 8pt;
+  color: #94a3b8;
+  text-align: center;
+  margin: 3px 0 0;
+  font-weight: 500;
+}
+
 /* ========== Footer (기술 배지 + GitHub 링크) ========== */
 .projectFooter {
   display: flex;
