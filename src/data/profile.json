@@ -1,7 +1,7 @@
 {
   "name": "박창희",
   "nameEn": "Park Changhee",
-  "title": "백엔드 개발자",
+  "title": "백엔드 개발자 · AI 서비스 품질",
   "subtitle": "고치기 전에 숫자부터 재고, 고친 다음에도 숫자로 확인합니다.",
   "profileImage": "",
   "contact": {
@@ -13,8 +13,9 @@
     "velog": "https://velog.io/@bomboychang/posts"
   },
   "about": {
-    "description": "인슈어테크 기업에서 5개월간 백엔드를 맡아 임상시험 플랫폼 설계·배포, 포인트 환전 동시성 장애 해결, 커뮤니티 포인트 시스템 API 설계까지 경험했습니다. 기획자·프론트 개발자와 API 규약을 먼저 맞추고, 문제가 생기면 쪼개서 보고 기준선부터 잡는 식으로 일합니다.",
+    "description": "인슈어테크 스타트업에서 백엔드를 맡아 임상시험 플랫폼을 설계·배포하고, 운영 중 환전 동시성 장애를 로그·DB 비교로 잡아냈습니다. 지금은 SK텔레콤 AI CIC에서 에이닷·에이닷비즈·NUGU의 서비스 품질을 로그와 테스트로 모니터링하며, 저품질 패턴을 분류·분석해 개선으로 연결하고 있습니다. 코드를 짜는 것만큼 'AI 서비스가 실제로 어디서 품질이 깨지는지'를 데이터로 보는 일에 관심이 많습니다. 문제가 생기면 쪼개서 보고, 고치기 전에 숫자부터 재는 편입니다.",
     "highlights": [
+      "SK텔레콤 에이닷 AI 서비스 품질 운영 — 로그·테스트로 저품질 패턴 분류·분석 후 개선 연결",
       "운영 중 환전 API 동시성 장애 단독 해결 — JMeter 100건 기준 오류율 90%+ 감소",
       "임상시험 플랫폼 백엔드 설계·배포 — RBAC 5단계 + 환자 PII 마스킹"
     ]
@@ -23,10 +24,24 @@
     { "category": "Backend", "items": ["Java 21", "Spring Boot 3", "Spring Security", "JPA/Hibernate", "Python", "FastAPI"] },
     { "category": "Database", "items": ["MySQL", "PostgreSQL", "Redis", "Flyway"] },
     { "category": "DevOps & Monitoring", "items": ["Docker", "GitHub Actions", "Prometheus", "Grafana", "Nginx"] },
-    { "category": "Security", "items": ["RBAC", "JWT", "OAuth2", "PII Masking"] },
-    { "category": "AI / ML", "items": ["LangChain", "LangGraph", "Gemini", "ChromaDB", "OpenAI API"] }
+    { "category": "AI Quality", "items": ["서비스 품질 모니터링", "로그 분류·구조화", "저품질 패턴 분석", "기능 테스트", "LLM 응답 품질 분석"] },
+    { "category": "AI / ML", "items": ["LangChain", "LangGraph", "Gemini", "ChromaDB", "OpenAI API"] },
+    { "category": "Security", "items": ["RBAC", "JWT", "OAuth2", "PII Masking"] }
   ],
   "experience": [
+    {
+      "type": "work",
+      "title": "SK텔레콤 (SKT)",
+      "role": "AI 서비스 품질 운영 · AI CIC 에이닷사업 에이닷서비스운영팀",
+      "period": "2026.06 ~ 재직 중",
+      "description": "에이닷·에이닷비즈·NUGU 등 AI 서비스의 품질을 로그·테스트로 모니터링하고, 저품질 패턴을 분류·분석해 개선으로 연결하는 품질 운영 담당",
+      "details": [
+        "[품질 모니터링] 에이닷·에이닷비즈·NUGU 서비스 로그 검토, 로그 데이터 분류·구조화, 저품질 사례 분석",
+        "[기능 테스트] 에이닷 앱·에이닷비즈·티맵 앱 Daily 점검 및 기능 상세 테스트·품질 분석",
+        "[운영 지원] 공지·FAQ·캠페인 등록 및 관리",
+        "AI 서비스가 실제로 어디서 품질이 깨지는지를 로그·사용자 데이터 관점에서 관찰·정리"
+      ]
+    },
     {
       "type": "work",
       "title": "주식회사 그린리본 (GREEN-RIBBON Corp.)",

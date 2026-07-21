@@ -71,6 +71,7 @@ const ICONS = {
   'Security & Auth': SHIELD_ICON,
   'AI / ML': AI_ICON,
   'AI Integration': AI_ICON,
+  'AI Quality': MONITOR_ICON,
   'Frontend': MONITOR_ICON,
 };
 
