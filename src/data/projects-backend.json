@@ -1,29 +1,6 @@
 [
   {
     "id": 1,
-    "title": "hub.green-scout",
-    "thumbnail": "hub",
-    "period": "2025.09 ~ 2026.01",
-    "team": "그린리본 · 팀 프로젝트",
-    "role": "백엔드 개발자",
-    "keywords": ["RBAC 권한 설계", "PII 마스킹", "비동기 파이프라인"],
-    "summary": "임상시험 Feasibility 분석 플랫폼 — 백엔드 설계·개발·배포, 실 운영 중",
-    "situation": "스폰서가 후보 환자를 찾는 임상시험 플랫폼인데, 분석 쿼리가 운영 DB를 직접 치고 있었습니다. 서비스가 느려지는 것도 문제였지만, 민감한 환자 정보에 접근 제어가 없다는 게 더 큰 문제였습니다. 임상 데이터라 보안을 성능이랑 맞바꿀 수가 없어서, 둘 다 따로 잡아야 했습니다.",
-    "judgment": "분석 부하를 운영 DB 밖으로 빼야 서비스가 안정되고, 역할별 마스킹은 데이터를 꺼내는 시점에 걸어야 빠짐없이 보호할 수 있다고 판단했습니다. 구조적으로는 모듈을 나눠야 나중에 손대기 편할 거라고 생각했습니다.",
-    "work": "Databricks Jobs API 2.1로 비동기 분석 파이프라인을 만들었습니다. 분석이 끝나면 Webhook 콜백이 오고, 혹시 빠지면 폴링으로 잡는 구조입니다. RBAC는 5단계(SUPER_ADMIN~PENDING)로 나눠서 SPONSOR 역할에는 환자 PII가 자동으로 마스킹되게 했습니다. 백엔드는 scout-api/scout-core 두 모듈로 분리하고, Flyway로 스키마 변경 70건 넘게 관리했습니다.",
-    "outcome": "백엔드를 설계·개발해서 운영 환경에 올렸고, 지금도 실제로 쓰이고 있습니다. 다만 RBAC를 나중에 붙이면 된다고 미뤘다가 테이블 구조부터 흔들린 적이 있어서, 권한 체계는 처음부터 박아두는 게 맞다는 걸 비싸게 배웠습니다.",
-    "diagram": "hub-pipeline",
-    "diagramCaption": "비동기 분석 파이프라인 + RBAC 5-tier 권한 설계",
-    "techStack": ["Java 21", "Spring Boot 3", "JPA", "MySQL", "Databricks", "Flyway", "Caffeine", "Spring Security"],
-    "links": {
-      "github": "",
-      "demo": "https://hub.green-scout.co.kr/",
-      "video": "",
-      "ppt": ""
-    }
-  },
-  {
-    "id": 2,
     "title": "라이프캐치 DMX 포인트 · 라운지",
     "thumbnail": "dmx",
     "period": "2025.12 ~ 2026.01",
@@ -46,11 +23,34 @@
     }
   },
   {
+    "id": 2,
+    "title": "hub.green-scout",
+    "thumbnail": "hub",
+    "period": "2025.09 ~ 2026.01",
+    "team": "그린리본 · 팀 프로젝트",
+    "role": "백엔드 개발자",
+    "keywords": ["RBAC 권한 설계", "PII 마스킹", "비동기 파이프라인"],
+    "summary": "임상시험 Feasibility 분석 플랫폼 — 백엔드 설계·개발·배포, 실 운영 중",
+    "situation": "스폰서가 후보 환자를 찾는 임상시험 플랫폼인데, 분석 쿼리가 운영 DB를 직접 치고 있었습니다. 서비스가 느려지는 것도 문제였지만, 민감한 환자 정보에 접근 제어가 없다는 게 더 큰 문제였습니다. 임상 데이터라 보안을 성능이랑 맞바꿀 수가 없어서, 둘 다 따로 잡아야 했습니다.",
+    "judgment": "분석 부하를 운영 DB 밖으로 빼야 서비스가 안정되고, 역할별 마스킹은 데이터를 꺼내는 시점에 걸어야 빠짐없이 보호할 수 있다고 판단했습니다. 구조적으로는 모듈을 나눠야 나중에 손대기 편할 거라고 생각했습니다.",
+    "work": "Databricks Jobs API 2.1로 비동기 분석 파이프라인을 만들었습니다. 분석이 끝나면 Webhook 콜백이 오고, 혹시 빠지면 폴링으로 잡는 구조입니다. RBAC는 5단계(SUPER_ADMIN~PENDING)로 나눠서 SPONSOR 역할에는 환자 PII가 자동으로 마스킹되게 했습니다. 백엔드는 scout-api/scout-core 두 모듈로 분리하고, Flyway로 스키마 변경 70건 넘게 관리했습니다.",
+    "outcome": "백엔드를 설계·개발해서 운영 환경에 올렸고, 지금도 실제로 쓰이고 있습니다. 다만 RBAC를 나중에 붙이면 된다고 미뤘다가 테이블 구조부터 흔들린 적이 있어서, 권한 체계는 처음부터 박아두는 게 맞다는 걸 비싸게 배웠습니다.",
+    "diagram": "hub-pipeline",
+    "diagramCaption": "비동기 분석 파이프라인 + RBAC 5-tier 권한 설계",
+    "techStack": ["Java 21", "Spring Boot 3", "JPA", "MySQL", "Databricks", "Flyway", "Caffeine", "Spring Security"],
+    "links": {
+      "github": "",
+      "demo": "https://hub.green-scout.co.kr/",
+      "video": "",
+      "ppt": ""
+    }
+  },
+  {
     "id": 3,
     "title": "LockBench",
     "thumbnail": "lock-bench-fair",
     "images": ["lock-bench-fair", "lock-bench-retry", "lock-bench-bleed"],
-    "period": "2026.02 ~ 진행 중",
+    "period": "2026.02 ~ 2026.04",
     "team": "개인 프로젝트",
     "role": "설계 · 백엔드 개발",
     "keywords": ["Redisson Fair Lock", "Lock Bleed 분석", "k6 자동화"],
@@ -71,9 +71,51 @@
   },
   {
     "id": 4,
+    "title": "야구 승부 예측 시스템 — MLB·KBO·NPB",
+    "thumbnail": "kbo-analyzer",
+    "period": "2026.03 ~ 운영 중",
+    "team": "개인 프로젝트",
+    "role": "설계 · 예측 파이프라인 · 운영",
+    "keywords": ["확률 보정·통계 검증", "Elo + 선발 FIP 오버레이", "3리그 매일 자동 운영"],
+    "summary": "LLM 토론 하이브리드 v1을 4개월 운영 후 은퇴 — 보정 우선 통계 시스템으로 재구축, MLB·KBO·NPB 매일 예측·검증 운영 중",
+    "situation": "v1은 XGBoost·ELO·Bayesian 앙상블에 Claude·GPT·Gemini 멀티에이전트 토론을 얹은 하이브리드였고, 4개월간 매일 돌렸습니다. 적중률 60%대가 나왔지만 '이 숫자가 홈팀만 찍는 것보다 정말 나은가, 개선이 우연이 아닌가'라는 질문에 답할 수 없었고, LLM 토론은 비용이 들면서 재현도 안 됐습니다.",
+    "judgment": "적중률 대신 Brier 점수와 캘리브레이션을 주 지표로 삼고, 신뢰구간 없는 비교는 하지 않으며, test 스플릿은 보고 전용으로 봉인하는 규율을 먼저 세웠습니다. 이 기준으로 보니 LLM 토론은 검증 불가능한 장식이라 판단해 v1을 은퇴시키고, 결정론적 통계 시스템으로 처음부터 다시 만들기로 했습니다.",
+    "work": "MLB용으로 먼저 Elo 베이스라인을 만들고 위에 예고선발 FIP 오버레이를 얹었습니다. 개선 주장마다 신뢰구간과 플라시보 검사(가짜 피처로 같은 절차를 돌려 절차 자체의 거짓 양성을 확인)를 통과시켰습니다. 이를 템플릿 삼아 KBO·NPB로 확장하면서 리그별 차이를 설계에 반영했습니다 — KBO는 무승부가 있어 outcome을 {1, 0.5, 0}으로 두고 Elo를 0.5로 업데이트하고, 예고선발제 덕분에 MLB의 '선발 미정' 문제가 사라지는 식입니다. GitHub Actions로 매일 데이터 수집 → 예측 → 다음 날 결과 검증 → Discord 알림까지 무인으로 돌아갑니다.",
+    "outcome": "KBO에서 승부 적중 55.2% → 56.8%(test n=1,220, 신뢰구간으로 유의 확인)로, 이 프로젝트 계열에서 처음으로 통계적으로 검증된 개선을 만들었습니다. 3개 리그가 매일 무인으로 예측·검증을 반복하고 있습니다. v1과 v2를 다 만들어보고 배운 건, '숫자가 좋아 보이는 것'과 '통계적으로 개선인 것'은 완전히 다른 문제라는 것 — 지금은 신뢰구간 없는 비교는 아예 하지 않습니다.",
+    "techStack": ["Python", "pandas", "Elo Rating", "XGBoost", "GitHub Actions", "Discord Webhook"],
+    "links": {
+      "github": "https://github.com/WindowisPark/kbo-prediction",
+      "demo": "",
+      "video": "",
+      "ppt": ""
+    }
+  },
+  {
+    "id": 5,
+    "title": "사주마을 · 말랑이 (sajuvillage.com)",
+    "thumbnail": "",
+    "period": "2026.06 ~ 운영 중",
+    "team": "개인 프로젝트",
+    "role": "기획 · 풀스택 개발 · 운영",
+    "keywords": ["단건 결제 (포트원)", "LLM 리포트 캐시·버전 관리", "비동기 큐 (QStash)"],
+    "summary": "사주 × MBTI 캐릭터 리포트 유료 서비스 — 기획부터 결제·LLM 파이프라인·운영까지 풀사이클, 실서비스 운영 중",
+    "situation": "사주와 MBTI를 곱해 '말랑이'라는 캐릭터(16 MBTI × 5오행 = 80종)로 자기해석 리포트를 건네는 서비스를 기획부터 혼자 만들었습니다. 무료 맛보기로 핵심 기질과 본문 1장을 공개하고, 3,000원 단건 결제로 3부 8장 전체 리포트와 캐릭터 수집(도감)을 여는 구조입니다.",
+    "judgment": "LLM 리포트 생성은 건당 비용이 들어서, 프롬프트·스키마·룰셋에 버전을 박고 결과를 캐시하는 구조를 처음부터 잡았습니다. 결제와 리포트 생성은 큐로 분리해 결제 응답이 생성 시간에 묶이지 않게 했고, 도감·궁합 공유·탐험 같은 놀이 요소는 날짜·신원 기반 결정론 순수 함수로 설계해서 저장소 없이 돌아가게 했습니다.",
+    "work": "Next.js 16(App Router) + Neon Postgres(Drizzle) + Auth.js(카카오·구글 로그인)로 만들고 Vercel에 배포했습니다. 결제는 포트원, 리포트 생성은 QStash 워커에서 Claude Haiku 4.5로 비동기 처리합니다. 말랑이 도감, 공유 링크로 들어온 사람들의 궁합 랭킹, 8개국 스테이지 탐험 등 수집·공유 장치를 붙여 인스타 공유형 전환 루프를 만들었습니다.",
+    "outcome": "결제가 붙은 서비스를 혼자 운영하면서 사고로 배운 게 큽니다 — 프롬프트를 고치고 버전을 안 올려서 구버전 캐시가 그대로 서빙되는 사고를 겪은 뒤, 프롬프트·스키마·룰셋 변경 시 버전 bump를 릴리스 체크리스트로 강제했습니다. 기능을 더 만드는 것보다 '유저에게 돈을 받는 서비스가 사고 없이 배포되는 절차'가 훨씬 중요하다는 걸 체득했습니다.",
+    "techStack": ["Next.js 16", "TypeScript", "Tailwind v4", "Neon Postgres", "Drizzle ORM", "Auth.js", "PortOne", "QStash", "Claude Haiku 4.5", "Vercel"],
+    "links": {
+      "github": "",
+      "demo": "https://sajuvillage.com",
+      "video": "",
+      "ppt": ""
+    }
+  },
+  {
+    "id": 6,
     "title": "JobMate",
     "thumbnail": "jobmate",
-    "period": "2026.03 ~ 진행 중",
+    "period": "2026.03",
     "team": "개인 프로젝트",
     "role": "풀스택 설계 · 백엔드 개발",
     "keywords": ["멀티에이전트 AI", "Function Calling", "WebSocket 스트리밍"],
@@ -88,27 +130,6 @@
     "links": {
       "github": "https://github.com/WindowisPark/jobmate",
       "demo": "",
-      "video": "",
-      "ppt": ""
-    }
-  },
-  {
-    "id": 5,
-    "title": "KBO AI Predictor",
-    "thumbnail": "kbo-analyzer",
-    "period": "2026.03 ~ 진행 중",
-    "team": "개인 프로젝트",
-    "role": "풀스택 설계 · ML 파이프라인 · 백엔드 개발",
-    "keywords": ["ML 앙상블 예측", "멀티에이전트 토론", "프로덕션 배포"],
-    "summary": "KBO 경기 예측 — XGBoost/ELO/Bayesian 앙상블 + Claude·GPT·Gemini 멀티에이전트 토론, Railway 프로덕션 운영 중",
-    "situation": "야구 경기 예측을 해보고 싶었는데, 단순 ML 모델만으로는 당일 컨디션이나 맥락을 반영하기 어려웠습니다. 통계 모델의 숫자와 LLM의 맥락 추론을 결합하면 어떨까 하는 실험에서 시작했습니다.",
-    "judgment": "ML 모델은 과거 데이터 기반이라 당일 변수에 약하고, LLM은 숫자에 약합니다. 둘을 각각 쓰는 게 아니라 ML이 확률을 내고 LLM 에이전트들이 맥락을 토론하는 구조가 보완적이라고 판단했습니다. 단일 LLM보다 여러 모델(Claude, GPT, Gemini)이 토론하면 편향이 줄어들 거라는 ReConcile 논문을 참고했습니다.",
-    "work": "103개 피처(10/20/30경기 롤링 스탯, 상대 전적, ELO 차이, 투수 시즌 성적 등)를 설계하고, XGBoost·ELO·Bayesian 3개 모델을 앙상블했습니다. 데이터 누수를 막기 위해 전년도 스탯만 사용하고 롤링 윈도우에 shift(1)을 적용했습니다. LLM 토론은 3단계로 — 독립 분석(Claude·GPT·GPT-turbo) → 2라운드 토론 → Gemini가 종합 판정. KBO 공식 사이트 스크래핑으로 매일 일정·선발 투수를 자동 수집하고, Railway에 배포해서 매일 배치 예측이 돌아갑니다. 구독 티어(Free/Pro/Expert)와 Toss 결제 연동도 구현했습니다.",
-    "outcome": "XGBoost 단독 59.9%, 앙상블 평균 60%대 정확도를 기록하고 있습니다. 프로덕션에서 매일 돌리면서 정확도를 자동 추적하고 있고, 이걸 만들면서 ML 파이프라인 전체(피처 설계 → 학습 → 검증 → 배포 → 모니터링)를 한 번 경험했습니다. 가장 재미있었던 건 LLM 토론에서 에이전트들이 서로의 분석을 반박하면서 실제로 결론이 바뀌는 경우가 있었다는 점입니다.",
-    "techStack": ["Python", "FastAPI", "XGBoost", "Next.js", "PostgreSQL", "Railway", "GitHub Actions", "Claude API", "GPT-4o", "Gemini"],
-    "links": {
-      "github": "https://github.com/WindowisPark/kbo-prediction",
-      "demo": "https://kbo-prediction-lilac.vercel.app/",
       "video": "",
       "ppt": ""
     }

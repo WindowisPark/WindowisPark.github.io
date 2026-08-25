@@ -1,6 +1,4 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
+/* 폰트는 index.html의 <link rel="stylesheet"> + preconnect로 로드 */
 :root {
   /* Colors — Dark Navy / Indigo */
   --color-primary: #4f46e5;
