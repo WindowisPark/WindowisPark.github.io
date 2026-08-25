@@ -2,7 +2,7 @@
   width: 100%;
   padding: 0;
   background: #fff;
-  color: #1a1a1a;
+  color: #0f172a;
   font-family: 'Pretendard Variable', 'Inter', sans-serif;
   font-size: 10pt;
   line-height: 1.7;
@@ -149,7 +149,7 @@
 
 .expPeriod {
   font-size: 8.5pt;
-  color: #94a3b8;
+  color: #64748b;
   flex-shrink: 0;
 }
 
@@ -212,7 +212,7 @@
 
 .projectMeta {
   font-size: 8pt;
-  color: #94a3b8;
+  color: #64748b;
   flex-shrink: 0;
 }
 
@@ -288,7 +288,7 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .compactName {
@@ -297,7 +297,7 @@
 }
 
 .compactDate {
-  color: #94a3b8;
+  color: #64748b;
   margin-left: 8px;
   font-size: 9pt;
 }

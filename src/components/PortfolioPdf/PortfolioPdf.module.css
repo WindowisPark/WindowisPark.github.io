@@ -2,7 +2,7 @@
   width: 100%;
   padding: 0;
   background: #fff;
-  color: #1a1a1a;
+  color: #0f172a;
   font-family: 'Pretendard Variable', 'Inter', sans-serif;
   font-size: 10pt;
   line-height: 1.7;
@@ -103,7 +103,7 @@
 
 .projectMeta {
   font-size: 9pt;
-  color: #94a3b8;
+  color: #64748b;
   flex-shrink: 0;
 }
 
@@ -174,7 +174,7 @@
 .fieldLabelRefactoring {
   font-size: 9pt;
   font-weight: 700;
-  color: #d97706;
+  color: #92400e;
   margin-bottom: 2px;
   padding-left: 8px;
   border-left: 3px solid #d97706;
@@ -210,7 +210,7 @@
 
 .diagramCaption {
   font-size: 8pt;
-  color: #94a3b8;
+  color: #64748b;
   text-align: center;
   margin: 3px 0 0;
   font-weight: 500;
