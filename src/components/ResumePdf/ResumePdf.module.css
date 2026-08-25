@@ -45,6 +45,12 @@
   margin-top: 2px;
 }
 
+.headerSubtitle {
+  font-size: 9.5pt;
+  color: #475569;
+  margin-top: 3px;
+}
+
 .headerContact {
   display: flex;
   flex-wrap: wrap;

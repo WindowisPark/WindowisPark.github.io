@@ -16,6 +16,7 @@ export default function ResumePdf() {
         <div className={styles.headerInfo}>
           <div className={styles.headerName}>{name}</div>
           <div className={styles.headerTitle}>{title}</div>
+          {subtitle && <div className={styles.headerSubtitle}>{subtitle}</div>}
           <div className={styles.headerContact}>
             {contact.email && <span>{contact.email}</span>}
             {contact.phone && <span>{contact.phone}</span>}

@@ -28,6 +28,10 @@ export default function App() {
   useEffect(() => {
     if (!printTarget) return;
 
+    // 저장 파일명이 document.title을 따르므로 인쇄 동안만 교체
+    const prevTitle = document.title;
+    document.title = printTarget === 'resume' ? '박창희_이력서' : '박창희_프로젝트_포트폴리오';
+
     // Wait for the PDF component to render
     const frameId = requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -41,6 +45,7 @@ export default function App() {
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener('afterprint', onAfterPrint);
+      document.title = prevTitle;
     };
   }, [printTarget]);
 
@@ -81,7 +86,7 @@ export default function App() {
       </main>
       <footer className="footer">
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} 박창희. All rights reserved.</p>
         </div>
       </footer>
       <ScrollToTop />

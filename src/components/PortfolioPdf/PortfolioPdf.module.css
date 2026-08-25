@@ -110,7 +110,18 @@
 .projectRole {
   font-size: 9pt;
   color: #64748b;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+}
+
+/* 한 줄 요약 — 스캔용 리드 문장 */
+.projectSummary {
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: #4338ca;
+  background: #eef2ff;
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin: 0 0 10px;
 }
 
 /* ========== Fields (문제/결정/결과) ========== */
@@ -186,6 +197,15 @@
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* 스크린샷은 한 페이지에 들어가도록 높이 제한 */
+.screenshotImg {
+  max-height: 200px;
+  width: auto !important;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 .diagramCaption {

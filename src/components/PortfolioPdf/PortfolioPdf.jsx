@@ -3,11 +3,24 @@ import profileImage from '../../assets/images/profile.png';
 import styles from './PortfolioPdf.module.css';
 
 const diagramFiles = import.meta.glob('../../assets/images/diagrams/*.svg', { eager: true });
+const imageFiles = import.meta.glob('../../assets/images/*.{png,jpg}', { eager: true });
 
 function getDiagram(key) {
   if (!key) return null;
   const match = Object.entries(diagramFiles).find(([path]) => path.includes(`/${key}.`));
   return match ? match[1].default : null;
+}
+
+function getImage(key) {
+  if (!key) return null;
+  const match = Object.entries(imageFiles).find(([path]) => path.includes(`/${key}.`));
+  return match ? match[1].default : null;
+}
+
+// 다이어그램이 없는 프로젝트는 대표 스크린샷으로 대체
+function getFallbackImage(p) {
+  if (p.diagram) return null;
+  return getImage(p.images?.[0] || p.thumbnail);
 }
 
 export default function PortfolioPdf() {
@@ -45,6 +58,9 @@ export default function PortfolioPdf() {
             </div>
             <div className={styles.projectRole}>{p.role}</div>
 
+            {/* 한 줄 요약 */}
+            {p.summary && <p className={styles.projectSummary}>{p.summary}</p>}
+
             {/* 상황 */}
             {p.situation && (
               <div className={styles.field}>
@@ -71,6 +87,16 @@ export default function PortfolioPdf() {
                 {p.diagramCaption && (
                   <p className={styles.diagramCaption}>{p.diagramCaption}</p>
                 )}
+              </div>
+            )}
+
+            {/* 스크린샷 (다이어그램이 없을 때) */}
+            {getFallbackImage(p) && (
+              <div className={styles.diagramField}>
+                <div className={styles.fieldLabel}>스크린샷</div>
+                <div className={styles.diagramImg}>
+                  <img src={getFallbackImage(p)} alt={`${p.title} 스크린샷`} className={styles.screenshotImg} />
+                </div>
               </div>
             )}
 
