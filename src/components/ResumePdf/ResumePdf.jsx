@@ -4,7 +4,9 @@ import styles from './ResumePdf.module.css';
 
 export default function ResumePdf() {
   const { profile } = useModeData();
-  const { name, title, subtitle, contact, about, skills, experience, certificates, awards, activities } = profile;
+  const { name, title, subtitle, contact, about, skills, experience, awards, activities } = profile;
+  // 미취득(준비 중) 자격은 웹에서만 보여주고 이력서 PDF에서는 제외
+  const certificates = profile.certificates?.filter((c) => !c.status || c.status === '취득');
 
   return (
     <div className={styles.wrapper}>

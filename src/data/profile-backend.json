@@ -24,7 +24,7 @@
     { "category": "Backend", "items": ["Java 21", "Spring Boot 3", "Spring Security", "JPA/Hibernate", "Python", "FastAPI"] },
     { "category": "Database", "items": ["MySQL", "PostgreSQL", "Redis", "Flyway"] },
     { "category": "DevOps & Monitoring", "items": ["Docker", "GitHub Actions", "Prometheus", "Grafana", "Nginx"] },
-    { "category": "AI Quality", "items": ["서비스 품질 모니터링", "로그 분류·구조화", "저품질 패턴 분석", "기능 테스트", "LLM 응답 품질 분석"] },
+    { "category": "AI Quality", "items": ["서비스 품질 모니터링", "로그 분류·구조화", "저품질 패턴 분석", "테스트 설계·분석 (ISTQB)", "LLM 응답 품질 분석"] },
     { "category": "AI / ML", "items": ["LangChain", "LangGraph", "Gemini", "ChromaDB", "OpenAI API"] },
     { "category": "Security", "items": ["RBAC", "JWT", "OAuth2", "PII Masking"] }
   ],
@@ -90,6 +90,8 @@
     }
   ],
   "certificates": [
+    { "name": "ISTQB CTFL (Certified Tester Foundation Level) v4.0", "date": "2026.08", "issuer": "ISTQB · KSTQB", "status": "취득" },
+    { "name": "정보처리기사", "date": "2025.06", "issuer": "한국산업인력공단", "status": "필기 합격 · 실기 준비 중" },
     { "name": "ADsP", "date": "2025.06", "issuer": "한국데이터산업진흥원", "status": "취득" },
     { "name": "SQLD", "date": "2025.06", "issuer": "한국데이터산업진흥원", "status": "취득" },
     { "name": "OPIc IH", "date": "2025.02", "issuer": "영어 비즈니스 레벨", "status": "취득" }
