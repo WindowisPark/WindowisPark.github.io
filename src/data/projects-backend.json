@@ -94,7 +94,8 @@
   {
     "id": 5,
     "title": "사주마을 · 말랑이 (sajuvillage.com)",
-    "thumbnail": "",
+    "thumbnail": "sajuvillage-mallang",
+    "images": ["sajuvillage-mallang", "sajuvillage-home", "sajuvillage-explore"],
     "period": "2026.06 ~ 운영 중",
     "team": "2인 팀 프로젝트",
     "role": "백엔드 · 풀스택 개발",
