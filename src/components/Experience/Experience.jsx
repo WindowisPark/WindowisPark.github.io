@@ -22,6 +22,7 @@ export default function Experience() {
                 </span>
                 <h3 className={styles.title}>{item.title}</h3>
                 <p className={styles.role}>{item.role}</p>
+                {item.employment && <p className={styles.employment}>{item.employment}</p>}
                 <p className={styles.period}>{item.period}</p>
                 <p className={styles.description}>{item.description}</p>
                 {item.details.length > 0 && (

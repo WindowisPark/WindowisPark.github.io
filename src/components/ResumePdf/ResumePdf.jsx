@@ -57,6 +57,7 @@ export default function ResumePdf() {
               <span className={styles.expPeriod}>{item.period}</span>
             </div>
             <div className={styles.expRole}>{item.role}</div>
+            {item.employment && <div className={styles.expEmployment}>{item.employment}</div>}
             {item.description && <div className={styles.expDesc}>{item.description}</div>}
             {item.details.length > 0 && (
               <ul className={styles.expDetails}>

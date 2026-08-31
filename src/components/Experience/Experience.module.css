@@ -79,6 +79,12 @@
   margin-top: 2px;
 }
 
+.employment {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
 .period {
   font-size: var(--font-size-sm);
   color: var(--color-text-light);
