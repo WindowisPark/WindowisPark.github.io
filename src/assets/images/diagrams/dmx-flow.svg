@@ -8,7 +8,7 @@
   </style>
 
   <!-- Before: 문제 상황 -->
-  <text x="170" y="18" text-anchor="middle" class="title">BEFORE  -  동시 환전 장애</text>
+  <text x="170" y="18" text-anchor="middle" class="title">BEFORE  -  동시 환전 결함</text>
   <rect x="10" y="28" width="320" height="220" rx="10" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
 
   <!-- 동시 요청 -->
