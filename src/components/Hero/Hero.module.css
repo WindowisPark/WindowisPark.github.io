@@ -1,529 +1,151 @@
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 80px 0 40px;
-  overflow: hidden;
+  padding: 148px 0 48px;
 }
 
-/* ========== 배경 장식 ========== */
-.bgOrb1 {
-  position: absolute;
-  top: -120px;
-  right: -80px;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--color-orb1) 0%, transparent 70%);
-  animation: orbFloat 8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.bgOrb2 {
-  position: absolute;
-  bottom: -100px;
-  left: -120px;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--color-orb2) 0%, transparent 70%);
-  animation: orbFloat 10s ease-in-out infinite reverse;
-  pointer-events: none;
-}
-
-.bgGrid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
-  pointer-events: none;
-}
-
-@keyframes orbFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -20px) scale(1.05); }
-}
-
-/* ========== 레이아웃 ========== */
 .inner {
   display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ========== Identity ========== */
+.identity {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-  position: relative;
-  z-index: 1;
+  gap: 14px;
 }
 
-.textArea {
-  flex: 1;
-}
-
-/* ========== 텍스트 ========== */
-.greeting {
-  font-size: var(--font-size-lg);
-  color: var(--color-primary);
-  font-weight: 500;
-  margin-bottom: 4px;
-  letter-spacing: 0.02em;
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
 }
 
 .name {
-  font-size: 3.2rem;
-  font-weight: 800;
+  font-size: var(--font-size-base);
+  font-weight: 700;
   color: var(--color-text);
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
-.nameHighlight {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.title {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  margin-top: 8px;
-  padding-left: 2px;
-}
-
-.subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  margin-top: 20px;
-  max-width: 460px;
-  line-height: 1.7;
-}
-
-/* ========== CTA ========== */
-.cta {
-  display: flex;
-  gap: 12px;
-  margin-top: 36px;
-}
-
-.btnPrimary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-  color: white;
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  border-radius: var(--border-radius-sm);
-  transition: all var(--transition);
-  box-shadow: 0 4px 15px var(--color-btn-shadow);
-}
-
-.btnPrimary:hover {
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px var(--color-btn-shadow-hover);
-}
-
-.btnPrimary:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px var(--color-btn-shadow);
-}
-
-.btnPrimary svg {
-  transition: transform var(--transition);
-}
-
-.btnPrimary:hover svg {
-  transform: translateX(3px);
-}
-
-.btnSecondary {
-  padding: 14px 28px;
-  border: 1.5px solid var(--color-border);
-  color: var(--color-text);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  border-radius: var(--border-radius-sm);
-  transition: all var(--transition);
-}
-
-.btnSecondary:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--color-card-hover-border);
-}
-
-.btnSecondary:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-/* ========== 소셜 ========== */
-.social {
-  display: flex;
-  gap: 12px;
-  margin-top: 32px;
-}
-
-.social a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--color-text-light);
-  transition: all var(--transition);
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
+.role {
+  font-family: var(--font-mono);
   font-size: var(--font-size-xs);
-  font-weight: 500;
-}
-
-.social a:hover {
-  color: var(--color-primary);
-  background: var(--color-primary-bg);
-  border-color: var(--color-primary-light);
-}
-
-/* ========== 프로필 비주얼 ========== */
-.visual {
-  flex-shrink: 0;
-}
-
-.profileRing {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.profileRing::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    var(--color-primary),
-    var(--color-primary-light),
-    transparent 60%,
-    transparent 80%,
-    var(--color-primary)
-  );
-  animation: ringRotate 6s linear infinite;
-  opacity: 0.6;
-}
-
-.profileRing::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  background: var(--color-bg);
-}
-
-@keyframes ringRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.profileCircle {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: var(--color-bg-alt);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
-.profileCircle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.placeholder {
   color: var(--color-text-light);
+  line-height: 1.4;
 }
 
-/* ========== 스크롤 인디케이터 ========== */
-.scrollIndicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+/* ========== Headline ========== */
+.headline {
+  font-size: clamp(1.875rem, 4.2vw, 3.125rem);
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  max-width: 17em;
+  word-break: keep-all;
+}
+
+.headline em {
+  font-style: normal;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+/* ========== Proofs ========== */
+.proofs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 24px;
+  counter-reset: none;
+}
+
+.proofs a {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  gap: 6px;
+  height: 100%;
+  padding: 16px 28px 0 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: border-color var(--transition);
 }
 
-.scrollIndicator span {
+.proofs a:hover {
+  border-top-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.proofMeta {
+  display: flex;
+  gap: 10px;
+  font-family: var(--font-mono);
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
 }
 
-.scrollLine {
-  width: 1px;
-  height: 40px;
-  background: var(--color-border);
-  position: relative;
-  overflow: hidden;
+.proofIndex {
+  color: var(--color-primary);
 }
 
-.scrollLine::after {
-  content: '';
+.proofText {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.proofArrow {
   position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-primary);
-  animation: scrollDown 2s ease-in-out infinite;
+  top: 14px;
+  right: 0;
+  color: var(--color-text-light);
+  transition: transform var(--transition), color var(--transition);
 }
 
-@keyframes scrollDown {
-  0% { top: -100%; }
-  100% { top: 100%; }
+.proofs a:hover .proofArrow {
+  color: var(--color-primary);
+  transform: translateY(3px);
 }
 
-/* ========== 스태거 등장 애니메이션 ========== */
-.anim1, .anim2, .anim3, .anim4, .anim5, .anim6, .anim7, .anim8 {
-  opacity: 0;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+/* ========== Links ========== */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-size: var(--font-size-sm);
 }
 
-.anim1 {
-  animation: heroSlideUp 0.8s 0.1s forwards;
-}
-.anim2 {
-  animation: heroSlideUp 0.8s 0.25s forwards;
-}
-.anim3 {
-  animation: heroSlideUp 0.8s 0.4s forwards;
-}
-.anim4 {
-  animation: heroSlideUp 0.8s 0.55s forwards;
-}
-.anim5 {
-  animation: heroSlideUp 0.8s 0.7s forwards;
-}
-.anim6 {
-  animation: heroSlideUp 0.8s 0.85s forwards;
-}
-.anim7 {
-  animation: heroScale 1s 0.3s forwards;
-}
-.anim8 {
-  animation: heroFade 1s 1.2s forwards;
+.links a {
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
 }
 
-@keyframes heroSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes heroScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes heroFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* ========== 반응형 ========== */
-@media (max-width: 1024px) {
-  .inner {
-    gap: 40px;
-  }
-
-  .profileRing {
-    width: 260px;
-    height: 260px;
-  }
-
-  .profileCircle {
-    width: 240px;
-    height: 240px;
-  }
+.links a:hover {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 0 32px;
+    padding: 112px 0 64px;
   }
 
   .inner {
-    flex-direction: column-reverse;
-    text-align: center;
+    gap: 32px;
   }
 
-  .name {
-    font-size: 2.5rem;
+  .proofs {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .subtitle {
-    max-width: 100%;
-    font-size: var(--font-size-base);
-  }
-
-  .cta {
-    justify-content: center;
-  }
-
-  .social {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .profileRing {
-    width: 220px;
-    height: 220px;
-  }
-
-  .profileCircle {
-    width: 200px;
-    height: 200px;
-  }
-
-  .scrollIndicator {
-    display: none;
-  }
-
-  .bgOrb1, .bgOrb2 {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 48px 0 24px;
-  }
-
-  .name {
-    font-size: 2.2rem;
-  }
-
-  .subtitle {
-    font-size: var(--font-size-sm);
-    margin-top: 16px;
-  }
-}
-
-@media print {
-  .hero {
-    min-height: auto;
-    padding: 0;
-    page-break-after: avoid;
-  }
-
-  .bgOrb1,
-  .bgOrb2,
-  .bgGrid,
-  .scrollIndicator,
-  .cta {
-    display: none !important;
-  }
-
-  .anim1, .anim2, .anim3, .anim4, .anim5, .anim6, .anim7, .anim8 {
-    opacity: 1 !important;
-  }
-
-  .nameHighlight {
-    -webkit-text-fill-color: #4f46e5;
-    background: none;
-  }
-
-  .profileRing::before {
-    display: none;
-  }
-
-  .profileRing {
-    width: 140px;
-    height: 140px;
-  }
-
-  .profileCircle {
-    width: 130px;
-    height: 130px;
-  }
-
-  .name {
-    font-size: 2rem;
-  }
-
-  .social a {
-    border: none;
-    padding: 2px 6px;
-    font-size: 0.75rem;
-    color: #475569 !important;
-  }
-
-  .social svg {
-    width: 14px;
-    height: 14px;
-  }
-}
-
-@media (max-width: 400px) {
-  .name {
-    font-size: 1.8rem;
-  }
-
-  .title {
-    font-size: var(--font-size-base);
-  }
-
-  .cta {
-    flex-direction: column;
-  }
-
-  .btnPrimary,
-  .btnSecondary {
-    padding: 12px 24px;
-    justify-content: center;
-  }
-
-  .profileRing {
-    width: 160px;
-    height: 160px;
-  }
-
-  .profileCircle {
-    width: 144px;
-    height: 144px;
-  }
-
-  .social a {
-    padding: 5px 10px;
-    font-size: 0.7rem;
+  .proofs a {
+    padding: 14px 28px 14px 0;
   }
 }

@@ -1,4 +1,5 @@
 import { useModeData } from '../../context/ModeContext';
+import SectionTitle from '../common/SectionTitle';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -8,11 +9,7 @@ export default function Contact() {
   return (
     <section id="contact" className={styles.section}>
       <div className="container">
-        <div className={styles.titleWrapper}>
-          <h2 className={styles.gradientTitle}>Contact</h2>
-          <p className={styles.titleSub}>연락처</p>
-          <div className={styles.titleDivider} />
-        </div>
+        <SectionTitle index="04" title="Contact" subtitle="연락처" />
 
         <div className={styles.content}>
           <p className={styles.description}>

@@ -3,11 +3,9 @@ import useTheme from '../../hooks/useTheme';
 import styles from './Navbar.module.css';
 
 const NAV_ITEMS = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'work', label: 'Work' },
   { id: 'projects', label: 'Projects' },
+  { id: 'background', label: 'Background' },
   { id: 'contact', label: 'Contact' },
   { id: 'blog', label: 'Dev Log', href: '/commit-blog' },
 ];
@@ -51,7 +49,7 @@ export default function Navbar({ activeSection, onDownloadResume, onDownloadPort
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <a className={styles.logo} href="#hero" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}>
-          Portfolio
+          박창희
         </a>
 
         <div className={styles.navActions}>

@@ -2,21 +2,24 @@ import { useEffect, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import useScrollSpy from './hooks/useScrollSpy';
 import Navbar from './components/Navbar/Navbar';
-import Sidebar from './components/Sidebar/Sidebar';
 import Hero from './components/Hero/Hero';
-import About from './components/About/About';
-import Skills from './components/Skills/Skills';
-import Experience from './components/Experience/Experience';
+import Work from './components/Work/Work';
 import Projects from './components/Projects/Projects';
+import ProjectModal from './components/Projects/ProjectModal';
+import Background from './components/Background/Background';
 import Contact from './components/Contact/Contact';
 import ScrollToTop from './components/common/ScrollToTop';
 import ResumePdf from './components/ResumePdf/ResumePdf';
 import PortfolioPdf from './components/PortfolioPdf/PortfolioPdf';
 
-const SECTIONS = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
+const SECTIONS = ['hero', 'work', 'projects', 'background', 'contact'];
 
 export default function App() {
   const activeSection = useScrollSpy(SECTIONS);
+
+  // Work와 Projects가 같은 상세 모달을 공유
+  const [openProject, setOpenProject] = useState(null);
+  const handleCloseProject = useCallback(() => setOpenProject(null), []);
 
   // Print target: 'resume' | 'portfolio' | null
   const [printTarget, setPrintTarget] = useState(null);
@@ -75,15 +78,14 @@ export default function App() {
         onDownloadResume={handleDownloadResume}
         onDownloadPortfolio={handleDownloadPortfolio}
       />
-      <Sidebar activeSection={activeSection} />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
+        <Work onOpen={setOpenProject} />
+        <Projects onOpen={setOpenProject} />
+        <Background />
         <Contact />
       </main>
+      {openProject && <ProjectModal project={openProject} onClose={handleCloseProject} />}
       <footer className="footer">
         <div className="container">
           <p>&copy; {new Date().getFullYear()} 박창희. All rights reserved.</p>

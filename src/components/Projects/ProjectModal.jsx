@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import styles from './Projects.module.css';
+import styles from './ProjectModal.module.css';
 
 function getYouTubeId(url) {
   if (!url) return null;

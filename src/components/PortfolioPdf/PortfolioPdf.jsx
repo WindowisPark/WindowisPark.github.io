@@ -23,9 +23,15 @@ function getFallbackImage(p) {
   return getImage(p.images?.[0] || p.thumbnail);
 }
 
+// 사이트와 같은 순서(경력 케이스 → 대표 프로젝트 → 그 외), 상세 서술이 있는 것만
+const SECTION_ORDER = { work: 0, selected: 1, other: 2 };
+
 export default function PortfolioPdf() {
   const { profile, projects } = useModeData();
   const { name, title, contact } = profile;
+  const pdfProjects = projects
+    .filter((p) => p.situation)
+    .sort((a, b) => SECTION_ORDER[a.section] - SECTION_ORDER[b.section]);
 
   return (
     <div className={styles.wrapper}>
@@ -44,7 +50,7 @@ export default function PortfolioPdf() {
       </div>
 
       {/* Projects */}
-      {projects.map((p, idx) => (
+      {pdfProjects.map((p, idx) => (
         <div key={p.id}>
           <div className={`${styles.project} ${idx > 0 ? styles.projectBreak : ''}`}>
 
