@@ -98,7 +98,7 @@
 
   <!-- Response merge -->
   <rect x="280" y="254" width="250" height="34" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
-  <text x="405" y="272" text-anchor="middle" class="label">WebSocket Streaming Response</text>
+  <text x="405" y="272" text-anchor="middle" class="label">WebSocket Response</text>
   <text x="405" y="284" text-anchor="middle" class="sublabel">FastAPI + React + Zustand</text>
 
   <line x1="240" y1="230" x2="330" y2="252" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3" marker-end="url(#mGray)"/>
