@@ -80,7 +80,7 @@ export default function ResumePdf() {
                 <div key={i} className={styles.compactItem}>
                   <span className={styles.compactName}>{a.name}</span>
                   <span className={styles.compactDate}>{a.date}</span>
-                  {a.description && <span className={styles.compactDesc}> — {a.description}</span>}
+                  {a.description && <span className={styles.compactDesc}> · {a.description}</span>}
                 </div>
               ))}
             </div>

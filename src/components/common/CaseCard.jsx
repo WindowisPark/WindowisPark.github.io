@@ -1,3 +1,4 @@
+import ProjectActions from './ProjectActions';
 import styles from './CaseCard.module.css';
 
 const images = import.meta.glob('../../assets/images/*.{png,jpg,jpeg,webp}', { eager: true });
@@ -11,7 +12,6 @@ function getImage(key) {
 // 경력 케이스와 대표 프로젝트가 같은 틀(자동화 / 확인)로 읽히게 하는 카드
 export default function CaseCard({ project, onOpen, showImage = false }) {
   const imageSrc = showImage ? getImage(project.thumbnail) : null;
-  const { links = {} } = project;
 
   return (
     <article id={`case-${project.id}`} className={styles.card}>
@@ -47,18 +47,8 @@ export default function CaseCard({ project, onOpen, showImage = false }) {
         {project.quote && <blockquote className={styles.quote}>{project.quote}</blockquote>}
 
         <footer className={styles.footer}>
-          <button className={styles.more} onClick={onOpen}>
-            자세히 보기 <span aria-hidden="true">→</span>
-          </button>
-          {links.demo && (
-            <a href={links.demo} target="_blank" rel="noopener noreferrer" className={styles.link}>Demo ↗</a>
-          )}
-          {links.github && (
-            <a href={links.github} target="_blank" rel="noopener noreferrer" className={styles.link}>
-              {links.githubLabel || 'GitHub'} ↗
-            </a>
-          )}
           <span className={styles.stack}>{project.techStack.slice(0, 5).join(' · ')}</span>
+          <ProjectActions project={project} onOpen={onOpen} />
         </footer>
       </div>
     </article>

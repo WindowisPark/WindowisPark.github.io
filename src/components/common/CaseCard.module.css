@@ -127,32 +127,7 @@
   border-top: 1px solid var(--color-border);
 }
 
-.more {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
-.more span {
-  display: inline-block;
-  transition: transform var(--transition);
-}
-
-.more:hover span {
-  transform: translateX(3px);
-}
-
-.link {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-}
-
-.link:hover {
-  color: var(--color-primary);
-}
-
 .stack {
-  margin-left: auto;
   font-family: var(--font-mono);
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
@@ -177,7 +152,6 @@
   }
 
   .stack {
-    margin-left: 0;
     width: 100%;
   }
 }

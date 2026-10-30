@@ -1,6 +1,7 @@
 import { useModeData } from '../../context/ModeContext';
 import SectionTitle from '../common/SectionTitle';
 import CaseCard from '../common/CaseCard';
+import ProjectActions from '../common/ProjectActions';
 import styles from './Projects.module.css';
 
 export default function Projects({ onOpen }) {
@@ -28,20 +29,7 @@ export default function Projects({ onOpen }) {
                 <span className={styles.otherName}>{p.title}</span>
                 <span className={styles.otherDesc}>{p.oneLiner}</span>
               </div>
-              <div className={styles.otherLinks}>
-                {p.situation && (
-                  <button onClick={() => onOpen(p)}>자세히</button>
-                )}
-                {p.links?.report && (
-                  <a href={p.links.report} target="_blank" rel="noopener noreferrer">리포트 ↗</a>
-                )}
-                {p.links?.github && (
-                  <a href={p.links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                )}
-                {p.links?.demo && (
-                  <a href={p.links.demo} target="_blank" rel="noopener noreferrer">바로가기 ↗</a>
-                )}
-              </div>
+              <ProjectActions project={p} onOpen={() => onOpen(p)} />
             </li>
           ))}
         </ul>

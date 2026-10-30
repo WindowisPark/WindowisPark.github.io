@@ -32,15 +32,11 @@ export default function Hero() {
         </h1>
 
         <ol className={styles.proofs}>
-          {proofs.map((p, i) => (
+          {proofs.map((p) => (
             <li key={p.target}>
               <a href={`#case-${p.target}`} onClick={(e) => scrollToId(e, `case-${p.target}`)}>
-                <span className={styles.proofMeta}>
-                  <span className={styles.proofIndex}>{String(i + 1).padStart(2, '0')}</span>
-                  {p.source}
-                </span>
+                <span className={styles.proofSource}>{p.source}</span>
                 <span className={styles.proofText}>{p.text}</span>
-                <span className={styles.proofArrow} aria-hidden="true">→</span>
               </a>
             </li>
           ))}
