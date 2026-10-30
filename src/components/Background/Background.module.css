@@ -3,7 +3,7 @@
 }
 
 .rows {
-  border-top: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-border-strong);
 }
 
 .row {
@@ -15,11 +15,10 @@
 }
 
 .row dt {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  color: var(--color-primary);
-  padding-top: 3px;
+  padding-top: 2px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .row dd {
@@ -35,6 +34,7 @@
 }
 
 .itemTitle {
+  font-size: var(--text-body);
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.5;
@@ -42,15 +42,14 @@
 }
 
 .itemSub {
-  font-size: var(--font-size-sm);
+  font-size: var(--text-small);
   color: var(--color-text-secondary);
   line-height: 1.6;
   word-break: keep-all;
 }
 
 .itemMeta {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-size: var(--text-small);
   color: var(--color-text-light);
 }
 
@@ -58,7 +57,7 @@
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr);
   gap: 16px;
-  font-size: var(--font-size-sm);
+  font-size: var(--text-small);
   line-height: 1.6;
   color: var(--color-text);
 }

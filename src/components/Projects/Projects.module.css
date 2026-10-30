@@ -5,21 +5,20 @@
 .selected {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
 }
 
 /* ========== 그 외 ========== */
 .othersTitle {
   margin-top: 56px;
   margin-bottom: 8px;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  color: var(--color-text-light);
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .others {
-  border-top: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-border-strong);
 }
 
 .other {
@@ -34,7 +33,7 @@
 
 .otherPeriod {
   font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-size: var(--text-mono);
   color: var(--color-text-light);
 }
 
@@ -46,12 +45,13 @@
 }
 
 .otherName {
-  font-weight: 700;
+  font-size: var(--text-body);
+  font-weight: 600;
   color: var(--color-text);
 }
 
 .otherDesc {
-  font-size: var(--font-size-sm);
+  font-size: var(--text-small);
   color: var(--color-text-secondary);
   word-break: keep-all;
 }

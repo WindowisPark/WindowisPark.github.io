@@ -1,13 +1,8 @@
 .card {
   background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border-strong);
   border-radius: var(--border-radius);
   scroll-margin-top: 88px;
-  transition: border-color var(--transition);
-}
-
-.card:hover {
-  border-color: var(--color-card-hover-border);
 }
 
 /* 리포트의 그림처럼 카드 위에 전체 너비로, 잘리지 않게 보여준다 */
@@ -17,8 +12,7 @@
   height: 340px;
   overflow: hidden;
   background: var(--color-thumb-bg);
-  border-bottom: 1px solid var(--color-border);
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  border-bottom: 2px solid var(--color-border-strong);
 }
 
 .image img {
@@ -37,13 +31,13 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: 28px 32px;
+  padding: 32px;
   min-width: 0;
 }
 
 /* ========== Header ========== */
 .title {
-  font-size: var(--font-size-xl);
+  font-size: var(--text-h3);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.4;
@@ -52,14 +46,13 @@
 }
 
 .meta {
-  margin-top: 2px;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  margin-top: 4px;
+  font-size: var(--text-small);
   color: var(--color-text-light);
 }
 
 .summary {
-  font-size: var(--font-size-base);
+  font-size: var(--text-body);
   color: var(--color-text-secondary);
   line-height: 1.7;
   word-break: keep-all;
@@ -69,17 +62,15 @@
 .columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 28px;
 }
 
 .label {
   display: inline-block;
-  margin-bottom: 8px;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  color: var(--color-primary);
-  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .list {
@@ -91,7 +82,7 @@
 .list li {
   position: relative;
   padding-left: 14px;
-  font-size: var(--font-size-sm);
+  font-size: var(--text-body);
   line-height: 1.65;
   color: var(--color-text);
   word-break: keep-all;
@@ -101,7 +92,7 @@
   content: '';
   position: absolute;
   left: 0;
-  top: 0.72em;
+  top: 0.8em;
   width: 6px;
   height: 1px;
   background: var(--color-text-light);
@@ -109,9 +100,10 @@
 
 .quote {
   padding-left: 14px;
-  border-left: 2px solid var(--color-primary);
-  font-size: var(--font-size-sm);
+  border-left: 3px solid var(--color-signal);
+  font-size: var(--text-body);
   font-weight: 600;
+  line-height: 1.6;
   color: var(--color-text);
   word-break: keep-all;
 }
@@ -129,7 +121,7 @@
 
 .stack {
   font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-size: var(--text-mono);
   color: var(--color-text-light);
 }
 

@@ -1,0 +1,97 @@
+.pipe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.label {
+  margin-right: 16px;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  color: var(--color-text-light);
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-text-light);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.dot {
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  font-size: 9px;
+  line-height: 1;
+  color: transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.run,
+.done {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.run .dot {
+  border-color: var(--color-signal);
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+.done .dot {
+  background: var(--color-signal);
+  border-color: var(--color-signal);
+  color: #ffffff;
+}
+
+.link {
+  position: relative;
+  width: 28px;
+  height: 2px;
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.linkOn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-signal);
+  transform-origin: left;
+  animation: fill 0.5s forwards;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (max-width: 480px) {
+  .label {
+    width: 100%;
+  }
+
+  .step {
+    padding: 6px 10px;
+  }
+
+  .link {
+    width: 12px;
+  }
+}

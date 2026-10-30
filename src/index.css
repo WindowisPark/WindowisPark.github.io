@@ -1,18 +1,20 @@
 /* 폰트는 index.html의 <link rel="stylesheet"> + preconnect로 로드 */
 :root {
-  /* Colors — Paper / Ink / Deep Teal (리포트 톤) */
-  --color-primary: #0f6b5c;
-  --color-primary-light: #14806e;
-  --color-primary-dark: #0a5245;
-  --color-primary-bg: #e6f0ed;
-  --color-text: #18181b;
-  --color-text-secondary: #4b4b52;
-  --color-text-light: #6b6b73;
-  --color-bg: #fbfaf7;
-  --color-bg-alt: #f3f1ec;
-  --color-border: #e3e0d8;
+  /* Colors: 흑백 + 시그널 컬러. 작은 글자는 잉크색만, 주황은 헤드라인 강조·파이프라인 같은 큰 요소에만 */
+  --color-primary: #111111;
+  --color-primary-light: #333333;
+  --color-primary-dark: #000000;
+  --color-primary-bg: #f2f2f2;
+  --color-signal: #ff5a1f;
+  --color-text: #111111;
+  --color-text-secondary: #3d3d3d;
+  --color-text-light: #666666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f5f5;
+  --color-border: #e4e4e4;
+  --color-border-strong: #111111;
   --color-card-bg: #ffffff;
-  --color-card-shadow: rgba(24, 24, 27, 0.04);
+  --color-card-shadow: rgba(0, 0, 0, 0.04);
 
   /* Typography */
   --font-family: 'Pretendard Variable', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -27,77 +29,61 @@
   --font-size-4xl: 2.25rem;
   --line-height: 1.75;
 
+  /* 글자 체계 5단계 (+ 모노 숫자). 굵기는 400 본문 · 600 항목/라벨 · 700 제목만 */
+  --text-display: clamp(2.25rem, 4.6vw, 3.5rem);
+  --text-h2: 2rem;
+  --text-h3: 1.375rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-mono: 0.8125rem;
+
   /* Spacing */
   --section-padding: 64px 0;
   --container-width: 1040px;
   --container-padding: 0 24px;
 
   /* Effects */
-  --border-radius: 8px;
-  --border-radius-sm: 4px;
+  --border-radius: 2px;
+  --border-radius-sm: 2px;
   --shadow-sm: 0 1px 2px rgba(24, 24, 27, 0.05);
   --shadow-md: 0 2px 8px rgba(24, 24, 27, 0.06);
   --shadow-lg: 0 8px 30px rgba(24, 24, 27, 0.1);
   --transition: 0.3s ease;
 
   /* Dark-mode specific */
-  --color-nav-bg: rgba(251, 250, 247, 0.95);
-  --color-nav-mobile-bg: rgba(251, 250, 247, 0.98);
-  --color-card-hover-shadow: rgba(24, 24, 27, 0.06);
-  --color-card-hover-border: rgba(15, 107, 92, 0.35);
-  --color-btn-shadow: rgba(15, 107, 92, 0.18);
-  --color-btn-shadow-hover: rgba(15, 107, 92, 0.28);
-  --color-thumb-gradient-end: #e6f0ed;
-  --color-placeholder-start: #f3f1ec;
-  --color-badge-award-text: #7c3aed;
-  --color-badge-award-bg: #ede9fe;
-  --color-badge-cert-text: #2563eb;
-  --color-badge-cert-bg: #dbeafe;
-  --color-tag-hover-border: rgba(15, 107, 92, 0.25);
-  --color-badge-activity-text: #0d9488;
-  --color-badge-activity-bg: #ccfbf1;
-  --color-thumb-bg: #f3f1ec;
-  --color-keyword-text: #0f6b5c;
-  --color-keyword-bg: rgba(15, 107, 92, 0.07);
-  --color-keyword-border: rgba(15, 107, 92, 0.2);
+  --color-nav-bg: rgba(255, 255, 255, 0.95);
+  --color-nav-mobile-bg: rgba(255, 255, 255, 0.98);
+  --color-thumb-bg: #f2f2f2;
+  --color-keyword-text: #111111;
+  --color-keyword-bg: #f2f2f2;
+  --color-keyword-border: #d6d6d6;
 }
 
 [data-theme="dark"] {
-  --color-primary: #5fc2ab;
-  --color-primary-light: #82d2bf;
-  --color-primary-dark: #49a994;
-  --color-primary-bg: rgba(95, 194, 171, 0.12);
-  --color-text: #e8e6e1;
-  --color-text-secondary: #a8a8b0;
-  --color-text-light: #8e8e96;
-  --color-bg: #121315;
-  --color-bg-alt: #1a1b1f;
-  --color-border: #2c2d33;
-  --color-card-bg: #17181b;
+  --color-primary: #f2f2f2;
+  --color-primary-light: #d6d6d6;
+  --color-primary-dark: #ffffff;
+  --color-primary-bg: #1f1f1f;
+  --color-signal: #ff6a33;
+  --color-text: #f2f2f2;
+  --color-text-secondary: #c4c4c4;
+  --color-text-light: #9a9a9a;
+  --color-bg: #0e0e0e;
+  --color-bg-alt: #161616;
+  --color-border: #2a2a2a;
+  --color-border-strong: #f2f2f2;
+  --color-card-bg: #0e0e0e;
   --color-card-shadow: rgba(0, 0, 0, 0.3);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
 
-  --color-nav-bg: rgba(18, 19, 21, 0.95);
-  --color-nav-mobile-bg: rgba(18, 19, 21, 0.98);
-  --color-card-hover-shadow: rgba(0, 0, 0, 0.3);
-  --color-card-hover-border: rgba(95, 194, 171, 0.35);
-  --color-btn-shadow: rgba(95, 194, 171, 0.2);
-  --color-btn-shadow-hover: rgba(95, 194, 171, 0.35);
-  --color-thumb-gradient-end: #1a1b1f;
-  --color-placeholder-start: #1a1b1f;
-  --color-badge-award-text: #a78bfa;
-  --color-badge-award-bg: rgba(167, 139, 250, 0.15);
-  --color-badge-cert-text: #60a5fa;
-  --color-badge-cert-bg: rgba(96, 165, 250, 0.15);
-  --color-tag-hover-border: rgba(95, 194, 171, 0.25);
-  --color-badge-activity-text: #5eead4;
-  --color-badge-activity-bg: rgba(94,234,212,0.15);
-  --color-thumb-bg: #1a1b1f;
-  --color-keyword-text: #82d2bf;
-  --color-keyword-bg: rgba(95, 194, 171, 0.1);
-  --color-keyword-border: rgba(95, 194, 171, 0.22);
+  --color-nav-bg: rgba(14, 14, 14, 0.95);
+  --color-nav-mobile-bg: rgba(14, 14, 14, 0.98);
+  --color-thumb-bg: #1a1a1a;
+  --color-keyword-text: #f2f2f2;
+  --color-keyword-bg: #1f1f1f;
+  --color-keyword-border: #3a3a3a;
 }
 
 

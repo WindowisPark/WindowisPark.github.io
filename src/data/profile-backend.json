@@ -1,7 +1,8 @@
 {
   "name": "박창희",
   "nameEn": "Park Changhee",
-  "title": "백엔드 개발자",
+  "title": "백엔드 개발자 · 자동화",
+  "affiliation": "SK텔레콤 AI 서비스 품질 운영",
   "subtitle": "반복되는 운영은 자동화하고, 그게 제대로 도는지는 숫자로 확인합니다.",
   "proofs": [
     { "source": "SK텔레콤", "text": "에이닷 실기기 데일리 점검과 대화 품질 측정 무인화", "target": 7 },
