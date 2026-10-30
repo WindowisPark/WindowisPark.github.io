@@ -5,8 +5,7 @@ import styles from './Background.module.css';
 export default function Background() {
   const { profile } = useModeData();
   const { skills, certificates = [], awards = [], activities = [] } = profile;
-  // 웹에는 대표 학력만, 전체 학력은 PDF 이력서에
-  const education = profile.experience.filter((e) => e.type === 'education' && e.web !== false);
+  const education = profile.experience.filter((e) => e.type === 'education');
 
   return (
     <section id="background" className={styles.section}>
@@ -21,6 +20,7 @@ export default function Background() {
                 <div key={e.title} className={styles.item}>
                   <span className={styles.itemTitle}>{e.title}</span>
                   <span className={styles.itemSub}>{e.role}</span>
+                  {e.details.length > 0 && <span className={styles.itemSub}>{e.details.join(' · ')}</span>}
                   <span className={styles.itemMeta}>{e.period} · {e.description}</span>
                 </div>
               ))}
