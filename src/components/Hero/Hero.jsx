@@ -30,6 +30,14 @@ export default function Hero() {
             <p className={styles.role}>{title}</p>
             {affiliation && <p className={styles.affiliation}>{affiliation}</p>}
 
+            <div className={styles.links}>
+              {contact.github && (
+                <a href={contact.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+              )}
+              {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
+              <a href="/commit-blog">Dev Log</a>
+            </div>
+
             <h1 className={styles.headline}>
               {emphasize(firstClause)}
               {restClauses.length > 0 && <>,<br />{emphasize(restClauses.join(', '))}</>}
@@ -53,14 +61,6 @@ export default function Hero() {
             </li>
           ))}
         </ul>
-
-        <div className={styles.links}>
-          {contact.github && (
-            <a href={contact.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-          )}
-          {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
-          <a href="/commit-blog">Dev Log</a>
-        </div>
       </div>
     </section>
   );

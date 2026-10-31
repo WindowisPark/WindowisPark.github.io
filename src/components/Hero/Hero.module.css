@@ -105,12 +105,12 @@
   text-underline-offset: 0.2em;
 }
 
-/* ========== Links ========== */
+/* ========== Links: 이름·소속과 한 덩어리로 ========== */
 .links {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 24px;
-  margin-top: 40px;
+  margin-top: 14px;
   font-size: var(--text-small);
 }
 
