@@ -14,7 +14,7 @@ export default function CaseCard({ project, onOpen, showImage = false }) {
   const imageSrc = showImage ? getImage(project.thumbnail) : null;
 
   return (
-    <article id={`case-${project.id}`} className={styles.card}>
+    <article id={`case-${project.slug}`} className={styles.card}>
       {imageSrc && (
         <button className={styles.image} onClick={onOpen} aria-label={`${project.title} 자세히 보기`}>
           <img src={imageSrc} alt="" loading="lazy" />

@@ -5,9 +5,9 @@
   "affiliation": "SK텔레콤 AI 서비스 품질 운영",
   "subtitle": "반복되는 운영은 자동화하고, 그게 제대로 도는지는 숫자로 확인합니다.",
   "proofs": [
-    { "source": "SK텔레콤", "text": "에이닷 실기기 데일리 점검과 대화 품질 측정 무인화", "target": 7 },
-    { "source": "그린리본", "text": "릴리스 전 동시성 결함 발견, 오류율 90%↓", "target": 1 },
-    { "source": "사주마을", "text": "유료 LLM 리포트 캐시 사고 35건 추적·복구", "target": 5 }
+    { "source": "SK텔레콤", "text": "에이닷 실기기 데일리 점검과 대화 품질 측정 무인화", "target": "skt-app-qa" },
+    { "source": "그린리본", "text": "릴리스 전 동시성 결함 발견, 오류율 90%↓", "target": "dmx" },
+    { "source": "사주마을", "text": "유료 LLM 리포트 캐시 사고 35건 추적·복구", "target": "sajuvillage" }
   ],
   "profileImage": "",
   "contact": {

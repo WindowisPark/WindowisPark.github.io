@@ -1,6 +1,7 @@
 [
   {
     "id": 7,
+    "slug": "skt-app-qa",
     "section": "work",
     "org": "skt",
     "title": "에이닷 앱 품질 점검 자동화",
@@ -27,6 +28,7 @@
   },
   {
     "id": 2,
+    "slug": "hub",
     "section": "work",
     "org": "greenribbon",
     "title": "임상시험 영업 퍼널 자동화 (hub.green-scout)",
@@ -55,6 +57,7 @@
   },
   {
     "id": 1,
+    "slug": "dmx",
     "section": "work",
     "org": "greenribbon",
     "title": "라이프캐치 DMX 포인트 · 라운지",
@@ -82,6 +85,7 @@
   },
   {
     "id": 5,
+    "slug": "sajuvillage",
     "section": "selected",
     "title": "사주마을 · 말랑이 (sajuvillage.com)",
     "thumbnail": "sajuvillage-mallang",
@@ -108,6 +112,7 @@
   },
   {
     "id": 4,
+    "slug": "baseball",
     "section": "selected",
     "title": "야구 경기 예측·검증 자동화 (MLB·KBO·NPB)",
     "thumbnail": "baseball-discord",
@@ -133,6 +138,7 @@
   },
   {
     "id": 3,
+    "slug": "lockbench",
     "section": "other",
     "title": "LockBench",
     "thumbnail": "lock-bench-fair",
@@ -159,6 +165,7 @@
   },
   {
     "id": 8,
+    "slug": "commit-blog",
     "section": "other",
     "title": "commit-blog",
     "period": "2026.03 ~",
@@ -174,6 +181,7 @@
   },
   {
     "id": 9,
+    "slug": "planova",
     "section": "other",
     "title": "Planova",
     "period": "2025.01 ~ 2026.03",

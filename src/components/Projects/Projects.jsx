@@ -23,7 +23,7 @@ export default function Projects({ onOpen }) {
         <h3 className={styles.othersTitle}>그 외</h3>
         <ul className={styles.others}>
           {others.map((p) => (
-            <li key={p.id} id={`case-${p.id}`} className={styles.other}>
+            <li key={p.id} id={`case-${p.slug}`} className={styles.other}>
               <span className={styles.otherPeriod}>{p.period}</span>
               <div className={styles.otherMain}>
                 <span className={styles.otherName}>{p.title}</span>

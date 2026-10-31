@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import useScrollSpy from './hooks/useScrollSpy';
+import { useModeData } from './context/ModeContext';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Work from './components/Work/Work';
@@ -18,8 +19,31 @@ export default function App() {
   const activeSection = useScrollSpy(SECTIONS);
 
   // Work와 Projects가 같은 상세 모달을 공유
+  const { projects } = useModeData();
   const [openProject, setOpenProject] = useState(null);
-  const handleCloseProject = useCallback(() => setOpenProject(null), []);
+
+  // 상세 모달은 #case-<slug> 주소와 함께 열고 닫아서, 케이스별 링크로 바로 들어올 수 있게
+  const handleOpenProject = useCallback((project) => {
+    history.replaceState(null, '', `#case-${project.slug}`);
+    setOpenProject(project);
+  }, []);
+  const handleCloseProject = useCallback(() => {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+    setOpenProject(null);
+  }, []);
+
+  useEffect(() => {
+    const openFromHash = () => {
+      const slug = window.location.hash.match(/^#case-(.+)$/)?.[1];
+      const project = projects.find((p) => p.slug === slug);
+      if (!project) return;
+      document.getElementById(`case-${slug}`)?.scrollIntoView();
+      setOpenProject(project);
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+    return () => window.removeEventListener('hashchange', openFromHash);
+  }, [projects]);
 
   // Print target: 'resume' | 'portfolio' | null
   const [printTarget, setPrintTarget] = useState(null);
@@ -80,8 +104,8 @@ export default function App() {
       />
       <main>
         <Hero />
-        <Work onOpen={setOpenProject} />
-        <Projects onOpen={setOpenProject} />
+        <Work onOpen={handleOpenProject} />
+        <Projects onOpen={handleOpenProject} />
         <Background />
         <Contact />
       </main>
