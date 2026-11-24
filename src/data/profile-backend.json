@@ -15,8 +15,7 @@
     "email2": "jose5744@naver.com",
     "phone": "010-3027-0894",
     "github": "https://github.com/WindowisPark",
-    "blog": "https://jose5744.tistory.com",
-    "velog": "https://velog.io/@bomboychang/posts"
+    "blog": "https://jose5744.tistory.com"
   },
   "about": {
     "description": "인슈어테크 스타트업에서 백엔드를 맡아 임상시험 플랫폼을 설계·배포하고, 환전 API는 QA 테스트 케이스를 직접 설계해 릴리스 전에 동시성 결함을 잡아냈습니다. 지금은 SK텔레콤 AI CIC에서 에이닷·에이닷비즈·NUGU의 서비스 품질을 로그와 테스트로 모니터링하며, 저품질 패턴을 분류·분석해 개선으로 연결하고 있습니다. 코드를 짜는 것만큼 'AI 서비스가 실제로 어디서 품질이 깨지는지'를 데이터로 보는 일에 관심이 많습니다. 문제가 생기면 쪼개서 보고, 고치기 전에 숫자부터 재는 편입니다.",
